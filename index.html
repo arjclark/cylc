@@ -41,8 +41,8 @@
             <p class="p1"><span>Cylc (<em>"silk"</em>) is an advanced
                 <b>suite engine</b> that makes it easy
                 to construct and control complex suites of
-                interdependent cycling tasks for weather forecasting
-                and related data processing. Cylc suites
+                interdependent cycling tasks for weather and climate
+                forecasting and related data processing. Cylc suites
                 optimally interleave tasks from multiple
                 forecast cycles for fast catch up from delays, fast
                 historical case studies, and fast offset parallel trials; 
@@ -62,7 +62,7 @@
 
 		<div id="preamble">
 
-    <div class="warning">NEW 15 March 2012: cylc-4.2.2 released 
+    <div class="warning">15 March 2012: cylc-4.2.2 released 
         (<a href="https://github.com/hjoliver/cylc/blob/master/changelog.txt#L522">change log</a>)
     </div>
 
@@ -83,12 +83,16 @@
 
     <p class="p1"><span>A metascheduler, in this context, is a
         <em>control system</em> that determines when interdependent
-        tasks are ready to execute (usually by submission to a batch
-        queue scheduler). Cylc does this for suites of <em>cycling</em>
-        tasks, although it can also handle non-cycling (one-off) tasks,
-        and repeating asynchronous tasks for processing data from
-        successive satellite passes in real time.</span></p>
+        tasks are <em>ready</em> (when their prerequisites have been
+        satisfied by other tasks in the suite) to be submitted to
+        a batch scheduler (normally) for execution. For <em>cycling</em>
+        tasks cylc can optimally interleave tasks from multiple forecast
+        cycles at once whenever the opportunity arises; but it can also
+        handle non-cycling (one-off) tasks and suites, and repeating
+        asynchronous tasks for processing data from successive satellite
+        passes in real time.</span></p>
         
+    <!--
     <p class="p2"><span>
         Dependence between tasks in different forecast cycles can
         be ignored in real time operation, but this severely
@@ -108,6 +112,7 @@
         (cylc on top) or running parallel test suites that start behind
         the main operation.
     </span></p>
+    -->
 
     <p class="p3"><span>
         Cylc also has very flexible, adaptive run time behaviour:
@@ -157,7 +162,7 @@
 
 		<div id="features">
 
-			<h3><span>Other Notable Features</span></h3>
+			<h3><span>Other Features</span></h3>
 
             <p class="p1"><span>First, see the <a href="#overview">Overview</a> above.</span></p>
 				<ul>
@@ -165,18 +170,18 @@
                         <b>hundreds of tasks</b> in a single suite (see 
                         <a href="#performance">performance)</a>.</li>
 
-                        <li> <b>Suite tasks can be distributed</b> across multiple
+                        <li> <b>Suites can be distributed</b> across multiple
                         hosts on a heterogeneous network, with multiple job
                         submission methods (loadleveler, pbs, sge, background, at).</li>
 
-                        <li> <b>Most existing tasks require no modification for cylc.</b> </li>
+                        <li> <b>Most existing tasks require no modification.</b> </li>
 
-            <li> <b>Suites are validated</b>, to catch most errors prior to run time.</li>
+            <li> <b>Suites are validated</b> against a spec, to catch errors prior to run time.</li>
 	
                         <li> Self-documenting <b>command line</b> and
                         <b>graphical interfaces</b> covering all functionality.</li>
 
-                        <li> <b>Cryptographic suite security:</b> users cannot 
+                        <li> <b>Suite security:</b> users cannot
                         intervene in the operation of suites owned by others.</li>
 
                         <li> <b>Submit single tasks</b> exactly as the suite would
@@ -185,14 +190,15 @@
                         <li> A <b>lockserver</b> prevents accidental invocation
                         of multiple instances of a suite or task at the same time.</li>
 
-                        <li> <b>Suite databases</b> organize and enable sharing of suites.</li>
+                        <li> <b>Suite databases:</b> to organize your suites.</li>
 
                         <li> <b>Suites adapt to insertion and removal of tasks at run time.</b></li>
+
                         <li> <b>Suites flow around failed or delayed tasks.</b></li>
 
                         <li> Explicit 
-                        <a href="screenshots/QuickStartB-graph18.png">cold start processing</a>
-                        to bootstrap warm-cycling suites from scratch.</li>
+                        <a href="screenshots/QuickStartB-graph18.png">cold start bootstrapping</a>
+                        to get warm-cycling suites up and running.</li>
 
                         <li> Suites can be cold started, warm started, or restarted 
                         from a previous state.</li>
@@ -203,24 +209,25 @@
                         <li> Restart states are automatically dumped prior to 
                         actioning any intervention in a running suite.</li>
 
-                        <li> Spin-up processing by insertion
-                        of temporary tasks and addition of new 
+                        <li> Spin-up processing by insertion of
+                        temporary tasks and addition of new
                         prerequisites on the fly.</li>
 
-                        <li> Recursive purge: remove an entire sub-tree
-                        of tasks through to some future cycle time.</li>
+                        <li> Recursive purge: remove entire sub-trees
+                        of tasks from a running suite, through to some
+                        future cycle time.</li>
 
                         <li> <b>General conditional triggers</b>.</li>
 
                         <li> Clean separation of task <b>scheduling</b> and <b>runtime</b> configuration.</li>
 
-                        <li> A task definition <b>inheritance
-                            hierarchy</b> allows efficient grouping of
-                        common properties into <b>nested task families</b>.</li>
+                        <li> Configuration of task runtime properties
+                        (environment etc.) via an <b>inheritance
+                            hierarchy</b> of <b>nested task families</b>.</li>
 
-                        <li> <b>Automated failure recovery:</b> task retry and alternate paths.</li>
+                        <li> <b>Automated failure recovery</b> (several methods supported).</li>
 
-                        <li> <b>Event hooks</b> for central alerting and timeouts.</li>
+                        <li> <b>Task and suite event hooks</b> for central alerting and timeouts.</li>
 
                         <li> <b>Portable suites</b> are easy to construct -
                         just copy another user's suite and run it.</li>
@@ -234,24 +241,23 @@
                         <li> <b>Repeating asynchronous tasks</b> for parallel processing 
                         of real time satellite datasets.</li>
 
-                        <li> <b>Jinja2 Template Processor</b> now
-                        supported - programmatic generation of suite
+                        <li> <b>Jinja2 Template Processor Support</b>
+                        programmatic generation of suite
                         definitions.</li>
 
                         <li> <b>Internal Queues</b> - limit the number
                         of active (submitted or running) tasks.</li>
 
                         <li> <b>Pseudo Backwark Compatibility</b> - new
-                        versions of cylc can invoke old ones as
-                        required, for old suites that have not been
-                        upgraded yet (eventually we aim to provide
-                        proper backward compatibility).</li>
+                        versions of cylc can transparently invoke older
+                        versions.</li>
 				</ul>
 
 			<h4><span>Coming Soon</span></h4>
 				<ul>
-						<li> Central suite database access via a network server. </li>
-                        <li> Tasks with cycling intervals of less than 1 hour or more than 1 day</li>
+                        <li> Tasks with stepped daily, monthly, and yearly
+                        cycling intervals (already complete, in the
+                        repository head).</li>
                         <!--<li> Loose prerequisites: trigger off the "most
                         recent available" (variable offset) instance of
                         a slower-cycling upstream task (back-port from
@@ -397,9 +403,9 @@ install them):
 <div id="support">
             <h3><span>Support</span></h3>
 
-            <p class="p1"><span>As of 27 Oct 2011 we have a mailing
-                list on Google Groups. It is intended as a discussion 
-                forum for cylc development, user support, and release
+            <p class="p1"><span>As of November 2011 we have a mailing
+                list on Google Groups, as a discussion forum for cylc
+                development, user support, and release
                 announcements. To view the list archive, or join the 
                 group:</span></p>
 
@@ -434,21 +440,18 @@ PENDING section of the
             </span></p>
 
             <p class="p2"><span>
-                At this stage we envision using the 
+                We currently use the <em>integrator</em> or 
                 <em>fork and pull</em> model
-            of collaborative development. Anyone can fork the cylc 
-            repository on GitHub (or just locally) and push changes to
-            their personal fork (or just work in their local clone)
-            without requiring write access to the master repository. The
-            changes must then be pulled into the
-            source repository, reviewed, and merged, by the project
-            maintainer. Thus we avoid the overhead, and potential problems, 
-            of managing permissions for multiple users and many personal
-            branches within the one repository, and without restricting
-            development (because everyone gets their own fully
-            functional cylc repository).
+            of distributed development. Developers do not require write
+            access to the cylc master repository; instead they fork the
+            master repository on GitHub, and clone their fork to
+            their local workstation(s).  Changes are pushed to the
+            developer fork and a pull request issued to the master
+            repository maintainer (Hilary Oliver), who reviews the
+            changes and pulls them into the master repository.
             </span></p>
 
+            <!--
             <p class="p3"><span>
                 Ultimately, to reduce the burden of maintainance on the
                 master repository, we could have a top tier of official
@@ -459,6 +462,7 @@ PENDING section of the
                 easily and safely collaborate with anybody else using
                 git, given read access to their respective repositories).
             </span></p>
+            -->
 
             <!--
             <p class="p3"><span>
@@ -474,9 +478,9 @@ PENDING section of the
 <div id="acknowledgements">
     <h3><span>Acknowledgements</span></h3>
 
-    <p class="p1"><span>We gratefully acknowledge the authors of
-        the open source ConfigObj and xdot projects,
-        modified versions of which have been incorporated into
+    <p class="p1"><span>We thank the authors of Pyro, graphviz, and
+        pygraphviz, each of which cylc depends on; and of ConfigObj
+        (and Validate) and xdot, modified versions of which are used by
         cylc.</span></p>
 
     <p class="nav"><span><a href="#">(back to top)</a></span></p>
@@ -493,8 +497,9 @@ PENDING section of the
 </li>
 
 <li> <a id="fn3" href="#fnr3" title="This is a footnote; return to main text.">(back)</a>
-As of April 2011, Pyro 4, which is compatible with Python 3, is in
-development but it is still not recommended for production use.
+Pyro 4, which is compatible with Python 3, is now recommended for
+production use, but does not yet have the connection authentication used
+by cylc.
 </li>
      </ol>
 

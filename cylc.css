@@ -146,7 +146,12 @@ p{
   float:right;
 	margin-left: 220px;
 	padding-right: 10px;
+	padding-top: 10px;
 	font-size: 90%;
+}
+
+#features{
+	padding-top: 1px;
 }
 
 #mainpage{

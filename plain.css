@@ -238,3 +238,11 @@ code {
 #footnotes h3{
 		background: none;
 }
+
+.warning {
+		background:#fff;
+		font-weight:bold;
+		color:#ff4202;
+}
+
+
