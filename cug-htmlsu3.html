@@ -10,7 +10,7 @@
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
 <!-- xhtml,3,next,html --> 
 <meta name="src" content="cug-html.tex" /> 
-<meta name="date" content="2012-03-15 23:47:00" /> 
+<meta name="date" content="2012-07-31 01:15:00" /> 
 <link rel="stylesheet" type="text/css" href="cug-html.css" /> 
 </head><body 
 >
@@ -219,22 +219,21 @@ href="#x6-50055">5<!--tex4ht:ref: fig-job-no-overlap --></a>.
 </p>
    <h5 class="subsubsectionHead"><span class="titlemark">1.3.2   </span> <a 
  id="x6-60001.3.2"></a>Intercycle Dependence</h5>
-<!--l. 157--><p class="noindent" >In most suites dependence between tasks in different cycles exist. Forecast models, as above, typically depend on
-their own most recent previous forecast for a background state, and different types of tasks in different forecast
-cycles can also be linked (in an atmospheric forecast analysis suite, for instance, the weather model may also
-generate background states for use by the observation processing and data-assimilation systems in the next cycle).
-In real time operation this intercycle dependence can be ignored because it is automatically satisfied when each
-cycle finishes before the next one begins. This is just as well because they dramatically increase the
-complexity of the dependency graph of even the simplest suites, by destroying the clean boundary
+<!--l. 157--><p class="noindent" >Forecast models typically depend on their own most recent previous forecast for background state or restart files of
+some kind, and different types of tasks in different forecast cycles can also be linked (in an atmospheric forecast
+analysis suite, for instance, the weather model may also generate background states for use by the observation
+processing and data-assimilation systems in the next cycle). In real time operation this intercycle dependence can be
+ignored because it is automatically satisfied when each cycle finishes before the next one begins. If, on the other
+hand, it is explicitly accounted for, it complicates the dependency graph by destroying the clean boundary
 between forecast cycles. Figure&#x00A0;<a 
 href="#x6-60016">6<!--tex4ht:ref: fig-dep-multi --></a> illustrates the problem for our simple example suite assuming the
-minimal likely intercycle dependence: the forecast models (<span 
+minimal intercycle dependence: the forecast models (<span 
 class="cmmi-10">a</span>, <span 
 class="cmmi-10">b</span>, and <span 
 class="cmmi-10">c</span>) each depend on their own previous
 instances.
-</p><!--l. 174--><p class="indent" >   For this reason, and because we tend to imagine that forecasting suites always run in distinct cycles, existing
-metaschedulers (as far as the author is aware!) ignore intercycle dependence and therefore <span 
+</p><!--l. 172--><p class="indent" >   For this reason, and perhaps because we tend to see forecasting suites as inheritently sequential (with respect
+to whole forecast cycles) other metaschedulers ignore intercycle dependence and therefore <span 
 class="cmti-10">require </span>a
 series of distinct cycles at all times. While this does not affect normal real time operation it can be a
 serious impediment when advance availability of external driving data makes it possible, in principle, to
@@ -265,9 +264,9 @@ violations.
                                                                                          
 <div class="center" 
 >
-<!--l. 199--><p class="noindent" >
+<!--l. 198--><p class="noindent" >
 
-</p><!--l. 200--><p class="noindent" ><img 
+</p><!--l. 199--><p class="noindent" ><img 
 src="images/dep-multi-cycle.png" alt="PIC"  
  /></p></div>
 <br /> <table class="caption" 
@@ -301,9 +300,9 @@ class="cmr-7">cycles.</span></td></tr></table><!--tex4ht:label?: x6-60016 -->
                                                                                          
 <div class="center" 
 >
-<!--l. 211--><p class="noindent" >
+<!--l. 210--><p class="noindent" >
 
-</p><!--l. 212--><p class="noindent" ><img 
+</p><!--l. 211--><p class="noindent" ><img 
 src="images/timeline-two-cycles-optimal.png" alt="PIC"  
  /></p></div>
 <br /> <table class="caption" 
@@ -316,7 +315,7 @@ class="cmr-7">intercycle dependence is handled explicitly.</span></td></tr></tab
 
                                                                                          
    </td></tr></table></div><hr class="endfigure" />
-<!--l. 221--><p class="indent" >   Figure&#x00A0;<a 
+<!--l. 220--><p class="indent" >   Figure&#x00A0;<a 
 href="#x6-60027">7<!--tex4ht:ref: fig-optimal-two --></a> shows, in contrast to Figure&#x00A0;<a 
 href="#x6-50044">4<!--tex4ht:ref: fig-overlap --></a>, the optimal two cycle job schedule obtained by respecting all intercycle
 dependence. This assumes no delays due to resource contention or otherwise - i.e.&#x00A0;every task runs as soon as it is
@@ -337,9 +336,9 @@ dependency violations.
                                                                                          
 <div class="center" 
 >
-<!--l. 232--><p class="noindent" >
+<!--l. 231--><p class="noindent" >
 
-</p><!--l. 233--><p class="noindent" ><img 
+</p><!--l. 232--><p class="noindent" ><img 
 src="images/timeline-three.png" alt="PIC"  
  /></p></div>
 <br /> <table class="caption" 
@@ -367,9 +366,9 @@ class="cmr-7">delayed, and normal &#8220;caught up&#8221; cycles are shaded gray
                                                                                          
 <div class="center" 
 >
-<!--l. 246--><p class="noindent" >
+<!--l. 245--><p class="noindent" >
 
-</p><!--l. 247--><p class="noindent" ><img 
+</p><!--l. 246--><p class="noindent" ><img 
 src="images/timeline-two.png" alt="PIC"  
  /></p></div>
 <br /> <table class="caption" 
@@ -387,7 +386,7 @@ class="cmr-7">, and underneath is the best that can be done, in general, when in
 
                                                                                          
    </td></tr></table></div><hr class="endfigure" />
-<!--l. 260--><p class="indent" >   To further illustrate the potential benefits of proper intercycle dependency handling, Figure&#x00A0;<a 
+<!--l. 259--><p class="indent" >   To further illustrate the potential benefits of proper intercycle dependency handling, Figure&#x00A0;<a 
 href="#x6-60038">8<!--tex4ht:ref: fig-time-three --></a> shows an
 operational delay of almost one whole cycle in a suite with little downtime between cycles. Above the time axis is
 the optimal schedule that is possible, in principle, when intercycle dependence is taken into account, and below is
@@ -395,7 +394,7 @@ the only safe schedule possible <span
 class="cmti-10">in general </span>when they are ignored. In the former case, even the cycle immediately
 after the delay is hardly affected, and subsequent cycles are all on time, whilst in the latter case it takes five full
 cycles to catch up to normal real time operation.
-</p><!--l. 274--><p class="indent" >   Similarly, Figure&#x00A0;<a 
+</p><!--l. 273--><p class="indent" >   Similarly, Figure&#x00A0;<a 
 href="#x6-60049">9<!--tex4ht:ref: fig-time-two --></a> shows example suite job schedules for an historical case study, or when catching up after a
 very long delay; i.e.&#x00A0;when the external driving data are available many cycles in advance. Task <span 
 class="cmti-10">a</span>, which as the most
@@ -418,12 +417,12 @@ schedule.
 
                                                                                          
 </p>
-   <!--l. 301--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 300--><div class="crosslinks"><p class="noindent">[<a 
 href="cug-htmlsu4.html" >next</a>] [<a 
 href="cug-htmlsu2.html" >prev</a>] [<a 
 href="cug-htmlsu2.html#tailcug-htmlsu2.html" >prev-tail</a>] [<a 
 href="cug-htmlsu3.html" >front</a>] [<a 
 href="cug-htmlse1.html#cug-htmlsu3.html" >up</a>] </p></div>
-<!--l. 301--><p class="indent" >   <a 
+<!--l. 300--><p class="indent" >   <a 
  id="tailcug-htmlsu3.html"></a>  </p> 
 </body></html> 

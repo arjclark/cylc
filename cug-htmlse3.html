@@ -10,11 +10,11 @@
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
 <!-- xhtml,3,next,html --> 
 <meta name="src" content="cug-html.tex" /> 
-<meta name="date" content="2012-03-15 23:47:00" /> 
+<meta name="date" content="2012-07-31 01:15:00" /> 
 <link rel="stylesheet" type="text/css" href="cug-html.css" /> 
 </head><body 
 >
-   <!--l. 461--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 393--><div class="crosslinks"><p class="noindent">[<a 
 href="cug-htmlsu5.html" >next</a>] [<a 
 href="cug-htmlse2.html" >prev</a>] [<a 
 href="cug-htmlse2.html#tailcug-htmlse2.html" >prev-tail</a>] [<a 
@@ -24,9 +24,9 @@ href="cug-html.html#cug-htmlse3.html" >up</a>] </p></div>
  id="x10-90003"></a>Required Software</h3>
      <ul class="itemize1">
      <li class="itemize"><span 
-class="cmbx-10">A Linux or Unix OS. </span>Cylc assumes Unix-style file paths in places, and a few command scripts are
-     written in the Bash shell. In principle it could be made more portable without much effort. Cylc has
-     run successfully on Mac OSX.
+class="cmbx-10">OS: Linux or Unix (including Mac OS X). </span>Cylc may assume Unix-style file paths in places, a
+     tiny minority of cylc commands are Bash shell scripts (most are Python), and cylc-generated task job
+     scripts are written for Bash.
      </li>
      <li class="itemize"><span 
 class="cmbx-10">The Python Language, v 2.4</span>+<span 
@@ -38,28 +38,27 @@ href="http://python.org" class="url" ><span
 class="pcrr7t-">http://python.org</span></a></span>
      </li>
      <li class="itemize"><span 
-class="cmbx-10">Pyro (Python Remote Objects), version 3.9.1</span>+<span 
-class="cmbx-10">, latest tested 3.15</span>. Not Pyro 4.x yet; as
-     of mid 2011 version 3.x is still recommended for production use. Pyro is used by cylc for network
-     communication between server processes (cylc suites) and client programs (running tasks, control GUIs
-     and commands).
+class="cmbx-10">Pyro (Python Remote Objects), version 3.10</span>+<span 
+class="cmbx-10">, latest tested 3.16</span>; not Pyro 4.x as yet. Pyro
+     is used by cylc for network communication between server processes (cylc suites) and client programs
+     (running tasks, control GUIs and commands).
      <br class="newline" /><span class="obeylines-h"><a 
 href="http://irmen.home.xs4all.nl/pyro3" class="url" ><span 
 class="pcrr7t-">http://irmen.home.xs4all.nl/pyro3</span></a></span>
      </li>
      <li class="itemize"><span 
-class="cmbx-10">Cylc</span>, this version: 4.2.2 .
+class="cmbx-10">Cylc</span>, this version: 4.5.0 .
      <br class="newline" /><span class="obeylines-h"><a 
 href="http://hjoliver.github.com/cylc" class="url" ><span 
 class="pcrr7t-">http://hjoliver.github.com/cylc</span></a></span></li></ul>
-<!--l. 484--><p class="noindent" >The following packages are technically optional as you can construct and control cylc suites without dependency
+<!--l. 415--><p class="noindent" >The following packages are technically optional as you can construct and control cylc suites without dependency
 graphing, the cylc GUIs, and template processing:
 </p>
      <ul class="itemize1">
      <li class="itemize"><span 
-class="cmbx-10">PyGTK</span>, a Python wrapper for the GTK+ GUI toolkit, required for the gcylc GUI (but you can
-     prepare and control cylc suites entirely from the command line if you like). PyGTK is included in most
-     Linux Distributions.
+class="cmbx-10">PyGTK</span>, a Python wrapper for the GTK+ GUI toolkit, required for the cylc GUI (but you can prepare
+     and control cylc suites entirely from the command line if you like). PyGTK is included in most Linux
+     Distributions.
      <br class="newline" /><span class="obeylines-h"><a 
 href="http://www.pygtk.org" class="url" ><span 
 class="pcrr7t-">http://www.pygtk.org</span></a></span>
@@ -82,27 +81,27 @@ class="cmbx-10">Jinja2</span>, a template processor for Python (latest tested: 2
      <br class="newline" /><span class="obeylines-h"><a 
 href="http://jinja.pocoo.org/docs" class="url" ><span 
 class="pcrr7t-">http://jinja.pocoo.org/docs</span></a></span></li></ul>
-<!--l. 508--><p class="noindent" >
+<!--l. 439--><p class="noindent" >
 </p>
+   <div class="subsectionTOCS">
                                                                                          
 
                                                                                          
-   <div class="subsectionTOCS">
    &#x00A0;<span class="subsectionToc" >3.1 <a 
 href="cug-htmlsu5.html#x11-100003.1">Known Version Compatibility Issues</a></span>
 <br />   &#x00A0;<span class="subsectionToc" >3.2 <a 
-href="cug-htmlsu6.html#x12-110003.2">Other Software Used Internally By Cylc</a></span>
+href="cug-htmlsu6.html#x12-130003.2">Other Software Used Internally By Cylc</a></span>
    </div>
 
                                                                                          
 
                                                                                          
-   <!--l. 562--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 527--><div class="crosslinks"><p class="noindent">[<a 
 href="cug-htmlsu5.html" >next</a>] [<a 
 href="cug-htmlse2.html" >prev</a>] [<a 
 href="cug-htmlse2.html#tailcug-htmlse2.html" >prev-tail</a>] [<a 
 href="cug-htmlse3.html" >front</a>] [<a 
 href="cug-html.html#cug-htmlse3.html" >up</a>] </p></div>
-<!--l. 562--><p class="indent" >   <a 
+<!--l. 527--><p class="indent" >   <a 
  id="tailcug-htmlse3.html"></a> </p> 
 </body></html> 

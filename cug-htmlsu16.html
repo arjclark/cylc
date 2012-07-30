@@ -4,40 +4,44 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Cross-Version Suite Compatibility</title> 
+<head><title>Cylc Version Re-invocation (Pseudo Backward Compatibility)</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
 <meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
 <!-- xhtml,3,next,html --> 
 <meta name="src" content="cug-html.tex" /> 
-<meta name="date" content="2012-03-15 23:47:00" /> 
+<meta name="date" content="2012-07-31 01:15:00" /> 
 <link rel="stylesheet" type="text/css" href="cug-html.css" /> 
 </head><body 
 >
-   <!--l. 857--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 786--><div class="crosslinks"><p class="noindent">[<a 
 href="cug-htmlse5.html" >next</a>] [<a 
 href="cug-htmlsu15.html" >prev</a>] [<a 
 href="cug-htmlsu15.html#tailcug-htmlsu15.html" >prev-tail</a>] [<a 
 href="#tailcug-htmlsu16.html">tail</a>] [<a 
 href="cug-htmlse4.html#cug-htmlsu16.html" >up</a>] </p></div>
    <h4 class="subsectionHead"><span class="titlemark">4.10   </span> <a 
- id="x24-270004.10"></a>Cross-Version Suite Compatibility</h4>
-<!--l. 860--><p class="noindent" >It may not be convenient for users to upgrade all of their suites at once when a new cylc release is
-installed. As of cylc-4.2.0 any installed version of cylc can act as a tranparent front end to any other
-installed version. This allows construction of new-version suites while older existing ones are still in use,
-without having to reconfigure your environment or explicitly invoke different cylc versions for different
-suites.
-</p><!--l. 868--><p class="indent" >   The required cylc version must be specified on the <span 
-class="cmti-10">first line </span>of a non-Jinja2 suite definition:  </p><!--l. 871--><div class="lstlisting">
+ id="x23-280004.10"></a>Cylc Version Re-invocation (Pseudo Backward Compatibility)</h4>
+<!--l. 789--><p class="noindent" >It may not be convenient for users to upgrade all of their suites at once when a new cylc release is installed. As of
+cylc-4.2.0 any installed version of cylc can act as a transparent front end to any other installed version that is
+installed in parallel (i.e. in the same location) with the invoked version. Technically this also provides pseudo
+forward compatibility. New-version suites can therefore be worked on at the same time as older suites that have yet
+to be upgraded, without the user reconfiguring his environment or having to explicitly invoke different cylc versions
+for different suites. Since <span class="lstinline"><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">-4.5.0</span></span> this applies to commands that connect to running suites as well as those
+that parse suite definitions.
+</p><!--l. 801--><p class="indent" >   The required cylc version must be specified on the <span 
+class="cmti-10">first line </span>of a non-Jinja2 suite definition:  </p><!--l. 804--><div class="lstlisting">
 <span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x24-27001r1"></a></span><span 
+ id="x23-28001r1"></a></span><span 
 class="pcrro7t-">#</span><span 
 class="pcrro7t-">!</span><span 
 class="pcrro7t-">cylc</span><span 
 class="pcrro7t-">-4.2.0</span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x24-27002r2"></a></span><span 
+ id="x23-28002r2"></a></span><span 
 class="pcrro7t-">#</span><span 
 class="pcrro7t-">&#x00A0;</span><span 
 class="pcrro7t-">suite</span><span 
@@ -50,22 +54,22 @@ class="pcrro7t-">...</span>
 
 
    </div>
-<!--l. 875--><p class="indent" >   And on the <span 
-class="cmti-10">second line </span>for Jinja2 suites: </p><!--l. 876--><div class="lstlisting">
+<!--l. 808--><p class="indent" >   or on the <span 
+class="cmti-10">second line </span>for Jinja2 suites: </p><!--l. 809--><div class="lstlisting">
 <span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x24-27003r1"></a></span><span 
+ id="x23-28003r1"></a></span><span 
 class="pcrro7t-">#</span><span 
 class="pcrro7t-">!</span><span 
 class="pcrro7t-">Jinja2</span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x24-27004r2"></a></span><span 
+ id="x23-28004r2"></a></span><span 
 class="pcrro7t-">#</span><span 
 class="pcrro7t-">!</span><span 
 class="pcrro7t-">cylc</span><span 
 class="pcrro7t-">-4.2.0</span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x24-27005r3"></a></span><span 
+ id="x23-28005r3"></a></span><span 
 class="pcrro7t-">#</span><span 
 class="pcrro7t-">&#x00A0;</span><span 
 class="pcrro7t-">suite</span><span 
@@ -78,38 +82,10 @@ class="pcrro7t-">...</span>
 
 
    </div>
-<!--l. 881--><p class="indent" >   If cylc releases are installed in parallel under the same top level directory then the location of the required cylc
-installation is automatically computed from that of the invoked one. Otherwise, for unrelated install locations, the
-full path can be specified: </p><!--l. 885--><div class="lstlisting">
+<!--l. 814--><p class="indent" >   This results in the right cylc version being used for any suite-referencing command, e.g.:  </p><!--l. 817--><div class="lstlisting">
 <span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x24-27006r1"></a></span><span 
-class="pcrro7t-">#</span><span 
-class="pcrro7t-">!/</span><span 
-class="pcrro7t-">path</span><span 
-class="pcrro7t-">/</span><span 
-class="pcrro7t-">to</span><span 
-class="pcrro7t-">/</span><span 
-class="pcrro7t-">cylc</span><span 
-class="pcrro7t-">-4.2.0</span><span 
-class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x24-27007r2"></a></span><span 
-class="pcrro7t-">#</span><span 
-class="pcrro7t-">&#x00A0;</span><span 
-class="pcrro7t-">suite</span><span 
-class="pcrro7t-">&#x00A0;</span><span 
-class="pcrro7t-">definition</span><span 
-class="pcrro7t-">&#x00A0;</span><span 
-class="pcrro7t-">follows</span><span 
-class="pcrro7t-">&#x00A0;</span><span 
-class="pcrro7t-">...</span>
-
-
-   </div>
-<!--l. 889--><p class="indent" >   This results in the right cylc version being used for any suite-referencing command, e.g.:  </p><!--l. 892--><div class="lstlisting">
-<span 
-class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x24-27008r1"></a></span><span 
+ id="x23-28006r1"></a></span><span 
 class="pcrr7t-">%</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">cylc</span><span 
@@ -118,22 +94,20 @@ class="pcrr7t-">validate</span><span
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">foo</span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x24-27009r2"></a></span><span 
+ id="x23-28007r2"></a></span><span 
 class="pcrr7t-">--------------------------------------------------------</span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x24-27010r3"></a></span><span 
+ id="x23-28008r3"></a></span><span 
 class="pcrr7t-">Cylc</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">cross</span><span 
-class="pcrr7t-">-</span><span 
 class="pcrr7t-">version</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">suite</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">compatibility</span><span 
+class="pcrr7t-">re</span><span 
+class="pcrr7t-">-</span><span 
+class="pcrr7t-">invocation</span><span 
 class="pcrr7t-">:</span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x24-27011r4"></a></span><span 
+ id="x23-28009r4"></a></span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">Invoked</span><span 
@@ -152,7 +126,7 @@ class="pcrr7t-">/</span><span
 class="pcrr7t-">cylc</span><span 
 class="pcrr7t-">-4.2.0)</span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x24-27012r5"></a></span><span 
+ id="x23-28010r5"></a></span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">Suite</span><span 
@@ -164,14 +138,8 @@ class="pcrr7t-">&#x00A0;</span><span
 class="pcrr7t-">cylc</span><span 
 class="pcrr7t-">-4.2.1</span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x24-27013r6"></a></span><span 
-class="pcrr7t-">Path</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">not</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">given</span><span 
-class="pcrr7t-">,</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
+ id="x23-28011r6"></a></span><span 
+class="pcrr7t-">(</span><span 
 class="pcrr7t-">assuming</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">parallel</span><span 
@@ -179,8 +147,9 @@ class="pcrr7t-">&#x00A0;</span><span
 class="pcrr7t-">cylc</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">installations</span><span 
+class="pcrr7t-">)</span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x24-27014r7"></a></span><span 
+ id="x23-28012r7"></a></span><span 
 class="pcrr7t-">=&#x003E;</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">Re</span><span 
@@ -199,10 +168,10 @@ class="pcrr7t-">/</span><span
 class="pcrr7t-">cylc</span><span 
 class="pcrr7t-">-4.2.1</span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x24-27015r8"></a></span><span 
+ id="x23-28013r8"></a></span><span 
 class="pcrr7t-">--------------------------------------------------------</span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x24-27016r9"></a></span><span 
+ id="x23-28014r9"></a></span><span 
 class="pcrr7t-">Suite</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">foo</span><span 
@@ -218,45 +187,175 @@ class="pcrr7t-">-4.2.1</span>
 
 
    </div>
-<!--l. 903--><p class="indent" >   Note that non suite-referencing commands necessarily execute exactly as invoked. This includes all command line
+<!--l. 828--><p class="indent" >   Note that non suite-referencing commands necessarily execute exactly as invoked. This includes all command line
 help so it is advisable, although not strictly necessary, to keep your login environment configured for the latest cylc
 version.
-</p><!--l. 908--><p class="indent" >   If the required cylc version is not installed the command will abort and you will have to upgrade the suite
+</p><!--l. 833--><p class="indent" >   If the required cylc version is not installed the command will abort and you will have to upgrade the suite
 definition for compatibility with an installed version: use <span class="lstinline"><span 
 class="pcrr7t-">cylc</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">validate</span></span> and the <span 
 class="cmti-10">Suite.rc Reference</span>
 (Appendix&#x00A0;<a 
-href="cug-htmlse13.html#x94-157000A">A<!--tex4ht:ref: SuiteRCReference --></a>) to identify problems, and consult the cylc change log to see what changed between
+href="cug-htmlse15.html#x93-165000A">A<!--tex4ht:ref: SuiteRCReference --></a>) to identify problems, and consult the cylc change log to see what changed between
 versions.
-</p><!--l. 915--><p class="noindent" >
+</p><!--l. 840--><p class="noindent" >
 </p>
    <h5 class="subsubsectionHead"><span class="titlemark">4.10.1   </span> <a 
- id="x24-280004.10.1"></a>Version Compatibility Limitations</h5>
-<!--l. 917--><p class="noindent" >The top level command interface, <span class="lstinline"><span 
+ id="x23-290004.10.1"></a>Explicit Cylc Version Reinvocation</h5>
+<!--l. 842--><p class="noindent" >Other cylc versions can be specified explicitly on the command line, <span class="lstinline"><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">-</span><span 
+class="pcrr7t-">V</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">x</span><span 
+class="pcrr7t-">.</span><span 
+class="pcrr7t-">y</span><span 
+class="pcrr7t-">.</span><span 
+class="pcrr7t-">z</span></span> (capital V). This feature
+works for versions 4.5.0 and later.
+</p><!--l. 846--><p class="noindent" >
+</p>
+   <h5 class="subsubsectionHead"><span class="titlemark">4.10.2   </span> <a 
+ id="x23-300004.10.2"></a>Available Cylc Versions</h5>
+<!--l. 848--><p class="noindent" >To list available cylc versions installed in parallel with the invoked version: <span class="lstinline"><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">-</span><span 
+class="pcrr7t-">V</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">avail</span></span> (capital
+V).
+                                                                                         
+
+                                                                                         
+</p><!--l. 851--><p class="noindent" >
+</p>
+   <h5 class="subsubsectionHead"><span class="titlemark">4.10.3   </span> <a 
+ id="x23-310004.10.3"></a>Limitations</h5>
+<!--l. 853--><p class="noindent" >The top level command interface, <span class="lstinline"><span 
 class="pcrr8c-">$</span><span 
 class="pcrr7t-">CYLC_DIR</span><span 
 class="pcrr7t-">/</span><span 
 class="pcrr7t-">bin</span><span 
 class="pcrr7t-">/</span><span 
-class="pcrr7t-">cylc</span></span>, determines the legality of
-requested sub-commands prior to version compatibility checking (which is in fact done by the
-                                                                                         
-
-                                                                                         
-sub-command<span class="footnote-mark"><a 
-href="cug-html25.html#fn4x0"><sup class="textsuperscript">4</sup></a></span><a 
- id="x24-28001f4"></a> )
-so the correct cylc version must be explicitly invoked if the sub-command has undergone a name change between the
-versions concerned.
+class="pcrr7t-">cylc</span></span>, determines the legality of requested sub-command
+names so any attempt to run a sub-command that no longer exists in the invoked version of cylc will
+fail. Additionally, the command line must be parsed first by the sub-command of the invoked cylc
+version in order to determine which command line argument references the suite (the suite name is
+always the first non-option argument but only sub-commands know if particular options have their own
+arguments or are just logical flags, and can therefore determine which is the first true argument);
+consequently any attempt to use a command option that is illegal in the invoked version of cylc will also
+fail.
+</p><!--l. 866--><p class="noindent" >
 </p>
-   <!--l. 928--><div class="crosslinks"><p class="noindent">[<a 
+   <h5 class="subsubsectionHead"><span class="titlemark">4.10.4   </span> <a 
+ id="x23-320004.10.4"></a>A Usage Suggestion</h5>
+<!--l. 868--><p class="noindent" >You can use the Jinja2 template processor (see Section&#x00A0;<a 
+href="cug-htmlsu35.html#x54-1080008.6">8.6<!--tex4ht:ref: Jinja2 --></a>) to store the required cylc version in a single variable
+that can also be used elsewhere in the suite definition - to specify the cylc version to use on a remote task host, for
+example:  </p><!--l. 873--><div class="lstlisting">
+<span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x23-32001r1"></a></span><span 
+class="pcrro7t-">#</span><span 
+class="pcrro7t-">!</span><span 
+class="pcrro7t-">Jinja2</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x23-32002r2"></a></span><span 
+class="pcrr7t-">{%</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">set</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">CYLC_VERSION</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">=</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">"</span><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">-4.2.2</span><span 
+class="pcrr7t-">"</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">%}</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x23-32003r3"></a></span><span 
+class="pcrro7t-">#</span><span 
+class="pcrro7t-">!{{</span><span 
+class="pcrro7t-">CYLC_VERSION</span><span 
+class="pcrro7t-">}}</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x23-32004r4"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x23-32005r5"></a></span><span 
+class="pcrro7t-">#</span><span 
+class="pcrro7t-">...</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x23-32006r6"></a></span><span 
+class="pcrr7t-">[</span><span 
+class="pcrr7t-">runtime</span><span 
+class="pcrr7t-">]</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x23-32007r7"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">[[</span><span 
+class="pcrr7t-">on_hpc</span><span 
+class="pcrr7t-">]]</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x23-32008r8"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">[[[</span><span 
+class="pcrr7t-">remote</span><span 
+class="pcrr7t-">]]]</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x23-32009r9"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">directory</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">=</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">/</span><span 
+class="pcrr7t-">path</span><span 
+class="pcrr7t-">/</span><span 
+class="pcrr7t-">to</span><span 
+class="pcrr7t-">/</span><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">/</span><span 
+class="pcrr7t-">top</span><span 
+class="pcrr7t-">/</span><span 
+class="pcrr7t-">dir</span><span 
+class="pcrr7t-">/{{</span><span 
+class="pcrr7t-">CYLC_VERSION</span><span 
+class="pcrr7t-">}}</span>
+
+
+   </div>
+   <!--l. 886--><div class="crosslinks"><p class="noindent">[<a 
 href="cug-htmlse5.html" >next</a>] [<a 
 href="cug-htmlsu15.html" >prev</a>] [<a 
 href="cug-htmlsu15.html#tailcug-htmlsu15.html" >prev-tail</a>] [<a 
 href="cug-htmlsu16.html" >front</a>] [<a 
 href="cug-htmlse4.html#cug-htmlsu16.html" >up</a>] </p></div>
-<!--l. 928--><p class="indent" >   <a 
+<!--l. 886--><p class="indent" >   <a 
  id="tailcug-htmlsu16.html"></a>  </p> 
 </body></html> 

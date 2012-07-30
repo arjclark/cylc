@@ -4,56 +4,59 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Create The Central Suite Database</title> 
+<head><title>Import The Example Suites</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
 <meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
 <!-- xhtml,3,next,html --> 
 <meta name="src" content="cug-html.tex" /> 
-<meta name="date" content="2012-03-15 23:47:00" /> 
+<meta name="date" content="2012-07-31 01:15:00" /> 
 <link rel="stylesheet" type="text/css" href="cug-html.css" /> 
 </head><body 
 >
-   <!--l. 598--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 563--><div class="crosslinks"><p class="noindent">[<a 
 href="cug-htmlsu11.html" >next</a>] [<a 
 href="cug-htmlsu9.html" >prev</a>] [<a 
 href="cug-htmlsu9.html#tailcug-htmlsu9.html" >prev-tail</a>] [<a 
 href="#tailcug-htmlsu10.html">tail</a>] [<a 
 href="cug-htmlse4.html#cug-htmlsu10.html" >up</a>] </p></div>
    <h4 class="subsectionHead"><span class="titlemark">4.4   </span> <a 
- id="x17-160004.4"></a>Create The Central Suite Database</h4>
-<!--l. 601--><p class="noindent" >Cylc has a central suite database, visible to all users on the cylc host, to facilitate sharing of suites. Run the
-following command immediately after installation to create the central database and export cylc&#8217;s example suites to
-it:
+ id="x17-180004.4"></a>Import The Example Suites</h4>
+<!--l. 566--><p class="noindent" >Run the following command immediately after installation to create your suite database and import the example
+suites to it (this involves copying the suite definitions to sub-directories of the given destination directory, and
+registering each one for use in your suite database:
 </p>
-   <!--l. 606--><div class="lstlisting">
+   <!--l. 572--><div class="lstlisting">
 <span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x17-16001r1"></a></span><span 
+ id="x17-18001r1"></a></span><span 
 class="pcrr7t-">%</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">cylc</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">admin</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">create</span><span 
+class="pcrr7t-">import</span><span 
 class="pcrr7t-">-</span><span 
-class="pcrr7t-">cdb</span>
+class="pcrr7t-">examples</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">TOPDIR</span>
 
 
    </div>
-<!--l. 610--><p class="indent" >   To view the content of the resulting central database, run gcylc and switch to the central database using the
-Database menu, or use <span class="lstinline"><span 
+<!--l. 575--><p class="indent" >   Where <span class="lstinline"><span 
+class="pcrr7t-">TOPDIR</span></span> is the top level directory into which the example suite definitions will be copied. To view the
+content of the resulting suite database, run gcylc or use the <span class="lstinline"><span 
 class="pcrr7t-">cylc</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">db</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">print</span></span> on the command line:
+class="pcrr7t-">print</span></span> command:
 </p>
-   <!--l. 614--><div class="lstlisting">
+   <!--l. 580--><div class="lstlisting">
 <span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x17-16002r1"></a></span><span 
+ id="x17-18002r1"></a></span><span 
 class="pcrr7t-">%</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">cylc</span><span 
@@ -61,9 +64,6 @@ class="pcrr7t-">&#x00A0;</span><span
 class="pcrr7t-">db</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">print</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">--</span><span 
-class="pcrr7t-">central</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">--</span><span 
 class="pcrr7t-">tree</span><span 
@@ -77,14 +77,8 @@ class="pcrr7t-">|</span><span
 class="pcrr7t-">Quick</span><span 
 class="pcrr7t-">'</span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x17-16003r2"></a></span><span 
-class="pcrr7t-">&#x003C;</span><span 
-class="pcrr7t-">AdminUserName</span><span 
-class="pcrr7t-">&#x003E;</span><span 
-class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x17-16004r3"></a></span><span 
+ id="x17-18003r2"></a></span><span 
 class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#8216;-</span><span 
 class="pcrr7t-">cylc</span><span 
 class="pcrr7t-">-</span><span 
 class="pcrr7t-">x</span><span 
@@ -93,14 +87,14 @@ class="pcrr7t-">y</span><span
 class="pcrr7t-">-</span><span 
 class="pcrr7t-">z</span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x17-16005r4"></a></span><span 
+ id="x17-18004r3"></a></span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">|-</span><span 
 class="pcrr7t-">AutoCleanup</span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x17-16006r5"></a></span><span 
+ id="x17-18005r4"></a></span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
@@ -120,7 +114,7 @@ class="pcrr7t-">script</span><span
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">example</span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x17-16007r6"></a></span><span 
+ id="x17-18006r5"></a></span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
@@ -140,14 +134,14 @@ class="pcrr7t-">task</span><span
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">example</span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x17-16008r7"></a></span><span 
+ id="x17-18007r6"></a></span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">|-</span><span 
 class="pcrr7t-">AutoRecover</span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x17-16009r8"></a></span><span 
+ id="x17-18008r7"></a></span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
@@ -176,7 +170,7 @@ class="pcrr7t-">recovery</span><span
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">example</span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x17-16010r9"></a></span><span 
+ id="x17-18009r8"></a></span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
@@ -203,14 +197,14 @@ class="pcrr7t-">recovery</span><span
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">example</span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x17-16011r10"></a></span><span 
+ id="x17-18010r9"></a></span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">&#8216;-</span><span 
 class="pcrr7t-">QuickStart</span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x17-16012r11"></a></span><span 
+ id="x17-18011r10"></a></span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
@@ -236,7 +230,7 @@ class="pcrr7t-">Example</span><span
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">A</span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x17-16013r12"></a></span><span 
+ id="x17-18012r11"></a></span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
@@ -262,7 +256,7 @@ class="pcrr7t-">Example</span><span
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">B</span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x17-16014r13"></a></span><span 
+ id="x17-18013r12"></a></span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
@@ -288,7 +282,7 @@ class="pcrr7t-">Example</span><span
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">C</span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x17-16015r14"></a></span><span 
+ id="x17-18014r13"></a></span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
@@ -316,14 +310,8 @@ class="pcrr7t-">Z</span>
 
 
    </div>
-<!--l. 630--><p class="indent" >   where <span class="lstinline"><span 
-class="pcrr7t-">&#x003C;</span><span 
-class="pcrr7t-">AdminUserName</span><span 
-class="pcrr7t-">&#x003E;</span></span> should be replaced with the username of the cylc installation account on your system
-(the suite owner&#8217;s username is always the first registration name component for suites in the central
-database); replace this as appropriate for your local cylc installation. Note that the dots in the cylc release
-version number are replaced, in central database suite registration names, with hyphens (because &#8216;.&#8217; is
-the registration name delimiter). Type <span class="lstinline"><span 
+<!--l. 595--><p class="indent" >   Note that the dots in the cylc release version number are replaced with hyphens because &#8216;.&#8217; is
+the registration name delimiter. Type <span class="lstinline"><span 
 class="pcrr7t-">cylc</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">db</span><span 
@@ -337,12 +325,12 @@ mean.
 
                                                                                          
 </p>
-   <!--l. 639--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 599--><div class="crosslinks"><p class="noindent">[<a 
 href="cug-htmlsu11.html" >next</a>] [<a 
 href="cug-htmlsu9.html" >prev</a>] [<a 
 href="cug-htmlsu9.html#tailcug-htmlsu9.html" >prev-tail</a>] [<a 
 href="cug-htmlsu10.html" >front</a>] [<a 
 href="cug-htmlse4.html#cug-htmlsu10.html" >up</a>] </p></div>
-<!--l. 639--><p class="indent" >   <a 
+<!--l. 599--><p class="indent" >   <a 
  id="tailcug-htmlsu10.html"></a> </p> 
 </body></html> 

@@ -4,48 +4,42 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Make Suites As Self-Contained As Possible</title> 
+<head><title>Do Not Treat Real Time Operation As Special</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
 <meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
 <!-- xhtml,3,next,html --> 
 <meta name="src" content="cug-html.tex" /> 
-<meta name="date" content="2012-03-15 23:47:00" /> 
+<meta name="date" content="2012-07-31 01:15:00" /> 
 <link rel="stylesheet" type="text/css" href="cug-html.css" /> 
 </head><body 
 >
-   <!--l. 4971--><div class="crosslinks"><p class="noindent">[<a 
-href="cug-htmlsu63.html" >next</a>] [<a 
+   <!--l. 5035--><div class="crosslinks"><p class="noindent">[<a 
+href="cug-htmlse15.html" >next</a>] [<a 
 href="cug-htmlsu61.html" >prev</a>] [<a 
 href="cug-htmlsu61.html#tailcug-htmlsu61.html" >prev-tail</a>] [<a 
 href="#tailcug-htmlsu62.html">tail</a>] [<a 
-href="cug-htmlse12.html#cug-htmlsu62.html" >up</a>] </p></div>
-   <h4 class="subsectionHead"><span class="titlemark">12.10   </span> <a 
- id="x89-15300012.10"></a>Make Suites As Self-Contained As Possible</h4>
-<!--l. 4973--><p class="noindent" >The only compulsory content of a cylc suite definition directory is the suite.rc file (and you&#8217;ll almost certainly
-have a suite <span class="lstinline"><span 
-class="pcrr7t-">bin</span></span> sub-directory too). However, you can store whatever you like in a suite definition
-directory;<span class="footnote-mark"><a 
-href="cug-html90.html#fn15x0"><sup class="textsuperscript">15</sup></a></span><a 
- id="x89-153001f15"></a> 
-other files there will be ignored by cylc but suite tasks can access them via the <span class="lstinline"><span 
-class="pcrr8c-">$</span><span 
-class="pcrr7t-">CYLC_SUITE_DEF_PATH</span></span> variable
-that cylc automatically exports into the task execution environment. Disk space is cheap - if all programs, ancillary
-files, control files (etc.) required by the suite are stored in the suite definition directory instead of having
-the suite reference external build directories (etc.), you can turn the directory into a revision control
-repository and be virtually assured of the ability to exactly reproduce earlier versions, regardless of suite
-complexity.
+href="cug-htmlse14.html#cug-htmlsu62.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">14.13   </span> <a 
+ id="x92-16400014.13"></a>Do Not Treat Real Time Operation As Special</h4>
+<!--l. 5037--><p class="noindent" >Cylc suites, without modification, can handle real time and delayed operation equally well.
+</p><!--l. 5040--><p class="indent" >   In real time operation clock-triggered tasks constrain the behaviour of the whole suite, or at least of all tasks
+downstream of them in the dependency graph.
+</p><!--l. 5044--><p class="indent" >   In delayed operation (whether due to an actual delay in an operational suite or because you&#8217;re running an
+historical trial) clock-triggered tasks will not constrain the suite at all, and cylc&#8217;s cycle interleaving abilities come to
+the fore, because their trigger times have already passed. But if a clock-triggered task happens to catch up to the
+wall clock, it will automatically wait again. In this way a cylc suite naturally and seamlessly transitions between
+delayed and real time operation as required.
                                                                                          
 
                                                                                          
 </p>
-   <!--l. 4989--><div class="crosslinks"><p class="noindent">[<a 
-href="cug-htmlsu63.html" >next</a>] [<a 
+   <!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
+href="cug-htmlse15.html" >next</a>] [<a 
 href="cug-htmlsu61.html" >prev</a>] [<a 
 href="cug-htmlsu61.html#tailcug-htmlsu61.html" >prev-tail</a>] [<a 
 href="cug-htmlsu62.html" >front</a>] [<a 
-href="cug-htmlse12.html#cug-htmlsu62.html" >up</a>] </p></div>
-<!--l. 4989--><p class="indent" >   <a 
+href="cug-htmlse14.html#cug-htmlsu62.html" >up</a>] </p></div>
+<!--l. 1--><p class="indent" >   <a 
  id="tailcug-htmlsu62.html"></a> </p> 
 </body></html> 

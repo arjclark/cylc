@@ -4,172 +4,188 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Overriding the Job Submission Command</title> 
+<head><title>Secure Passphrases, Remote Control, And Task Messaging</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
 <meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
 <!-- xhtml,3,next,html --> 
 <meta name="src" content="cug-html.tex" /> 
-<meta name="date" content="2012-03-15 23:47:00" /> 
+<meta name="date" content="2012-07-31 01:15:00" /> 
 <link rel="stylesheet" type="text/css" href="cug-html.css" /> 
 </head><body 
 >
-   <!--l. 4299--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 4477--><div class="crosslinks"><p class="noindent">[<a 
 href="cug-htmlsu49.html" >next</a>] [<a 
 href="cug-htmlsu47.html" >prev</a>] [<a 
 href="cug-htmlsu47.html#tailcug-htmlsu47.html" >prev-tail</a>] [<a 
 href="#tailcug-htmlsu48.html">tail</a>] [<a 
-href="cug-htmlse10.html#cug-htmlsu48.html" >up</a>] </p></div>
-   <h4 class="subsectionHead"><span class="titlemark">10.4   </span> <a 
- id="x72-13200010.4"></a>Overriding the Job Submission Command</h4>
-<!--l. 4303--><p class="noindent" >To change the form of the actual command used to submit a job you do not need to define a new job submission
-method; just override the <span class="lstinline"><span 
-class="pcrr7t-">command</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">template</span></span> in the relevant job submission sections of your suite.rc file:
-</p><!--l. 4307--><div class="lstlisting">
-<span 
-class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x72-132001r1"></a></span><span 
-class="pcrro7t-">#</span><span 
-class="pcrro7t-">&#x00A0;</span><span 
-class="pcrro7t-">SUITE</span><span 
-class="pcrro7t-">.</span><span 
-class="pcrro7t-">RC</span><span 
-class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x72-132002r2"></a></span><span 
-class="pcrr7t-">[</span><span 
-class="pcrr7t-">runtime</span><span 
-class="pcrr7t-">]</span><span 
-class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x72-132003r3"></a></span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">[[</span><span 
-class="pcrr7t-">root</span><span 
-class="pcrr7t-">]]</span><span 
-class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x72-132004r4"></a></span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">[[[</span><span 
-class="pcrr7t-">job</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">submission</span><span 
-class="pcrr7t-">]]]</span><span 
-class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x72-132005r5"></a></span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">method</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">=</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">loadleveler</span><span 
-class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x72-132006r6"></a></span><span 
-class="pcrro7t-">&#x00A0;</span><span 
-class="pcrro7t-">&#x00A0;</span><span 
-class="pcrro7t-">&#x00A0;</span><span 
-class="pcrro7t-">&#x00A0;</span><span 
-class="pcrro7t-">&#x00A0;</span><span 
-class="pcrro7t-">&#x00A0;</span><span 
-class="pcrro7t-">&#x00A0;</span><span 
-class="pcrro7t-">&#x00A0;</span><span 
-class="pcrro7t-">&#x00A0;</span><span 
-class="pcrro7t-">&#x00A0;</span><span 
-class="pcrro7t-">&#x00A0;</span><span 
-class="pcrro7t-">&#x00A0;</span><span 
-class="pcrro7t-">#</span><span 
-class="pcrro7t-">&#x00A0;</span><span 
-class="pcrro7t-">Use</span><span 
-class="pcrro7t-">&#x00A0;</span><span 
-class="pcrro7t-">'-</span><span 
-class="pcrro7t-">s</span><span 
-class="pcrro7t-">'</span><span 
-class="pcrro7t-">&#x00A0;</span><span 
-class="pcrro7t-">to</span><span 
-class="pcrro7t-">&#x00A0;</span><span 
-class="pcrro7t-">stop</span><span 
-class="pcrro7t-">&#x00A0;</span><span 
-class="pcrro7t-">llsubmit</span><span 
-class="pcrro7t-">&#x00A0;</span><span 
-class="pcrro7t-">returning</span><span 
-class="pcrro7t-">&#x00A0;</span><span 
-class="pcrro7t-">until</span><span 
-class="pcrro7t-">&#x00A0;</span><span 
-class="pcrro7t-">all</span><span 
-class="pcrro7t-">&#x00A0;</span><span 
-class="pcrro7t-">job</span><span 
-class="pcrro7t-">&#x00A0;</span><span 
-class="pcrro7t-">steps</span><span 
-class="pcrro7t-">&#x00A0;</span><span 
-class="pcrro7t-">have</span><span 
-class="pcrro7t-">&#x00A0;</span><span 
-class="pcrro7t-">completed</span><span 
-class="pcrro7t-">:</span><span 
-class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x72-132007r7"></a></span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">command</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">template</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">=</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">llsubmit</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
+href="cug-htmlse11.html#cug-htmlsu48.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">11.2   </span> <a 
+ id="x71-14000011.2"></a>Secure Passphrases, Remote Control, And Task Messaging</h4>
+<!--l. 4480--><p class="noindent" >There are two ways in which suite interrogation and control commands, suite control GUIs, and running tasks (cylc
+clients) can communicate with running suites (cylc servers):
+     </p><ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x71-140002x1">Pyro RPC (remote procedure call) over the network, or
+     </li>
+     <li 
+  class="enumerate" id="x71-140004x2">Re-invocation of cylc commands on the suite host by passwordless ssh, so that the ultimate Pyro RPC
+     connection only occurs on the suite host.</li></ol>
+<!--l. 4489--><p class="noindent" >For the Pyro connection method to work the right network ports must be open (cylc starts grabbing ports at port 7766 by
+default.<span class="footnote-mark"><a 
+href="cug-html72.html#fn12x0"><sup class="textsuperscript">12</sup></a></span><a 
+ id="x71-140005f12"></a> )
+and there must be network routing between the involved hosts.
+</p>
+   <h5 class="subsubsectionHead"><span class="titlemark">11.2.1   </span> <a 
+ id="x71-14100011.2.1"></a>Pyro Connections and Secure Passphrases</h5>
+<!--l. 4497--><p class="noindent" >All Pyro connections to a suite require authentication with a secure
+passphrase.<span class="footnote-mark"><a 
+href="cug-html73.html#fn13x0"><sup class="textsuperscript">13</sup></a></span><a 
+ id="x71-141001f13"></a> 
+A random passphrase is generated in the suite definition directory when a suite is registered. It must be distributed
+to any other user account, local or remote, that hosts tasks from the suite, or from which you need to do Pyro-based
+remote suite monitoring or control. Passphrases can be installed into any of the following locations, in order of
+preference:
+     </p><ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x71-141003x1"><span class="lstinline"><span 
+class="pcrr8c-">$</span><span 
+class="pcrr7t-">CYLC_SUITE_DEF_PATH</span><span 
+class="pcrr7t-">/</span><span 
+class="pcrr7t-">passphrase</span></span>
+     </li>
+     <li 
+  class="enumerate" id="x71-141005x2"><span class="lstinline"><span 
+class="pcrr8c-">$</span><span 
+class="pcrr7t-">HOME</span><span 
+class="pcrr7t-">/.</span><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">/</span><span 
+class="pcrr7t-">SUITE_HOST</span><span 
+class="pcrr7t-">/</span><span 
+class="pcrr7t-">SUITE_OWNER</span><span 
+class="pcrr7t-">/</span><span 
+class="pcrr7t-">SUITE_NAME</span><span 
+class="pcrr7t-">/</span><span 
+class="pcrr7t-">passphrase</span></span>
+     </li>
+     <li 
+  class="enumerate" id="x71-141007x3"><span class="lstinline"><span 
+class="pcrr8c-">$</span><span 
+class="pcrr7t-">HOME</span><span 
+class="pcrr7t-">/.</span><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">/</span><span 
+class="pcrr7t-">SUITE_HOST</span><span 
+class="pcrr7t-">/</span><span 
+class="pcrr7t-">SUITE_NAME</span><span 
+class="pcrr7t-">/</span><span 
+class="pcrr7t-">passphrase</span></span>
+     </li>
+     <li 
+  class="enumerate" id="x71-141009x4"><span class="lstinline"><span 
+class="pcrr8c-">$</span><span 
+class="pcrr7t-">HOME</span><span 
+class="pcrr7t-">/.</span><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">/</span><span 
+class="pcrr7t-">SUITE_NAME</span><span 
+class="pcrr7t-">/</span><span 
+class="pcrr7t-">passphrase</span></span>
+     </li>
+     <li 
+  class="enumerate" id="x71-141011x5">(or, optionally, given on the commandline with <span class="lstinline"><span 
 class="pcrr7t-">-</span><span 
-class="pcrr7t-">s</span><span 
+class="pcrr7t-">p</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">%</span><span 
-class="pcrr7t-">s</span>
-
-
-   </div>
-<!--l. 4316--><p class="indent" >   As explained in the suite.rc reference (Appendix&#x00A0;<a 
-href="cug-htmlse13.html#x94-157000A">A<!--tex4ht:ref: SuiteRCReference --></a>), the template&#8217;s first %s will be substituted by the job file
-path and, where applicable a second and third %s will be substituted by the paths to the job stdout and stderr
-files.
+class="pcrr7t-">FILE</span></span>)</li></ol>
+<!--l. 4512--><p class="noindent" >The locations under <span class="lstinline"><span 
+class="pcrr8c-">$</span><span 
+class="pcrr7t-">HOME</span><span 
+class="pcrr7t-">/.</span><span 
+class="pcrr7t-">cylc</span></span> are suitable for remote suite control accounts - in which case the suite definition
+directory may not be known or accessible. If the suite definition directory is installed on a remote task host (it can
+be in the same location with respect to <span class="lstinline"><span 
+class="pcrr8c-">$</span><span 
+class="pcrr7t-">HOME</span></span> as the suite definition directory on the suite host, or it can be
+specified explicitly in the suite definition) the passphrase can go there; otherwise use one of the secondary locations
+listed above.
                                                                                          
 
                                                                                          
 </p>
-   <!--l. 4321--><div class="crosslinks"><p class="noindent">[<a 
+   <h5 class="subsubsectionHead"><span class="titlemark">11.2.2   </span> <a 
+ id="x71-14200011.2.2"></a>Ssh-Pyro Connections</h5>
+<!--l. 4523--><p class="noindent" >For ssh-based messaging and suite control, ssh keys must be installed in the relevant accounts to allow passwordless
+ssh connections back to the suite host account. The suite passphrase is then only required on the suite
+host.
+</p><!--l. 4528--><p class="noindent" >
+</p>
+   <h5 class="subsubsectionHead"><span class="titlemark">11.2.3   </span> <a 
+ id="x71-14300011.2.3"></a>Choosing The Communication Method</h5>
+<!--l. 4530--><p class="noindent" >The Pyro connection method is the default because it is simpler and more efficient, but if your remote task host
+does not have the right network ports open, and the IT staff are reluctant to change that, then the ssh alternative is
+available <span 
+class="cmti-10">so long as your local system and network configurations do not also prevent ssh connections back to the</span>
+<span 
+class="cmti-10">suite host - in that case see Section</span><span 
+class="cmti-10">&#x00A0;</span><a 
+href="#x71-14400011.2.4"><span 
+class="cmti-10">11.2.4</span><!--tex4ht:ref: difficultnetworkenv --></a> <span 
+class="cmti-10">below</span>.
+</p><!--l. 4537--><p class="indent" >   To use the ssh-Pyro connection method:  </p>
+     <ul class="itemize1">
+     <li class="itemize">For remote tasks, set <span class="lstinline"><span 
+class="pcrr7t-">ssh</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">messaging</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">=</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">True</span></span> for the relevant tasks or families under the suite
+     definition. <span class="lstinline"><span 
+class="pcrr7t-">[</span><span 
+class="pcrr7t-">runtime</span><span 
+class="pcrr7t-">]</span></span> section.
+     </li>
+     <li class="itemize">For user-invoked suite interrogation and control commands, use the <span class="lstinline"><span 
+class="pcrr7t-">--</span><span 
+class="pcrr7t-">use</span><span 
+class="pcrr7t-">-</span><span 
+class="pcrr7t-">ssh</span></span> command line option.
+     Commands that normally prompt before taking action will also require use of <span class="lstinline"><span 
+class="pcrr7t-">-</span><span 
+class="pcrr7t-">f</span><span 
+class="pcrr7t-">,--</span><span 
+class="pcrr7t-">force</span></span>.</li></ul>
+<!--l. 4548--><p class="noindent" >
+</p>
+   <h5 class="subsubsectionHead"><span class="titlemark">11.2.4   </span> <a 
+ id="x71-14400011.2.4"></a>If You Cannot Use Pyro or Ssh Connections</h5>
+<!--l. 4551--><p class="noindent" >It has come to our attention that some HPC facilities do not have any networking routing back out of the compute
+nodes, for security reasons and/or to avoid network chatter that could affect performance. Any kind of
+communication back to a cylc suite running on an external host would then presumably be impossible,
+but:
+</p>
+     <ul class="itemize1">
+     <li class="itemize">You may be able to run cylc itself on one of the HPC login nodes. Depending on what software is
+     installed on the HPC, however, this may preclude use of the cylc GUI and suite visualization tools.
+     </li>
+     <li class="itemize">You may be able to persuade your system administrators to provide networking routing to a dedicated
+     cylc server, if not to the wider world.
+     </li>
+     <li class="itemize">It has been suggested that some kind of network <span 
+class="cmti-10">port forwarding </span>could provide a possible solution ...</li></ul>
+                                                                                         
+
+                                                                                         
+   <!--l. 4569--><div class="crosslinks"><p class="noindent">[<a 
 href="cug-htmlsu49.html" >next</a>] [<a 
 href="cug-htmlsu47.html" >prev</a>] [<a 
 href="cug-htmlsu47.html#tailcug-htmlsu47.html" >prev-tail</a>] [<a 
 href="cug-htmlsu48.html" >front</a>] [<a 
-href="cug-htmlse10.html#cug-htmlsu48.html" >up</a>] </p></div>
-<!--l. 4321--><p class="indent" >   <a 
- id="tailcug-htmlsu48.html"></a> </p> 
+href="cug-htmlse11.html#cug-htmlsu48.html" >up</a>] </p></div>
+<!--l. 4569--><p class="indent" >   <a 
+ id="tailcug-htmlsu48.html"></a>  </p> 
 </body></html> 

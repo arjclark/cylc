@@ -4,407 +4,55 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Visualization</title> 
+<head><title>Omitting Tasks At Runtime</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
 <meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
 <!-- xhtml,3,next,html --> 
 <meta name="src" content="cug-html.tex" /> 
-<meta name="date" content="2012-03-15 23:47:00" /> 
+<meta name="date" content="2012-07-31 01:15:00" /> 
 <link rel="stylesheet" type="text/css" href="cug-html.css" /> 
 </head><body 
 >
-   <!--l. 3438--><div class="crosslinks"><p class="noindent">[<a 
-href="cug-htmlsu38.html" >next</a>] [<a 
+   <!--l. 3596--><div class="crosslinks"><p class="noindent">[<a 
+href="cug-htmlse9.html" >next</a>] [<a 
 href="cug-htmlsu36.html" >prev</a>] [<a 
 href="cug-htmlsu36.html#tailcug-htmlsu36.html" >prev-tail</a>] [<a 
 href="#tailcug-htmlsu37.html">tail</a>] [<a 
 href="cug-htmlse8.html#cug-htmlsu37.html" >up</a>] </p></div>
-   <h4 class="subsectionHead"><span class="titlemark">8.5   </span> <a 
- id="x58-1060008.5"></a>Visualization</h4>
-<!--l. 3441--><p class="noindent" >This is the final major section in the suite.rc file. It is used to configure suite graph plotting - principally graph node
-(task) and edge (dependency arrow) style attributes. Tasks can be grouped for the purpose of applying common
-style attributes. See the suite.rc reference (Appendix&#x00A0;<a 
-href="cug-htmlse13.html#x94-157000A">A<!--tex4ht:ref: SuiteRCReference --></a>) for details.
-</p><!--l. 3447--><p class="noindent" >
+   <h4 class="subsectionHead"><span class="titlemark">8.8   </span> <a 
+ id="x56-1120008.8"></a>Omitting Tasks At Runtime</h4>
+<!--l. 3598--><p class="noindent" >It is sometimes convenient to omit certain tasks from the suite at runtime without actually deleting their definitions
+from the suite.
+</p><!--l. 3601--><p class="indent" >   Defining [runtime] properties for tasks that do not appear in the suite graph results in verbose-mode validation
+warnings that the tasks are disabled. They cannot be used because the suite graph is what defines their
+dependencies and valid cycle times. Nevertheless, it is legal to leave these orphaned runtime sections in the suite
+definition because it allows you to temporarily remove tasks from the suite by simply commenting them out of the
+graph.
+</p><!--l. 3609--><p class="indent" >   To omit a task from the suite at runtime but still leave it fully defined and available for use (by insertion or
+<span class="lstinline"><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">submit</span></span>) use one or both of [scheduling][[special task]] lists, <span 
+class="cmti-10">include at start-up </span>or <span 
+class="cmti-10">exclude at start-up</span>
+(documented in Sections&#x00A0;<a 
+href="cug-htmlsu65.html#x96-211000A.3.5.8">A.3.5.8<!--tex4ht:ref: IASU --></a> and&#x00A0;<a 
+href="cug-htmlsu65.html#x96-210000A.3.5.7">A.3.5.7<!--tex4ht:ref: EASU --></a>). Then the graph still defines the validity of the tasks and their
+dependencies, but they are not actually inserted into the suite at start-up. Other tasks that depend on
+the omitted ones, if any, will have to wait on their insertion at a later time or otherwise be triggered
+manually.
+</p><!--l. 3619--><p class="indent" >   Finally, with Jinja2 (Section&#x00A0;<a 
+href="cug-htmlsu35.html#x54-1080008.6">8.6<!--tex4ht:ref: Jinja2 --></a>) you can radically alter suite structure by including or excluding tasks from the
+[scheduling] and [runtime] sections according to the value of a single logical flag defined at the top of the
+suite.
 </p>
-   <h5 class="subsubsectionHead"><span class="titlemark">8.5.1   </span> <a 
- id="x58-1070008.5.1"></a>Collapsible Task Families In Suite Graphing And GUIs</h5>
-   <!--l. 3450--><div class="lstlisting">
-<span 
-class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x58-107001r1"></a></span><span 
-class="pcrro7t-">#</span><span 
-class="pcrro7t-">&#x00A0;</span><span 
-class="pcrro7t-">SUITE</span><span 
-class="pcrro7t-">.</span><span 
-class="pcrro7t-">RC</span><span 
-class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x58-107002r2"></a></span><span 
-class="pcrr7t-">[</span><span 
-class="pcrr7t-">visualization</span><span 
-class="pcrr7t-">]</span><span 
-class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x58-107003r3"></a></span><span 
-class="pcrro7t-">&#x00A0;</span><span 
-class="pcrro7t-">&#x00A0;</span><span 
-class="pcrro7t-">&#x00A0;</span><span 
-class="pcrro7t-">&#x00A0;</span><span 
-class="pcrro7t-">#</span><span 
-class="pcrro7t-">&#x00A0;</span><span 
-class="pcrro7t-">list</span><span 
-class="pcrro7t-">&#x00A0;</span><span 
-class="pcrro7t-">namespace</span><span 
-class="pcrro7t-">&#x00A0;</span><span 
-class="pcrro7t-">families</span><span 
-class="pcrro7t-">&#x00A0;</span><span 
-class="pcrro7t-">to</span><span 
-class="pcrro7t-">&#x00A0;</span><span 
-class="pcrro7t-">be</span><span 
-class="pcrro7t-">&#x00A0;</span><span 
-class="pcrro7t-">shown</span><span 
-class="pcrro7t-">&#x00A0;</span><span 
-class="pcrro7t-">in</span><span 
-class="pcrro7t-">&#x00A0;</span><span 
-class="pcrro7t-">collapsed</span><span 
-class="pcrro7t-">&#x00A0;</span><span 
-class="pcrro7t-">form</span><span 
-class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x58-107004r4"></a></span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">collapsed</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">families</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">=</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">family1</span><span 
-class="pcrr7t-">,</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">family2</span>
-
-
-   </div>
-<!--l. 3458--><p class="indent" >   Nested families from the namespace inheritance hierarchy, even if they are not used as family triggers in the
-graph, can be expanded or collapsed in suite graphs and by menu options in the graph-based suite control GUI (this
-will also be added to the text treeview control GUI in a future release).
-</p><!--l. 3464--><p class="indent" >   Family nodes in the graph-based suite control GUI are not currently color-coded in real time according to what
-state their members are in. However, any ungraphed tasks, which includes the members of collapsed families, are
-automatically plotted as rectangular nodes to the right of the main graph if they are doing anything interesting
-(submitted, running, or failed).
-</p><!--l. 3471--><p class="indent" >   Note that family relationships can be defined purely for visualization purposes - you can group tasks at root level
-in the inheritance hierarchy prior to defining real properties at higher levels.
-</p><!--l. 3475--><p class="indent" >   Figure&#x00A0;<a 
-href="#x58-10702038">38<!--tex4ht:ref: fig-namespaces --></a> illustrates successive expansion of nested task families in the <span 
-class="cmti-10">namespaces </span>example suite, which has the
-following namespace hierarchy: </p><!--l. 3478--><div class="lstlisting">
-<span 
-class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x58-107005r1"></a></span><span 
-class="pcrr7t-">%</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">cylc</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">list</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">--</span><span 
-class="pcrr7t-">tree</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">cylc</span><span 
-class="pcrr7t-">-</span><span 
-class="pcrr7t-">x</span><span 
-class="pcrr7t-">-</span><span 
-class="pcrr7t-">y</span><span 
-class="pcrr7t-">-</span><span 
-class="pcrr7t-">z</span><span 
-class="pcrr7t-">.</span><span 
-class="pcrr7t-">namespaces</span><span 
-class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x58-107006r2"></a></span><span 
-class="pcrr7t-">root</span><span 
-class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x58-107007r3"></a></span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">|-</span><span 
-class="pcrr7t-">GEN</span><span 
-class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x58-107008r4"></a></span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">|</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">|-</span><span 
-class="pcrr7t-">OPS</span><span 
-class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x58-107009r5"></a></span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">|</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">|</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">|-</span><span 
-class="pcrr7t-">aircraft</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">OPS</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">aircraft</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">obs</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">processing</span><span 
-class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x58-107010r6"></a></span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">|</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">|</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">|-</span><span 
-class="pcrr7t-">atovs</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">OPS</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">ATOVS</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">obs</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">processing</span><span 
-class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x58-107011r7"></a></span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">|</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">|</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#8216;-</span><span 
-class="pcrr7t-">atovs_post</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">OPS</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">ATOVS</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">postprocessing</span><span 
-class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x58-107012r8"></a></span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">|</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#8216;-</span><span 
-class="pcrr7t-">VAR</span><span 
-class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x58-107013r9"></a></span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">|</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">|-</span><span 
-class="pcrr7t-">AnPF</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">runs</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">VAR</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">AnalysePF</span><span 
-class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x58-107014r10"></a></span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">|</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#8216;-</span><span 
-class="pcrr7t-">ConLS</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">runs</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">VAR</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">ConfigureLS</span><span 
-class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x58-107015r11"></a></span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">|-</span><span 
-class="pcrr7t-">baz</span><span 
-class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x58-107016r12"></a></span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">|</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">|-</span><span 
-class="pcrr7t-">bar1</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">Task</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">bar1</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">of</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">baz</span><span 
-class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x58-107017r13"></a></span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">|</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#8216;-</span><span 
-class="pcrr7t-">bar2</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">Task</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">bar2</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">of</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">baz</span><span 
-class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x58-107018r14"></a></span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">|-</span><span 
-class="pcrr7t-">foo</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">No</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">description</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">provided</span><span 
-class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x58-107019r15"></a></span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#8216;-</span><span 
-class="pcrr7t-">prepobs</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">obs</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">preprocessing</span>
-
-
-   </div>
-   <hr class="figure" /><div class="figure" 
-><table class="figure"><tr class="figure"><td class="figure" 
->
-                                                                                         
-
-                                                                                         
-<a 
- id="x58-10702038"></a>
-                                                                                         
-
-                                                                                         
-<table class="minipage"><tr><td><div class="center" 
->
-<!--l. 3498--><p class="noindent" >
-
-</p><!--l. 3499--><p class="noindent" ><img 
-src="screenshots/inherit/inherit-2.png" alt="PIC"  
- /></p></div></td></tr></table>                            <table class="minipage"><tr><td><div class="center" 
->
-<!--l. 3504--><p class="noindent" >
-
-</p><!--l. 3505--><p class="noindent" ><img 
-src="screenshots/inherit/inherit-3.png" alt="PIC"  
- /></p></div></td></tr></table><table class="minipage"><tr><td><div class="center" 
->
-<!--l. 3510--><p class="noindent" >
-
-</p><!--l. 3511--><p class="noindent" ><img 
-src="screenshots/inherit/inherit-4.png" alt="PIC"  
- /></p></div></td></tr></table>
-<table class="minipage"><tr><td><div class="center" 
->
-<!--l. 3516--><p class="noindent" >
-
-</p><!--l. 3517--><p class="noindent" ><img 
-src="screenshots/inherit/inherit-5.png" alt="PIC"  
- /></p></div></td></tr></table>                            <table class="minipage"><tr><td><div class="center" 
->
-<!--l. 3522--><p class="noindent" >
-
-</p><!--l. 3523--><p class="noindent" ><img 
-src="screenshots/inherit/inherit-6.png" alt="PIC"  
- /></p></div></td></tr></table><table class="minipage"><tr><td><div class="center" 
->
-<!--l. 3528--><p class="noindent" >
-
-</p><!--l. 3529--><p class="noindent" ><img 
-src="screenshots/inherit/inherit-7.png" alt="PIC"  
- /></p></div></td></tr></table>
-<br /> <table class="caption" 
-><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;38: </td><td  
-class="content"><span 
-class="cmr-7">Graphs of the </span><span 
-class="cmti-7">namespaces </span><span 
-class="cmr-7">example suite showing various states of expansion of the nested namespace family hierarchy,</span>
-<span 
-class="cmr-7">from all families collapsed (top left) through to all expanded (bottom right). This can also be done by right-clicking on tasks in the</span>
-<span 
-class="cmr-7">graph-based suite control GUI.</span></td></tr></table><!--tex4ht:label?: x58-10702038 -->
-                                                                                         
-
-                                                                                         
-   </td></tr></table></div><hr class="endfigure" />
-                                                                                         
-
-                                                                                         
-   <!--l. 3573--><div class="crosslinks"><p class="noindent">[<a 
-href="cug-htmlsu38.html" >next</a>] [<a 
+   <!--l. 3624--><div class="crosslinks"><p class="noindent">[<a 
+href="cug-htmlse9.html" >next</a>] [<a 
 href="cug-htmlsu36.html" >prev</a>] [<a 
 href="cug-htmlsu36.html#tailcug-htmlsu36.html" >prev-tail</a>] [<a 
 href="cug-htmlsu37.html" >front</a>] [<a 
 href="cug-htmlse8.html#cug-htmlsu37.html" >up</a>] </p></div>
-<!--l. 3573--><p class="indent" >   <a 
- id="tailcug-htmlsu37.html"></a>  </p> 
+<!--l. 3624--><p class="indent" >   <a 
+ id="tailcug-htmlsu37.html"></a> </p> 
 </body></html> 

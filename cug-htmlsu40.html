@@ -4,55 +4,487 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Omitting Tasks At Runtime</title> 
+<head><title>Voluntary Messaging Modifications</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
 <meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
 <!-- xhtml,3,next,html --> 
 <meta name="src" content="cug-html.tex" /> 
-<meta name="date" content="2012-03-15 23:47:00" /> 
+<meta name="date" content="2012-07-31 01:15:00" /> 
 <link rel="stylesheet" type="text/css" href="cug-html.css" /> 
 </head><body 
 >
-   <!--l. 3699--><div class="crosslinks"><p class="noindent">[<a 
-href="cug-htmlse9.html" >next</a>] [<a 
+   <!--l. 3680--><div class="crosslinks"><p class="noindent">[<a 
+href="cug-htmlsu41.html" >next</a>] [<a 
 href="cug-htmlsu39.html" >prev</a>] [<a 
 href="cug-htmlsu39.html#tailcug-htmlsu39.html" >prev-tail</a>] [<a 
 href="#tailcug-htmlsu40.html">tail</a>] [<a 
-href="cug-htmlse8.html#cug-htmlsu40.html" >up</a>] </p></div>
-   <h4 class="subsectionHead"><span class="titlemark">8.8   </span> <a 
- id="x61-1100008.8"></a>Omitting Tasks At Runtime</h4>
-<!--l. 3701--><p class="noindent" >It is sometimes convenient to omit certain tasks from the suite at runtime without actually deleting their definitions
-from the suite.
-</p><!--l. 3704--><p class="indent" >   Defining [runtime] properties for tasks that do not appear in the suite graph results in verbose-mode validation
-warnings that the tasks are disabled. They cannot be used because the suite graph is what defines their
-dependencies and valid cycle times. Nevertheless, it is legal to leave these orphaned runtime sections in the suite
-definition because it allows you to temporarily remove tasks from the suite by simply commenting them out of the
-graph.
-</p><!--l. 3712--><p class="indent" >   To omit a task from the suite at runtime but still leave it fully defined and available for use (by insertion or
-<span class="lstinline"><span 
+href="cug-htmlse9.html#cug-htmlsu40.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">9.3   </span> <a 
+ id="x60-1160009.3"></a>Voluntary Messaging Modifications</h4>
+<!--l. 3683--><p class="noindent" >You can, if you like, modify task scripts to send explanatory or progress messages to the suite as the task runs. For
+example, a task can send a priority critical message before aborting on error:  </p><!--l. 3687--><div class="lstlisting">
+<span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x60-116001r1"></a></span><span 
+class="pcrro7t-">#</span><span 
+class="pcrro7t-">!/</span><span 
+class="pcrro7t-">bin</span><span 
+class="pcrro7t-">/</span><span 
+class="pcrro7t-">bash</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x60-116002r2"></a></span><span 
+class="pcrb7t-">set</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">-</span><span 
+class="pcrr7t-">e</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">#</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">abort</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">on</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">error</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x60-116003r3"></a></span><span 
+class="pcrb7t-">if</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">!</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">mkdir</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">/</span><span 
+class="pcrr7t-">illegal</span><span 
+class="pcrr7t-">/</span><span 
+class="pcrr7t-">dir</span><span 
+class="pcrr7t-">;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrb7t-">then</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x60-116004r4"></a></span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">#</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">(</span><span 
+class="pcrro7t-">use</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">inline</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">error</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">checking</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">to</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">avoid</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">triggering</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">the</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">above</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">'</span><span 
+class="pcrro7t-">set</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">-</span><span 
+class="pcrro7t-">e</span><span 
+class="pcrro7t-">')</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x60-116005r5"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">cylc</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">submit</span></span>) use one or both of [scheduling][[special task]] lists, <span 
-class="cmti-10">include at start-up </span>or <span 
-class="cmti-10">exclude at start-up</span>
-(documented in Sections&#x00A0;<a 
-href="cug-htmlsu68.html#x97-204000A.3.5.8">A.3.5.8<!--tex4ht:ref: IASU --></a> and&#x00A0;<a 
-href="cug-htmlsu68.html#x97-203000A.3.5.7">A.3.5.7<!--tex4ht:ref: EASU --></a>). Then the graph still defines the validity of the tasks and their
-dependencies, but they are not actually inserted into the suite at start-up. Other tasks that depend on
-the omitted ones, if any, will have to wait on their insertion at a later time or otherwise be triggered
-manually.
-</p><!--l. 3722--><p class="indent" >   Finally, with Jinja2 (Section&#x00A0;<a 
-href="cug-htmlsu38.html#x59-1080008.6">8.6<!--tex4ht:ref: Jinja2 --></a>) you can radically alter suite structure by including or excluding tasks from the
-[scheduling] and [runtime] sections according to the value of a single logical flag defined at the top of the
-suite.
+class="pcrr7t-">task</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">message</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">-</span><span 
+class="pcrr7t-">p</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">CRITICAL</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">"</span><span 
+class="pcrr7t-">Failed</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">to</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">create</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">directory</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">/</span><span 
+class="pcrr7t-">illegal</span><span 
+class="pcrr7t-">/</span><span 
+class="pcrr7t-">dir</span><span 
+class="pcrr7t-">"</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x60-116006r6"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrb7t-">exit</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">1</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrro7t-">#</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">now</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">abort</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">non</span><span 
+class="pcrro7t-">-</span><span 
+class="pcrro7t-">zero</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">exit</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">status</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">to</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">trigger</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">the</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">task</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">failed</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">message</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x60-116007r7"></a></span><span 
+class="pcrb7t-">fi</span>
+
+
+   </div>
+<!--l. 3697--><p class="indent" >   You can also use this syntax:  </p><!--l. 3699--><div class="lstlisting">
+<span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x60-116008r1"></a></span><span 
+class="pcrro7t-">#</span><span 
+class="pcrro7t-">!/</span><span 
+class="pcrro7t-">bin</span><span 
+class="pcrro7t-">/</span><span 
+class="pcrro7t-">bash</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x60-116009r2"></a></span><span 
+class="pcrb7t-">set</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">-</span><span 
+class="pcrr7t-">e</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x60-116010r3"></a></span><span 
+class="pcrr7t-">mkdir</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">/</span><span 
+class="pcrr7t-">illegal</span><span 
+class="pcrr7t-">/</span><span 
+class="pcrr7t-">dir</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">||</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">{</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">#</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">inline</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">error</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">checking</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">using</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">OR</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">operator</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x60-116011r4"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">task</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">message</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">-</span><span 
+class="pcrr7t-">p</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">CRITICAL</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">"</span><span 
+class="pcrr7t-">Failed</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">to</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">create</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">directory</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">/</span><span 
+class="pcrr7t-">illegal</span><span 
+class="pcrr7t-">/</span><span 
+class="pcrr7t-">dir</span><span 
+class="pcrr7t-">"</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x60-116012r5"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrb7t-">exit</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">1</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x60-116013r6"></a></span><span 
+class="pcrr7t-">}</span>
+
+
+   </div>
+<!--l. 3708--><p class="indent" >   But not this:  </p><!--l. 3710--><div class="lstlisting">
+<span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x60-116014r1"></a></span><span 
+class="pcrro7t-">#</span><span 
+class="pcrro7t-">!/</span><span 
+class="pcrro7t-">bin</span><span 
+class="pcrro7t-">/</span><span 
+class="pcrro7t-">bash</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x60-116015r2"></a></span><span 
+class="pcrb7t-">set</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">-</span><span 
+class="pcrr7t-">e</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x60-116016r3"></a></span><span 
+class="pcrr7t-">mkdir</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">/</span><span 
+class="pcrr7t-">illegal</span><span 
+class="pcrr7t-">/</span><span 
+class="pcrr7t-">dir</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">#</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">aborted</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">via</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">'</span><span 
+class="pcrro7t-">set</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">-</span><span 
+class="pcrro7t-">e</span><span 
+class="pcrro7t-">'</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x60-116017r4"></a></span><span 
+class="pcrb7t-">if</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">[[</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr8c-">$</span><span 
+class="pcrr7t-">?</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">!=</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">0</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">]];</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrb7t-">then</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">#</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">so</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">this</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">will</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">never</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">be</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">reached</span><span 
+class="pcrro7t-">.</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x60-116018r5"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">task</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">message</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">-</span><span 
+class="pcrr7t-">p</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">CRITICAL</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">"</span><span 
+class="pcrr7t-">Failed</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">to</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">create</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">directory</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">/</span><span 
+class="pcrr7t-">illegal</span><span 
+class="pcrr7t-">/</span><span 
+class="pcrr7t-">dir</span><span 
+class="pcrr7t-">"</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x60-116019r6"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrb7t-">exit</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">1</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x60-116020r7"></a></span><span 
+class="pcrb7t-">fi</span>
+
+
+   </div>
+<!--l. 3720--><p class="indent" >   You can also send warning messages, or general information:  </p><!--l. 3722--><div class="lstlisting">
+<span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x60-116021r1"></a></span><span 
+class="pcrro7t-">#</span><span 
+class="pcrro7t-">!/</span><span 
+class="pcrro7t-">bin</span><span 
+class="pcrro7t-">/</span><span 
+class="pcrro7t-">bash</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x60-116022r2"></a></span><span 
+class="pcrro7t-">#</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">a</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">warning</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">message</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">(</span><span 
+class="pcrro7t-">this</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">will</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">be</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">logged</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">by</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">the</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">suite</span><span 
+class="pcrro7t-">):</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x60-116023r3"></a></span><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">task</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">message</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">-</span><span 
+class="pcrr7t-">p</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">WARNING</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">"</span><span 
+class="pcrr7t-">oops</span><span 
+class="pcrr7t-">,</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">something</span><span 
+class="pcrr7t-">'</span><span 
+class="pcrr7t-">s</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">fishy</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">here</span><span 
+class="pcrr7t-">"</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x60-116024r4"></a></span><span 
+class="pcrro7t-">#</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">information</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">(</span><span 
+class="pcrro7t-">this</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">will</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">also</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">be</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">logged</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">by</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">the</span><span 
+class="pcrro7t-">&#x00A0;</span><span 
+class="pcrro7t-">suite</span><span 
+class="pcrro7t-">):</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x60-116025r5"></a></span><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">task</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">message</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">"</span><span 
+class="pcrr7t-">Hello</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">from</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">task</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">foo</span><span 
+class="pcrr7t-">"</span>
+
+
+   </div>
+<!--l. 3730--><p class="indent" >   This may be useful - any message received from a task is logged by cylc - but it is not a requirement. If error
+messages are not reported, for instance, detected task failures will still be registered, and task stdout and stderr logs
+can still be examined for evidence of what went wrong.
+                                                                                         
+
+                                                                                         
 </p>
-   <!--l. 3727--><div class="crosslinks"><p class="noindent">[<a 
-href="cug-htmlse9.html" >next</a>] [<a 
+   <!--l. 3737--><div class="crosslinks"><p class="noindent">[<a 
+href="cug-htmlsu41.html" >next</a>] [<a 
 href="cug-htmlsu39.html" >prev</a>] [<a 
 href="cug-htmlsu39.html#tailcug-htmlsu39.html" >prev-tail</a>] [<a 
 href="cug-htmlsu40.html" >front</a>] [<a 
-href="cug-htmlse8.html#cug-htmlsu40.html" >up</a>] </p></div>
-<!--l. 3727--><p class="indent" >   <a 
+href="cug-htmlse9.html#cug-htmlsu40.html" >up</a>] </p></div>
+<!--l. 3737--><p class="indent" >   <a 
  id="tailcug-htmlsu40.html"></a> </p> 
 </body></html> 

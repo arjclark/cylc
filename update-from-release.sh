@@ -27,5 +27,6 @@ rm -f CylcUserGuide.pdf
 # remove and update these automatically. But do update any new images.
 
 cp $RELDIR/doc/cug-html* .
+cp -r $RELDIR/doc/single .
 cp $RELDIR/doc/CylcUserGuide.pdf .
 cp -r $RELDIR/doc/screenshots/* screenshots/

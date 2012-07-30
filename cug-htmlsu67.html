@@ -4,147 +4,81 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>[cylc]</title> 
+<head><title>[visualization]</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
 <meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
 <!-- xhtml,3,next,html --> 
 <meta name="src" content="cug-html.tex" /> 
-<meta name="date" content="2012-03-15 23:47:00" /> 
+<meta name="date" content="2012-07-31 01:15:00" /> 
 <link rel="stylesheet" type="text/css" href="cug-html.css" /> 
 </head><body 
 >
-   <!--l. 47--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 1257--><div class="crosslinks"><p class="noindent">[<a 
 href="cug-htmlsu68.html" >next</a>] [<a 
 href="cug-htmlsu66.html" >prev</a>] [<a 
 href="cug-htmlsu66.html#tailcug-htmlsu66.html" >prev-tail</a>] [<a 
 href="#tailcug-htmlsu67.html">tail</a>] [<a 
-href="cug-htmlse13.html#cug-htmlsu67.html" >up</a>] </p></div>
-   <h4 class="subsectionHead"><span class="titlemark">A.2   </span> <a 
- id="x96-161000A.2"></a>[cylc]</h4>
-<!--l. 49--><p class="noindent" >This section is for suite configuration that is not specifically task-related.
-</p><!--l. 52--><p class="noindent" >
+href="cug-htmlse15.html#cug-htmlsu67.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">A.5   </span> <a 
+ id="x100-256000A.5"></a>[visualization]</h4>
+<!--l. 1259--><p class="noindent" >Configuration of suite graphing and, where explicitly stated, the graph-based suite control GUI.
+</p><!--l. 1262--><p class="noindent" >
 </p>
-   <h5 class="subsubsectionHead"><span class="titlemark">A.2.1   </span> <a 
- id="x96-162000A.2.1"></a> [cylc] <span 
-class="cmsy-10">&#x2192; </span>UTC mode</h5>
-<!--l. 54--><p class="noindent" >Cylc runs off the suite host&#8217;s system clock by default. This item allows you to run the suite in UTC even if the
-system clock is set to local time. Clock-triggered tasks will trigger when the current UTC time is
-equal to their cycle time plus offset; other time values used, reported, or logged by cylc will also be in
-UTC.
+   <h5 class="subsubsectionHead"><span class="titlemark">A.5.1   </span> <a 
+ id="x100-257000A.5.1"></a>[visualization] <span 
+class="cmsy-10">&#x2192; </span>initial cycle time</h5>
+<!--l. 1264--><p class="noindent" >The first cycle time to use when plotting the suite dependency graph.  </p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmti-10">type: </span>integer
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">default: </span>2999010100</li></ul>
+<!--l. 1270--><p class="noindent" >
+</p>
+   <h5 class="subsubsectionHead"><span class="titlemark">A.5.2   </span> <a 
+ id="x100-258000A.5.2"></a>[visualization] <span 
+class="cmsy-10">&#x2192; </span>final cycle time</h5>
+<!--l. 1272--><p class="noindent" >The last cycle time to use when plotting the suite dependency graph. Typically this should be just far enough ahead
+of the initial cycle to show the full suite.
 </p>
      <ul class="itemize1">
      <li class="itemize"><span 
-class="cmti-10">type: </span>boolean
+class="cmti-10">type: </span>integer
      </li>
      <li class="itemize"><span 
-class="cmti-10">default: </span>False</li></ul>
-<!--l. 65--><p class="noindent" >
+class="cmti-10">default: </span>2999010123</li></ul>
+<!--l. 1281--><p class="noindent" >
 </p>
-   <h5 class="subsubsectionHead"><span class="titlemark">A.2.2   </span> <a 
- id="x96-163000A.2.2"></a> [cylc] <span 
-class="cmsy-10">&#x2192; </span>simulation mode only</h5>
-<!--l. 67--><p class="noindent" >This prevents a suite from running in real mode - use for demo suites created by copying real suites out of their
-normal operating environment.
+   <h5 class="subsubsectionHead"><span class="titlemark">A.5.3   </span> <a 
+ id="x100-259000A.5.3"></a>[visualization] <span 
+class="cmsy-10">&#x2192; </span>collapsed families</h5>
+<!--l. 1283--><p class="noindent" >A list of family (namespace) names to be shown in the collapsed state (i.e.&#x00A0;the family members will be replaced by a
+single family node) when the suite is plotted in the graph viewer or the graph-based suite control GUI. This item
+determines how family groups are shown <span 
+class="cmti-10">initially </span>in the suite control GUI; subsequently you can use the
+interactive controls to group and ungroup nodes at will. For the same reason (presence of interactive
+grouping controls) this item is ignored if the suite is reparsed during graph viewing (other changes
+to graph styling will be picked up and applied if the graph viewer detects that the suite.rc file has
+changed).
 </p>
      <ul class="itemize1">
      <li class="itemize"><span 
-class="cmti-10">type: </span>boolean
-     </li>
-     <li class="itemize"><span 
-class="cmti-10">default: </span>False</li></ul>
-<!--l. 75--><p class="noindent" >
-</p>
-   <h5 class="subsubsectionHead"><span class="titlemark">A.2.3   </span> <a 
- id="x96-164000A.2.3"></a> [cylc] <span 
-class="cmsy-10">&#x2192; </span>use secure passphrase</h5>
-<!--l. 77--><p class="noindent" >Critical operational suites can be made to ignore commands unless the originating user account has a special
-passphrase (the same one used by the suite owner at startup) with secure permissions (as for ssh keys) in the file
-<span class="lstinline"><span 
-class="pcrr8c-">$</span><span 
-class="pcrr7t-">HOME</span><span 
-class="pcrr7t-">/.</span><span 
-class="pcrr7t-">cylc</span><span 
-class="pcrr7t-">/</span><span 
-class="pcrr7t-">security</span><span 
-class="pcrr7t-">/</span><span 
-class="pcrr8c-">$</span><span 
-class="pcrr7t-">CYLC_SUITE_REG_NAME</span></span> (remotely hosted tasks also need the passphrase in their
-host accounts). The passphrase itself is never transferred across the network (a secure MD5 checksum is). Note that
-cylc&#8217;s normal owner-only suite access is implemented by means of a simple username comparison, which
-could in principle be subverted by a malicious user copying and modifying the cylc code base. Secure
-passphrases, on the other hand, should guarantee suite security so long as your user accounts aren&#8217;t
-breached.
+class="cmti-10">type: </span>list of family names
                                                                                          
 
                                                                                          
-</p>
-     <ul class="itemize1">
-     <li class="itemize"><span 
-class="cmti-10">type: </span>boolean
      </li>
      <li class="itemize"><span 
-class="cmti-10">default: </span>False</li></ul>
-<!--l. 94--><p class="noindent" >
+class="cmti-10">default: </span>(none)</li></ul>
+<!--l. 1299--><p class="noindent" >
 </p>
-   <h5 class="subsubsectionHead"><span class="titlemark">A.2.4   </span> <a 
- id="x96-165000A.2.4"></a>[cylc] <span 
-class="cmsy-10">&#x2192; </span>[[logging]]</h5>
-<!--l. 96--><p class="noindent" >This section configures cylc&#8217;s logging functionality, which records time-stamped events to a special log
-file.
-</p><!--l. 99--><p class="noindent" >
-</p>
-<!--l. 99--><p class="noindent" ><span class="paragraphHead"><a 
- id="x96-166000A.2.4.1"></a><span 
-class="cmbx-10">[cylc] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[logging]] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">directory</span></span>
-   The cylc log and its backups are stored in this directory. If you change the directory make sure it remains
-suite-specific by using suite identity environment variables in the path.
-</p>
-     <ul class="itemize1">
-     <li class="itemize"><span 
-class="cmti-10">type: </span>string (directory path, may contain environment variables)
-     </li>
-     <li class="itemize"><span 
-class="cmti-10">default: </span><span class="lstinline"><span 
-class="pcrr8c-">$</span><span 
-class="pcrr7t-">HOME</span><span 
-class="pcrr7t-">/</span><span 
-class="pcrr7t-">cylc</span><span 
-class="pcrr7t-">-</span><span 
-class="pcrr7t-">run</span><span 
-class="pcrr7t-">/</span><span 
-class="pcrr8c-">$</span><span 
-class="pcrr7t-">CYLC_SUITE_REG_NAME</span><span 
-class="pcrr7t-">/</span><span 
-class="pcrr7t-">log</span><span 
-class="pcrr7t-">/</span><span 
-class="pcrr7t-">suite</span></span></li></ul>
-<!--l. 110--><p class="noindent" >
-</p>
-<!--l. 110--><p class="noindent" ><span class="paragraphHead"><a 
- id="x96-167000A.2.4.2"></a><span 
-class="cmbx-10">[cylc] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[logging]] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">roll over at start-up</span></span>
-   Suite logs roll over (start anew) automatically when they reach a certain size - currently hardwired to 1MB in
-<span class="lstinline"><span 
-class="pcrr8c-">$</span><span 
-class="pcrr7t-">CYLC_DIR</span><span 
-class="pcrr7t-">/</span><span 
-class="pcrr7t-">lib</span><span 
-class="pcrr7t-">/</span><span 
-class="pcrr7t-">cylc</span><span 
-class="pcrr7t-">/</span><span 
-class="pcrr7t-">pimp_my_logger</span><span 
-class="pcrr7t-">.</span><span 
-class="pcrr7t-">py</span></span>. They can also be rolled automatically whenever a suite is started
-or restarted.
+   <h5 class="subsubsectionHead"><span class="titlemark">A.5.4   </span> <a 
+ id="x100-260000A.5.4"></a>[visualization] <span 
+class="cmsy-10">&#x2192; </span>use node color for edges</h5>
+<!--l. 1301--><p class="noindent" >Graph edges (dependency arrows) can be plotted in the same color as the upstream node (task or family) to make
+paths through a complex graph easier to follow.
 </p>
      <ul class="itemize1">
      <li class="itemize"><span 
@@ -152,455 +86,345 @@ class="cmti-10">type: </span>boolean
      </li>
      <li class="itemize"><span 
 class="cmti-10">default: </span>True</li></ul>
-<!--l. 123--><p class="noindent" >
+<!--l. 1310--><p class="noindent" >
 </p>
-   <h5 class="subsubsectionHead"><span class="titlemark">A.2.5   </span> <a 
- id="x96-168000A.2.5"></a> [cylc] <span 
-class="cmsy-10">&#x2192; </span>[[state dumps]] </h5>
-<!--l. 125--><p class="noindent" >State dump files allow cylc to restart suites from previous states of operation.
-                                                                                         
-
-                                                                                         
-</p><!--l. 128--><p class="noindent" >
-</p>
-<!--l. 128--><p class="noindent" ><span class="paragraphHead"><a 
- id="x96-169000A.2.5.1"></a><span 
-class="cmbx-10">[cylc] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[state dumps]] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">directory</span></span>
-   The rolling archive of suite state dump files, backups of the default state dump, and any special pre-intervention
-state dumps, are stored under this directory. If you change this directory make sure it remains suite-specific by using
-suite identity environment variables in the path.
+   <h5 class="subsubsectionHead"><span class="titlemark">A.5.5   </span> <a 
+ id="x100-261000A.5.5"></a>[visualization] <span 
+class="cmsy-10">&#x2192; </span>use node color for labels</h5>
+<!--l. 1312--><p class="noindent" >Graph node labels can be printed in the same color as the node outline.
 </p>
      <ul class="itemize1">
      <li class="itemize"><span 
-class="cmti-10">type: </span>string (directory path, may contain environment variables)
+class="cmti-10">type: </span>boolean
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">default: </span>False</li></ul>
+<!--l. 1320--><p class="noindent" >
+</p>
+   <h5 class="subsubsectionHead"><span class="titlemark">A.5.6   </span> <a 
+ id="x100-262000A.5.6"></a>[visualization] <span 
+class="cmsy-10">&#x2192; </span>default node attributes</h5>
+<!--l. 1322--><p class="noindent" >Set the default attributes (color and style etc.) of graph nodes (tasks and families). Attribute pairs must be quoted
+to hide the internal <span class="lstinline"><span 
+class="pcrr7t-">=</span></span> character.
+</p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmti-10">type: </span>list of quoted <span class="lstinline"><span 
+class="pcrr7t-">'</span><span 
+class="pcrr7t-">attribute</span><span 
+class="pcrr7t-">=</span><span 
+class="pcrr7t-">value</span><span 
+class="pcrr7t-">'</span></span> pairs
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">legal values: </span>see graphviz or pygraphviz documentation
      </li>
      <li class="itemize"><span 
 class="cmti-10">default: </span><span class="lstinline"><span 
-class="pcrr8c-">$</span><span 
-class="pcrr7t-">HOME</span><span 
-class="pcrr7t-">/</span><span 
-class="pcrr7t-">cylc</span><span 
-class="pcrr7t-">-</span><span 
-class="pcrr7t-">run</span><span 
-class="pcrr7t-">/</span><span 
-class="pcrr8c-">$</span><span 
-class="pcrr7t-">CYLC_SUITE_REG_NAME</span><span 
-class="pcrr7t-">/</span><span 
-class="pcrr7t-">state</span></span></li></ul>
-<!--l. 141--><p class="noindent" >
-</p>
-<!--l. 141--><p class="noindent" ><span class="paragraphHead"><a 
- id="x96-170000A.2.5.2"></a><span 
-class="cmbx-10">[cylc] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[state dumps]] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">number of backups</span></span>
-   This is the length, in number of changes, of the automatic rolling archive of state dump files that allows you to
-restart a suite from a previous state. Every time a task changes state cylc updates the state dump and rolls previous
-states back one on the archive. You&#8217;ll probably only ever need the latest (most recent) state dump, which is
-automatically used in a restart, but any previous state still in the archive can be used. Additionally, special labeled
-state dumps are written out prior to actioning any suite intervention - their filenames are logged by
-cylc.
-</p>
-     <ul class="itemize1">
-     <li class="itemize"><span 
-class="cmti-10">type: </span>integer (<span 
-class="cmsy-10">&#x2265; </span>1)
-     </li>
-     <li class="itemize"><span 
-class="cmti-10">default: </span>10</li></ul>
-<!--l. 158--><p class="noindent" >
-</p>
-   <h5 class="subsubsectionHead"><span class="titlemark">A.2.6   </span> <a 
- id="x96-171000A.2.6"></a>[cylc] <span 
-class="cmsy-10">&#x2192; </span>[[event hooks]]</h5>
-<!--l. 161--><p class="noindent" >Cylc can call a nominated &#8220;event handler&#8221; script when certain suite events occur. This is intended
-to facilitate centralized alerting and automated handling of critical events. Event handlers can do
-anything you like, such as send emails or SMS, call pagers, or intervene in the operation of their parent
-suite with cylc commands. The command <span class="lstinline"><span 
-class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">'</span><span 
+class="pcrr7t-">style</span><span 
+class="pcrr7t-">=</span><span 
+class="pcrr7t-">unfilled</span><span 
+class="pcrr7t-">',</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">[</span><span 
-class="pcrr7t-">hook</span><span 
-class="pcrr7t-">]</span><span 
+class="pcrr7t-">'</span><span 
+class="pcrr7t-">color</span><span 
+class="pcrr7t-">=</span><span 
+class="pcrr7t-">black</span><span 
+class="pcrr7t-">',</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">email</span><span 
-class="pcrr7t-">-</span><span 
-class="pcrr7t-">suite</span></span> is a ready made suite event
-handler.
-</p><!--l. 168--><p class="indent" >   A single script can be nominated to handle a list of chosen events, and the event name is passed to the handler
-to allow it to distinguish between them.
-</p><!--l. 172--><p class="indent" >   Custom suite event handlers can be located in the suite bin directory. They are passed the following arguments
-by cylc:
-</p>
-   <!--l. 175--><div class="lstlisting">
-<span 
-class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x96-171001r1"></a></span><span 
-class="pcrr7t-">&#x003C;</span><span 
-class="pcrr7t-">hook</span><span 
-class="pcrr7t-">-</span><span 
-class="pcrr7t-">script</span><span 
-class="pcrr7t-">&#x003E;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">EVENT</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">SUITE</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">MESSAGE</span>
-
-
-
-
-
-   </div>
-<!--l. 178--><p class="indent" >   Currently there is only one suite EVENT defined:  </p>
-     <ul class="itemize1">
-     <li class="itemize">&#8216;shutdown&#8217; - the suite stopped, normally or not.</li></ul>
-<!--l. 182--><p class="noindent" >MESSAGE, if provided, describes what has happened.
-</p><!--l. 184--><p class="indent" >   <span 
-class="cmti-10">Note that event handlers are called by cylc itself </span>so if you wish to pass them additional information via the
-environment you must use [cylc] <span 
-class="cmsy-10">&#x2192; </span>[[environment]], not task runtime environments.
-</p><!--l. 188--><p class="indent" >   See also Section&#x00A0;<a 
-href="cug-htmlsu69.html#x100-235000A.4.1.10">A.4.1.10<!--tex4ht:ref: TaskEventHandling --></a> for task event hooks.
-</p><!--l. 190--><p class="noindent" >
-</p>
-<!--l. 190--><p class="noindent" ><span class="paragraphHead"><a 
- id="x96-172000A.2.6.1"></a><span 
-class="cmbx-10">[cylc] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[event hooks]] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">events </span></span>
-   The list of events to handle, as documented for EVENT just above.  </p>
-     <ul class="itemize1">
-     <li class="itemize"><span 
-class="cmti-10">type: </span>list of strings
-     </li>
-     <li class="itemize"><span 
-class="cmti-10">default: </span>(none)</li></ul>
-<!--l. 198--><p class="noindent" >
-</p>
-<!--l. 198--><p class="noindent" ><span class="paragraphHead"><a 
- id="x96-173000A.2.6.2"></a><span 
-class="cmbx-10">[cylc] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[event hooks]] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">script</span></span>
-   The handler script to call when one of the nominated events occurs.
-</p>
-     <ul class="itemize1">
-     <li class="itemize"><span 
-class="cmti-10">type: </span>string
-     </li>
-     <li class="itemize"><span 
-class="cmti-10">default: </span>(none)</li></ul>
-<!--l. 207--><p class="noindent" >
-</p>
-   <h5 class="subsubsectionHead"><span class="titlemark">A.2.7   </span> <a 
- id="x96-174000A.2.7"></a>[cylc] <span 
-class="cmsy-10">&#x2192; </span>[[lockserver]]</h5>
-<!--l. 209--><p class="noindent" >The cylc lockserver brokers suite and task locks on the network (these are somewhat analagous to traditional local
-<span 
-class="cmti-10">lock files</span>). It prevents multiple instances of a suite or task from being invoked at the same time (via scheduler
-instances or <span class="lstinline"><span 
-class="pcrr7t-">cylc</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">submit</span></span>).
-</p><!--l. 214--><p class="indent" >   See <span class="lstinline"><span 
-class="pcrr7t-">cylc</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">lockserver</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">--</span><span 
-class="pcrr7t-">help</span></span> for how to run the lockserver, and <span class="lstinline"><span 
-class="pcrr7t-">cylc</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">lockclient</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">--</span><span 
-class="pcrr7t-">help</span></span> for
-occasional manual lock management requirements.
-</p><!--l. 218--><p class="noindent" >
-</p>
-<!--l. 218--><p class="noindent" ><span class="paragraphHead"><a 
- id="x96-175000A.2.7.1"></a><span 
-class="cmbx-10">[cylc] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[lockserver]] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">enable</span></span>
-   The lockserver is currently disabled by default. It is intended mainly for operational use.
-</p>
+class="pcrr7t-">'</span><span 
+class="pcrr7t-">shape</span><span 
+class="pcrr7t-">=</span><span 
+class="pcrr7t-">box</span><span 
+class="pcrr7t-">'</span></span></li></ul>
                                                                                          
 
                                                                                          
+<!--l. 1331--><p class="noindent" >
+</p>
+   <h5 class="subsubsectionHead"><span class="titlemark">A.5.7   </span> <a 
+ id="x100-263000A.5.7"></a>[visualization] <span 
+class="cmsy-10">&#x2192; </span>default edge attributes</h5>
+<!--l. 1333--><p class="noindent" >Set the default attributes (color and style etc.) of graph edges (dependency arrows). Attribute pairs must be quoted
+to hide the internal <span class="lstinline"><span 
+class="pcrr7t-">=</span></span> character.  </p>
      <ul class="itemize1">
      <li class="itemize"><span 
-class="cmti-10">type: </span>boolean
+class="cmti-10">type: </span>list of quoted <span class="lstinline"><span 
+class="pcrr7t-">'</span><span 
+class="pcrr7t-">attribute</span><span 
+class="pcrr7t-">=</span><span 
+class="pcrr7t-">value</span><span 
+class="pcrr7t-">'</span></span> pairs
      </li>
      <li class="itemize"><span 
-class="cmti-10">default: </span>False</li></ul>
-<!--l. 228--><p class="noindent" >
+class="cmti-10">legal values: </span>see graphviz or pygraphviz documentation
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">default: </span><span class="lstinline"><span 
+class="pcrr7t-">'</span><span 
+class="pcrr7t-">color</span><span 
+class="pcrr7t-">=</span><span 
+class="pcrr7t-">black</span><span 
+class="pcrr7t-">'</span></span></li></ul>
+<!--l. 1342--><p class="noindent" >
 </p>
-<!--l. 228--><p class="noindent" ><span class="paragraphHead"><a 
- id="x96-176000A.2.7.2"></a><span 
-class="cmbx-10">[cylc] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[lockserver]] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">simultaneous instances</span></span>
-   By default the lockserver prevents multiple simultaneous instances of a suite from running even under different
-registered names. But allowing this may be desirable if the I/O paths of every task in the suite are dynamically
-configured to be suite specific (and similarly for the suite state dump and logging directories, by using suite identity
-variables in their directory paths). Note that <span 
-class="cmti-10">the lockserver cannot protect you from running multiple distinct </span><span 
-class="cmbx-10">copies</span>
-<span 
-class="cmti-10">of a suite simultaneously</span>.
+   <h5 class="subsubsectionHead"><span class="titlemark">A.5.8   </span> <a 
+ id="x100-264000A.5.8"></a>[visualization] <span 
+class="cmsy-10">&#x2192; </span>enable live graph movie</h5>
+<!--l. 1344--><p class="noindent" >If True, the graph-based suite control GUI will write out a dot-language graph file on every change; these can be
+post-processed into a movie showing how the suite evolves. The frames will be written to the run time graph
+directory (see below).
 </p>
      <ul class="itemize1">
      <li class="itemize"><span 
 class="cmti-10">type: </span>boolean
      </li>
      <li class="itemize"><span 
-class="cmti-10">default: </span>False</li></ul>
-<!--l. 243--><p class="noindent" >
+class="cmti-10">default: </span><span class="lstinline"><span 
+class="pcrr7t-">False</span></span></li></ul>
+<!--l. 1354--><p class="noindent" >
 </p>
-   <h5 class="subsubsectionHead"><span class="titlemark">A.2.8   </span> <a 
- id="x96-177000A.2.8"></a>[cylc] <span 
-class="cmsy-10">&#x2192; </span>[[environment]]</h5>
-<!--l. 245--><p class="noindent" >Variables defined here are exported into the environment in which cylc itself runs. They are then available to <span 
-class="cmti-10">local</span>
-<span 
-class="cmti-10">processes spawned directly by cylc</span>. Any variables read by task event handlers must be defined here, for instance,
-because event handlers are executed directly by cylc, not by running tasks. And similarly the command lines issued
-by cylc to invoke event handlers or to submit task job scripts could, in principle, make use of environment variables
-defined here.
+   <h5 class="subsubsectionHead"><span class="titlemark">A.5.9   </span> <a 
+ id="x100-265000A.5.9"></a>[visualization] <span 
+class="cmsy-10">&#x2192; </span>[[node groups]]</h5>
+<!--l. 1356--><p class="noindent" >Define named groups of graph nodes (tasks and families) which can styled en masse, by name, in [visualization] <span 
+class="cmsy-10">&#x2192;</span>
+[[node attributes]]. Node groups are automatically defined for all task families, including root, so you can style
+family and member nodes at once by family name.
+</p><!--l. 1361--><p class="noindent" >
 </p>
-<!--l. 253--><p class="noindent" ><span class="paragraphHead"><a 
- id="x96-178000A.2.8.1"></a><span 
-class="cmbx-10">Warnings</span></span>
-</p>
-     <ul class="itemize1">
-     <li class="itemize">Cylc local variables are not available to executing tasks unless you happen to choose a local direct job
-     submission method. <span 
-class="cmti-10">Always use task runtime environments to pass variables into the task execution</span>
-     <span 
-class="cmti-10">environment (</span><a 
-href="cug-htmlsu69.html#x100-242000A.4.1.11.1"><span 
-class="cmti-10">A.4.1.11.1</span><!--tex4ht:ref: AppendixTaskExecutionEnvironment --></a><span 
-class="cmti-10">).</span>
-     </li>
-     <li class="itemize">Unlike task execution environment variables, which are written to job scripts and interpreted by the
-     shell at run time, cylc local environment variables are written directly to the environment by Python
-     as literal strings <span 
-class="cmti-10">so shell variable expansion expressions cannot be used here.</span></li></ul>
-                                                                                         
-
-                                                                                         
-<!--l. 268--><p class="noindent" >
-</p>
-<!--l. 268--><p class="noindent" ><span class="paragraphHead"><a 
- id="x96-179000A.2.8.2"></a><span 
-class="cmbx-10">[cylc] </span><span 
+<!--l. 1361--><p class="noindent" ><span class="paragraphHead"><a 
+ id="x100-266000A.5.9.1"></a><span 
+class="cmbx-10">[visualization] </span><span 
 class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[environment]] </span><span 
+class="cmbx-10">[[node groups]] </span><span 
 class="cmsy-10">&#x2192; </span><span 
 class="cmbx-10">_</span><span 
-class="cmbx-10">_VARIABLE</span><span 
+class="cmbx-10">_GROUP</span><span 
 class="cmbx-10">_</span><span 
 class="cmbx-10">_</span></span>
-   Replace __VARIABLE__ with any number of environment variable assignment expressions. Values may refer to
-other local environment variables (order of definition is preserved) and are not evaluated or manipulated by
-cylc, so any variable assignment expression that is legal in the shell in which cylc is running can be
-used (but see the warning above on variable expansions, which will not be evaluated). White space
-around the &#8216;=&#8217; is allowed (as far as cylc&#8217;s suite.rc parser is concerned these are normal configuration
-items).
+   Replace __GROUP__ with each named group of tasks or families.
 </p>
      <ul class="itemize1">
      <li class="itemize"><span 
-class="cmti-10">type: </span>string
+class="cmti-10">type: </span>comma separated list of task or family names
      </li>
      <li class="itemize"><span 
 class="cmti-10">default: </span>(none)
      </li>
      <li class="itemize"><span 
-class="cmti-10">examples:</span>
-         <ul class="itemize2">
-         <li class="itemize"><span class="lstinline"><span 
-class="pcrr7t-">FOO</span><span 
+class="cmti-10">example: </span><!--l. 1369--><div class="lstlisting">
+
+
+
+<span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x100-266001r1"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">PreProc</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">=</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr8c-">$</span><span 
-class="pcrr7t-">HOME</span><span 
-class="pcrr7t-">/</span><span 
-class="pcrr7t-">foo</span></span></li></ul>
+class="pcrr7t-">foo</span><span 
+class="pcrr7t-">,</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">bar</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x100-266002r2"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">PostProc</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">=</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">baz</span><span 
+class="pcrr7t-">,</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">waz</span>
+
+
+     </div>
      </li></ul>
-<!--l. 289--><p class="noindent" >
+<!--l. 1375--><p class="noindent" >
 </p>
-   <h5 class="subsubsectionHead"><span class="titlemark">A.2.9   </span> <a 
- id="x96-180000A.2.9"></a>[cylc] <span 
-class="cmsy-10">&#x2192; </span>[[simulation mode]] </h5>
-<!--l. 291--><p class="noindent" >Items specific to running suites in simulation mode.
-</p><!--l. 293--><p class="noindent" >
+   <h5 class="subsubsectionHead"><span class="titlemark">A.5.10   </span> <a 
+ id="x100-267000A.5.10"></a>[visualization] <span 
+class="cmsy-10">&#x2192; </span>[[node attributes]]</h5>
+<!--l. 1377--><p class="noindent" >Here you can assign graph node attributes to specific nodes, or to all members of named groups defined in
+[visualization] <span 
+class="cmsy-10">&#x2192; </span>[[node groups]] (task families are automatically node groups). Group styling can be overridden for
+individual nodes or subgroups.
+</p><!--l. 1382--><p class="noindent" >
 </p>
-<!--l. 293--><p class="noindent" ><span class="paragraphHead"><a 
- id="x96-181000A.2.9.1"></a><span 
-class="cmbx-10">[cylc] </span><span 
+<!--l. 1382--><p class="noindent" ><span class="paragraphHead"><a 
+ id="x100-268000A.5.10.1"></a><span 
+class="cmbx-10">[visualization] </span><span 
 class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[simulation mode]] </span><span 
+class="cmbx-10">[[node attributes]] </span><span 
 class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">clock rate</span></span>
-   This determines the speed at which the simulation mode clock runs, in real seconds per simulated hour. A value
-of 10, for example, means it will take 10 real seconds to simulate one hour of operation.
+class="cmbx-10">_</span><span 
+class="cmbx-10">_NAME</span><span 
+class="cmbx-10">_</span><span 
+class="cmbx-10">_</span></span>
+   Replace __NAME__ with each node or node group for style attribute assignment.
 </p>
      <ul class="itemize1">
      <li class="itemize"><span 
-class="cmti-10">type: </span>integer (<span 
-class="cmsy-10">&#x2265; </span>0, real seconds per simulated hour)
+class="cmti-10">type: </span>list of quoted <span class="lstinline"><span 
+class="pcrr7t-">'</span><span 
+class="pcrr7t-">attribute</span><span 
+class="pcrr7t-">=</span><span 
+class="pcrr7t-">value</span><span 
+class="pcrr7t-">'</span></span> pairs
      </li>
      <li class="itemize"><span 
-class="cmti-10">default: </span>10</li></ul>
-<!--l. 304--><p class="noindent" >
-</p>
-<!--l. 304--><p class="noindent" ><span class="paragraphHead"><a 
- id="x96-182000A.2.9.2"></a><span 
-class="cmbx-10">[cylc] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[simulation mode]] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">clock offset</span></span>
-   The clock offset determines the initial time on the simulation clock, at suite startup, relative to the initial cycle
-time. An offset of 0 simulates real time operation; greater offsets simulate catch up from a delay and subsequent
-transition to real time operation.
-</p>
-                                                                                         
+class="cmti-10">legal values: </span>see graphviz or pygraphviz documentation
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">default: </span>(none)
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">example: </span>(with reference to the node groups defined above) <!--l. 1392--><div class="lstlisting">
+<span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x100-268001r1"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">PreProc</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">=</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">'</span><span 
+class="pcrr7t-">style</span><span 
+class="pcrr7t-">=</span><span 
+class="pcrr7t-">filled</span><span 
+class="pcrr7t-">',</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">'</span><span 
+class="pcrr7t-">color</span><span 
+class="pcrr7t-">=</span><span 
+class="pcrr7t-">blue</span><span 
+class="pcrr7t-">'</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x100-268002r2"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">PostProc</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">=</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">'</span><span 
+class="pcrr7t-">color</span><span 
+class="pcrr7t-">=</span><span 
+class="pcrr7t-">red</span><span 
+class="pcrr7t-">'</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x100-268003r3"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">foo</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">=</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">'</span><span 
+class="pcrr7t-">style</span><span 
+class="pcrr7t-">=</span><span 
+class="pcrr7t-">unfilled</span><span 
+class="pcrr7t-">'</span>
 
-                                                                                         
-     <ul class="itemize1">
-     <li class="itemize"><span 
-class="cmti-10">type: </span>integer (<span 
-class="cmsy-10">&#x2265; </span>0, hours behind initial cycle time)
-     </li>
-     <li class="itemize"><span 
-class="cmti-10">default: </span>24</li></ul>
-<!--l. 316--><p class="noindent" >
-</p>
-<!--l. 316--><p class="noindent" ><span class="paragraphHead"><a 
- id="x96-183000A.2.9.3"></a> <span 
-class="cmbx-10">[cylc] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[simulation mode]] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">command scripting</span></span>
-   The command scripting to execute for all tasks when running in simulation mode.  </p>
-     <ul class="itemize1">
-     <li class="itemize"><span 
-class="cmti-10">type: </span>string (scripting valid in job submission shell; triple quote for multiple lines)
-     </li>
-     <li class="itemize"><span 
-class="cmti-10">default: </span><span class="lstinline"><span 
-class="pcrb7t-">echo</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">SIMULATION</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">MODE</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr8c-">$</span><span 
-class="pcrr7t-">CYLC_TASK_ID</span><span 
-class="pcrr7t-">;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">sleep</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">10;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrb7t-">echo</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">BYE</span></span></li></ul>
-<!--l. 325--><p class="noindent" >
-</p>
-<!--l. 325--><p class="noindent" ><span class="paragraphHead"><a 
- id="x96-184000A.2.9.4"></a><span 
-class="cmbx-10">[cylc] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[simulation mode]] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[[job submission]]]</span></span>
-   Configure job submission for simulation mode.
-</p><!--l. 329--><p class="noindent" >
-</p>
-<!--l. 329--><p class="indent" >   <span class="subparagraphHead"> <a 
- id="x96-185000A.2.9.4.1"></a><span 
-class="cmbx-10">[cylc] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[simulation mode]] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[[job submission]]] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">method </span></span>
-   The job submission method to use for all tasks in simulation mode. Any available method can be used but the
-default is probably sufficient for simulation mode.
-</p>
-     <ul class="itemize1">
-     <li class="itemize"><span 
-class="cmti-10">type: </span>string (a job submission method name - see Section&#x00A0;<a 
-href="cug-htmlsu69.html#x100-220000A.4.1.8.1">A.4.1.8.1<!--tex4ht:ref: RuntimeJobSubMethods --></a>)
-     </li>
-     <li class="itemize"><span 
-class="cmti-10">default: </span><span class="lstinline"><span 
-class="pcrr7t-">background</span></span></li></ul>
-<!--l. 339--><p class="noindent" >
-</p>
-<!--l. 339--><p class="noindent" ><span class="paragraphHead"><a 
- id="x96-186000A.2.9.5"></a><span 
-class="cmbx-10">[cylc] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[simulation mode]] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[[event hooks]]]</span></span>
-   Configure event hooks for simulation mode.
-</p><!--l. 343--><p class="noindent" >
-</p>
-<!--l. 343--><p class="indent" >   <span class="subparagraphHead"> <a 
- id="x96-187000A.2.9.5.1"></a><span 
-class="cmbx-10">[cylc] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[simulation mode]] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[[event hooks]]] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">enable </span></span>
-   Event hooks are disabled by default in simulation mode. They can be enabled in order to test automated alerts,
-for example, without running the real suite tasks, but be aware that timeouts will be relative to the accelerated
-simulation mode clock which by default runs very quickly.
-</p>
-                                                                                         
 
-                                                                                         
+     </div>
+     </li></ul>
+<!--l. 1399--><p class="noindent" >
+</p>
+   <h5 class="subsubsectionHead"><span class="titlemark">A.5.11   </span> <a 
+ id="x100-269000A.5.11"></a>[visualization] <span 
+class="cmsy-10">&#x2192; </span>[[run time graph]]</h5>
+<!--l. 1401--><p class="noindent" >Cylc can generate graphs of dependencies resolved at run time, i.e.&#x00A0;what actually triggers off what as the suite runs.
+This feature is retained mainly for development and debugging purposes. You can use simulation mode to generate
+run time graphs very quickly.
+</p><!--l. 1406--><p class="noindent" >
+</p>
+<!--l. 1406--><p class="noindent" ><span class="paragraphHead"><a 
+ id="x100-270000A.5.11.1"></a><span 
+class="cmbx-10">[visualization] </span><span 
+class="cmsy-10">&#x2192; </span><span 
+class="cmbx-10">[[run time graph]] </span><span 
+class="cmsy-10">&#x2192; </span><span 
+class="cmbx-10">enable</span></span>
+   Run time graphing is now disabled by default.  </p>
      <ul class="itemize1">
      <li class="itemize"><span 
 class="cmti-10">type: </span>boolean
-     </li>
-     <li class="itemize"><span 
-class="cmti-10">default: </span>False</li></ul>
                                                                                          
 
                                                                                          
-   <!--l. 356--><div class="crosslinks"><p class="noindent">[<a 
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">default: </span>False</li></ul>
+<!--l. 1414--><p class="noindent" >
+</p>
+<!--l. 1414--><p class="noindent" ><span class="paragraphHead"><a 
+ id="x100-271000A.5.11.2"></a><span 
+class="cmbx-10">[visualization] </span><span 
+class="cmsy-10">&#x2192; </span><span 
+class="cmbx-10">[[run time graph]] </span><span 
+class="cmsy-10">&#x2192; </span><span 
+class="cmbx-10">cutoff</span></span>
+   New nodes will be added to the run time graph as the corresponding tasks trigger, until their cycle time exceeds
+the initial cycle time by more than this cutoff, in hours.
+</p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmti-10">type: </span>integer (<span 
+class="cmsy-10">&#x2265; </span>0, hours)
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">default: </span>24</li></ul>
+<!--l. 1425--><p class="noindent" >
+</p>
+<!--l. 1425--><p class="noindent" ><span class="paragraphHead"><a 
+ id="x100-272000A.5.11.3"></a><span 
+class="cmbx-10">[visualization] </span><span 
+class="cmsy-10">&#x2192; </span><span 
+class="cmbx-10">[[run time graph]] </span><span 
+class="cmsy-10">&#x2192; </span><span 
+class="cmbx-10">directory</span></span>
+   Where to put the run time graph file, <span class="lstinline"><span 
+class="pcrr7t-">runtime</span><span 
+class="pcrr7t-">-</span><span 
+class="pcrr7t-">graph</span><span 
+class="pcrr7t-">.</span><span 
+class="pcrr7t-">dot</span></span>.
+</p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmti-10">type: </span>string (a valid directory path, may contain environment variables)
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">default: </span><span class="lstinline"><span 
+class="pcrr8c-">$</span><span 
+class="pcrr7t-">CYLC_SUITE_DEF_PATH</span><span 
+class="pcrr7t-">/</span><span 
+class="pcrr7t-">graphing</span></span></li></ul>
+                                                                                         
+
+                                                                                         
+   <!--l. 1438--><div class="crosslinks"><p class="noindent">[<a 
 href="cug-htmlsu68.html" >next</a>] [<a 
 href="cug-htmlsu66.html" >prev</a>] [<a 
 href="cug-htmlsu66.html#tailcug-htmlsu66.html" >prev-tail</a>] [<a 
 href="cug-htmlsu67.html" >front</a>] [<a 
-href="cug-htmlse13.html#cug-htmlsu67.html" >up</a>] </p></div>
-<!--l. 356--><p class="indent" >   <a 
- id="tailcug-htmlsu67.html"></a>    </p> 
+href="cug-htmlse15.html#cug-htmlsu67.html" >up</a>] </p></div>
+<!--l. 1438--><p class="indent" >   <a 
+ id="tailcug-htmlsu67.html"></a>   </p> 
 </body></html> 

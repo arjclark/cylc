@@ -38,19 +38,14 @@
      	</div> <!--pageHeader-->
 
     <div id="banner">
-            <p class="p1"><span>Cylc (<em>"silk"</em>) is an advanced
-                <b>suite engine</b> that makes it easy
-                to construct and control complex suites of
-                interdependent cycling tasks for weather and climate
-                forecasting and related data processing. Cylc suites
-                optimally interleave tasks from multiple
-                forecast cycles for fast catch up from delays, fast
-                historical case studies, and fast offset parallel trials; 
-                they seamlessly transition between delayed and
-                real time operation; they flow around delayed and failed
-                tasks; and they dynamically adapt to insertion or
-                removal of tasks.
-        </span></p> 
+            <p class="p1"><span>Cylc (<em>"silk"</em>) is a <b>suite
+                    engine</b> and <b>meta-scheduler</b> that
+                specializes in suites of cycling tasks for weather and
+                climate forecasting and related processing (it can
+                also be used for one-off workflows of non-cycling tasks,
+                which is a simpler problem). <b>Cylc was released
+                    by NIWA under the GNU General Public License v3 in 2011.</b>
+            </span></p> 
 
         <p class="p2"><span>.</span></p> <!-- p2 is required to get
         the lower banner background image, and the . is required
@@ -62,26 +57,23 @@
 
 		<div id="preamble">
 
-    <div class="warning">15 March 2012: cylc-4.2.2 released 
-        (<a href="https://github.com/hjoliver/cylc/blob/master/changelog.txt#L522">change log</a>)
+    <div class="warning">Latest Release: cylc-4.5.0 (1 August 2012)
+        (<a href="https://github.com/hjoliver/cylc/blob/master/changelog.txt#L602">change log</a>)
     </div>
 
-            <p class="p1"><span> Cylc was initially developed at 
+  <!--          <p class="p1"><span> Cylc was developed at 
                 <a href="http://www.niwa.co.nz">NIWA</a> 
         (National Institute of Water &amp; Atmospheric Research,
         New Zealand) by Dr Hilary James Oliver. 
         It was prototyped in 2008, has controlled NIWA's
         operational forecasting systems since 2010, and was
         released under the GNU General Public License in 2011.</span></p>
-
-    <div class="warning">Cylc was recently chosen as the 
-        new suite engine for the Met Office (UK).
-    </div>
+    -->
 
     <a id="overview"></a>
     <h3><span>Overview</span></h3>
 
-    <p class="p1"><span>A metascheduler, in this context, is a
+<!--    <p class="p1"><span>A metascheduler, in this context, is a
         <em>control system</em> that determines when interdependent
         tasks are <em>ready</em> (when their prerequisites have been
         satisfied by other tasks in the suite) to be submitted to
@@ -91,7 +83,7 @@
         handle non-cycling (one-off) tasks and suites, and repeating
         asynchronous tasks for processing data from successive satellite
         passes in real time.</span></p>
-        
+    -->     
     <!--
     <p class="p2"><span>
         Dependence between tasks in different forecast cycles can
@@ -115,17 +107,10 @@
     -->
 
     <p class="p3"><span>
-        Cylc also has very flexible, adaptive run time behaviour:
-        suites naturally transition between delayed and real time
-        operation as required; they adapt to insertion and removal of
-        tasks; and they flow around failed or delayed tasks (which
-        catch up as quickly as possible once the problem is addressed).
-    </span></p>
-
-    <p class="p3"><span>
-        Cylc's suite design paradigm is simple and intuitive: 
-        "draw" a dependency graph in concise textual form, then
-        configure the runtime properties of each task. This simple 
+        Cylc's suite design paradigm is simple and intuitive: "draw" a
+        dependency graph in concise textual form, then configure the
+        runtime properties of each task in an efficient inheritance
+        hierarchy. This simple 
         <a href="screenshots/simple-suiterc.png">suite definition</a>,
         for example, defines a suite with this
 <a href="screenshots/QuickStartB-graph18.png">dependency graph</a>.
@@ -133,7 +118,32 @@
         no more difficult, they just have more tasks.
     </span></p>
 
+        <p class="p1"><span>
+                Cylc suites can interleave tasks from multiple forecast
+                cycles for fast catch up from delays, fast historical
+                case studies, and fast offset parallel trials; they
+                seamlessly transition between delayed and real time
+                operation; they flow around delayed or failed tasks
+                (which will catch up as quickly as possible once the
+                problem is addressed), and they adapt to insertion and
+                removal of tasks at run time.     </span></p>
+
+            <div id="screenshots">
+				<h4 class="foo"><span>Screen Shots</span></h4>
+				<ul>
+				  <li> <a href="screenshots/gcylc-db.png">The gcylc GUI, one suite running on port 7766</a></li>
+				  <li> <a href="screenshots/suiterc-jinja2.png">A cylc suite definition in the vim editor</a></li>
+				  <li> <a href="screenshots/graph-viewer.png">Interactive suite graph viewer</a></li>
+				  <li> <a href="screenshots/control1.png">The gcontrol suite control GUI, dot and text views</a></li>
+				  <li> <a href="screenshots/control2.png">The gcontrol suite control GUI, graph and text views</a></li>
+				  <li> <a href="screenshots/ecox-1.png">A large suite graphed by cylc</a></li>
+				  <li> <a href="screenshots/NZLAM-catchup.png">Tasks from multiple cycles running at once</a></li>
+				</ul>
+
     <p class="nav"><span><a href="#">(back to top)</a></span></p>
+
+</div> <!--screenshots-->
+
 
     </div>  <!--preamble-->
  
@@ -141,9 +151,8 @@
         <h3 class="select"><span>Navigation:</span></h3>
         <ul>
             <li> <a href="#overview">Overview</a> </li>
+            <li> <a href="#who">Cylc Users?</a> </li>
             <li> <a href="#features">Features</a> </li>
-            <li> <a href="#screenshots">Screen Shots</a> </li>
-            <li> <a href="#performance">Performance</a> </li>
             <li> <a href="#requirements">Requirements</a> </li>
             <li> <a href="#download">Download</a> </li>
             <li> <a href="#installation">Installation</a> </li>
@@ -160,77 +169,116 @@
                
 	<div id="mainpage">
 
-		<div id="features">
+		<div id="who">
+			<h3><span>Who Is Using Cylc So Far?</span></h3>
 
-			<h3><span>Other Features</span></h3>
+            <p class="p1"><span>
+        Cylc is (or is about to be) the official suite engine of the
+        following institutions:</span></p>
+            <ul>
+                <li> NIWA - cylc has controlled our research and
+                forecasting suites since 2010.</li>
+
+                <li> Met Office (UK) - internal use ramping up mid 
+                2012 through mid 2013.</li>
+            </ul>
+
+            <p class="p1"><span>
+            Cylc is also used by small groups at the following
+            institutions:</span></p>
+            <ul>
+                <li> NRL Marine Meteorology Division, USA</li>
+                <li> Max Planck Institute for Meteorology, Germany </li>
+                <li> Bureau of Meteorology, Australia</li>
+
+            <p class="nav"><span><a href="#">(back to top)</a></span></p>
+
+          </div> <!--who-->
+
+
+
+		<div id="features">
+			<h3><span>Features</span></h3>
 
             <p class="p1"><span>First, see the <a href="#overview">Overview</a> above.</span></p>
 				<ul>
-                        <li> Cylc can handle many 
-                        <b>hundreds of tasks</b> in a single suite (see 
-                        <a href="#performance">performance)</a>.</li>
-
-                        <li> <b>Suites can be distributed</b> across multiple
-                        hosts on a heterogeneous network, with multiple job
-                        submission methods (loadleveler, pbs, sge, background, at).</li>
-
-                        <li> <b>Most existing tasks require no modification.</b> </li>
-
-            <li> <b>Suites are validated</b> against a spec, to catch errors prior to run time.</li>
-	
                         <li> Self-documenting <b>command line</b> and
                         <b>graphical interfaces</b> covering all functionality.</li>
 
-                        <li> <b>Suite security:</b> users cannot
-                        intervene in the operation of suites owned by others.</li>
+                        <li> A multi-view suite control GUI, with
+                        collapsible task families.</li>
+
+                        <li> <b>Most tasks require no modification for use with cylc.</b> </li>
+
+                        <li> Clean separation of task <b>scheduling</b>
+                        and <b>runtime</b> configuration.</li>
+
+                        <li> Configuration of task runtime properties
+                        (environment etc.) via an inheritance
+                        hierarchy of nested <b>task families</b>.</li>
+
+                        <li> <b>Remote control</b>: from your desktop
+                        box, control a suite running on a remote server
+                        that submits tasks to other remote hosts.
+
+                        <li> Extensible task cycling: currently
+                        hours-of-the-day, and stepped daily, monthly,
+                        and yearly cycling.</li>
+
+                        <li> Cylc can handle <b>hundreds of tasks</b> in a single suite
+                        (beyond this the suite control GUI may struggle,
+                        but you can run very large suites via the command line tools).</li>
+
+                        <li> <b>Suites can be distributed</b> across multiple
+                        hosts on a heterogeneous network.</li>
+
+                        <li> Supports use of many <b>job submission methods</b> within a suite 
+                        (e.g. loadleveler, pbs, sge, background, at)
+
+
+                        <li> <b>Suites are validated</b> against a spec
+                        to catch many errors prior to run time.</li>
+	
+                        <li> <b>Suite security:</b> access to running
+                        suites is automatically passphrase
+                        authenticated.</li>
 
                         <li> <b>Submit single tasks</b> exactly as the suite would
-                        (job submission method and execution environment).</li>
+                        (including job submission method and execution environment).</li>
 
-                        <li> A <b>lockserver</b> prevents accidental invocation
-                        of multiple instances of a suite or task at the same time.</li>
+                        <li> Suites are accessed via <b>hierarchical
+                            names</b> (which to group and organize
+                        suites) registered in a private <b>suite database</b> .</li>
 
-                        <li> <b>Suite databases:</b> to organize your suites.</li>
+                        <li> A <b>lockserver</b> can be used to prevent
+                        accidental invocation of multiple instances of a
+                        suite or task at the same time (even for distributed suites).</li>
 
-                        <li> <b>Suites adapt to insertion and removal of tasks at run time.</b></li>
+                        <li> Suites <b>cold-start</b>ed, <b>warm-start</b>ed, and
+                        stopped and <b>restart</b>ed in any state of operation.</li>
 
-                        <li> <b>Suites flow around failed or delayed tasks.</b></li>
-
-                        <li> Explicit 
-                        <a href="screenshots/QuickStartB-graph18.png">cold start bootstrapping</a>
+                        <li> Explicit <b>cold start bootstrapping</b> 
                         to get warm-cycling suites up and running.</li>
 
-                        <li> Suites can be cold started, warm started, or restarted 
-                        from a previous state.</li>
-
-						<li> Suites can be stopped and restarted in any state of
-						operation.</li>
-
-                        <li> Restart states are automatically dumped prior to 
-                        actioning any intervention in a running suite.</li>
-
-                        <li> Spin-up processing by insertion of
+                        <!-- might just confuse readers: <li> Spin-up
+                        processing by insertion of
                         temporary tasks and addition of new
-                        prerequisites on the fly.</li>
+                        prerequisites on the fly.</li>-->
 
-                        <li> Recursive purge: remove entire sub-trees
-                        of tasks from a running suite, through to some
-                        future cycle time.</li>
+                        <li> <b>Recursive purge</b>: remove sub-trees of tasks
+                        from a running suite through to some future cycle.</li>
 
                         <li> <b>General conditional triggers</b>.</li>
 
-                        <li> Clean separation of task <b>scheduling</b> and <b>runtime</b> configuration.</li>
+                        <li> <b>Task family triggers</b>.</li>
 
-                        <li> Configuration of task runtime properties
-                        (environment etc.) via an <b>inheritance
-                            hierarchy</b> of <b>nested task families</b>.</li>
-
-                        <li> <b>Automated failure recovery</b> (several methods supported).</li>
+                        <li> <b>Automated task failure recovery</b> (several methods supported).</li>
 
                         <li> <b>Task and suite event hooks</b> for central alerting and timeouts.</li>
 
-                        <li> <b>Portable suites</b> are easy to construct -
-                        just copy another user's suite and run it.</li>
+                        <li> <b>Portable suites</b> are easy to
+                        construct - just copy another user's suite and
+                        run it.</li>
 
                         <li> <b>Simulation mode</b>: get the scheduling right,
                         on an accelerated clock, without running real tasks.</li>
@@ -241,9 +289,8 @@
                         <li> <b>Repeating asynchronous tasks</b> for parallel processing 
                         of real time satellite datasets.</li>
 
-                        <li> <b>Jinja2 Template Processor Support</b>
-                        programmatic generation of suite
-                        definitions.</li>
+                        <li> <b>Jinja2 Template Processor</b> supported,
+                        for programmatic generation of suite definitions.</li>
 
                         <li> <b>Internal Queues</b> - limit the number
                         of active (submitted or running) tasks.</li>
@@ -253,57 +300,18 @@
                         versions.</li>
 				</ul>
 
-			<h4><span>Coming Soon</span></h4>
+			<!--<h4><span>Coming Soon</span></h4>
 				<ul>
-                        <li> Tasks with stepped daily, monthly, and yearly
-                        cycling intervals (already complete, in the
-                        repository head).</li>
-                        <!--<li> Loose prerequisites: trigger off the "most
+                        <li> Loose prerequisites: trigger off the "most
                         recent available" (variable offset) instance of
                         a slower-cycling upstream task (back-port from
-                        cylc-2).</li> -->
+                        cylc-2).</li>
 				</ul>
+                -->
 
     <p class="nav"><span><a href="#">(back to top)</a></span></p>
 
 </div> <!--features-->
-
-<div id="screenshots">
-				<h3 class="foo"><span>Screen Shots</span></h3>
-				<ul>
-				  <li> <a href="screenshots/commandhelp.png">The command line interface</a></li>
-				  <li> <a href="screenshots/db.png">The gcylc GUI, private suite database</a></li>
-				  <li> <a href="screenshots/cdb.png">The gcylc GUI, central suite database</a></li>
-				  <li> <a href="screenshots/simple-suiterc.png">Editing a suite in vim</a></li>
-				  <li> <a href="screenshots/QuickStartB-graph18.png">The same suite graphed</a></li>
-				  <li> <a href="screenshots/graph-viewer.png">Interactive suite graph viewer</a></li>
-				  <li> <a href="screenshots/control-trad.png">Tree view suite control GUI</a></li>
-				  <li> <a href="screenshots/control-graph.png">Graph view suite control GUI</a></li>
-				  <li> <a href="screenshots/ecox-1.png">A large operational suite</a></li>
-				  <li> <a href="screenshots/QuickStartA-ControlRunning.png">Running multiple cycles at once (1)</a></li>
-				  <li> <a href="screenshots/NZLAM-catchup.png">Running multiple cycles at once (2)</a></li>
-				  <li> <a href="screenshots/suite-log.png">A suite log, via gcylc</a></li>
-				  <li> <a href="screenshots/validate-eg.png">Suite validation results, via gcylc</a></li>
-
-				</ul>
-
-    <p class="nav"><span><a href="#">(back to top)</a></span></p>
-
-</div> <!--screenshots-->
-
-<div id="performance">
-				<h3 class="foo"><span>Performance</span></h3>
-
-                <p class="p2">As of version 3.2.0 cylc can easily manage
-                1000 tasks in single suite. Beyond several hundred tasks
-                the suite control GUIs may struggle - they have not yet
-                been optimized for huge suites; for now you can run very
-                large suites using cylc command line control and
-                monitoring tools.</p> 
-
-    <p class="nav"><span><a href="#">(back to top)</a></span></p>
-
-</div> <!--performance-->
 
 <div id="requirements">
 
@@ -333,15 +341,19 @@
         <li> <a href="http://jinja.pocoo.org">Jinja2</a>, a template processor for Python.</li>
     </ul>
 
+<p class="p1"><span>
 Python and Pyro are essential. PyGTK is required by the gcylc GUI
 (but you can control and monitor cylc suites from the command line). 
 Graphviz and pygraphviz are required for dependency graphing and the
 graph-based suite control GUI (but you can also run cylc without them).
 Jinja2 can be used for advanced programmatic generation of suite
 definitions.
+</span></p>
 
-Cylc has absorbed the following software in modified form (no need to
-install them): 
+<p class="p1"><span>
+Cylc has absorbed the following software in slightly modified form (you
+do not need to install them separately): 
+</span></p>
 <ul>
     <li> <a href="http://code.google.com/p/jrfonseca/wiki/XDot">xdot</a>, a
     graph viewer (LGPL license)</li>
@@ -357,14 +369,12 @@ install them):
 <h3><span>Download</span></h3>
 
 <p class="p1"><span>
-    The latest release is <b>cylc-4.2.2</b>. You can download the tarball from GitHub:
-    <a href="https://github.com/downloads/hjoliver/cylc/cylc-4.2.2.tgz">cylc-4.2.2.tgz</a>.
+    Download the latest cylc release tarball (14MB) from GitHub:
+    <a href="https://github.com/downloads/hjoliver/cylc/cylc-4.5.0.tgz">cylc-4.5.0.tgz</a>.
 </span></p>
 
-
 <p class="p1"><span>
-    If you're interested in cylc development you'll need to clone the cylc 
-    git repository; see <a href="#development">below</a>.
+    Developers can clone the cylc git repository; see <a href="#development">below</a>.
 </span></p>
 <p class="nav"><span><a href="#">(back to top)</a></span></p>
 </div> <!--download-->
@@ -392,8 +402,9 @@ install them):
     </span></p>
 
     <ul>
-        <li> <a href="CylcUserGuide.pdf">Cylc User Guide 4.2.2 (PDF, ~6MB)</a></li>
-        <li> <a href="cug-html.html">Cylc User Guide 4.2.2 (HTML)</a> </li>
+        <li> <a href="CylcUserGuide.pdf">PDF (5MB)</a></li>
+        <li> <a href="cug-html.html">HTML (multi-page)</a> </li>
+        <li> <a href="single/cug-html.html">HTML (single-page, 3MB)</a> </li>
     </ul>
 
     <p class="nav"><span><a href="#">(back to top)</a></span></p>
@@ -403,14 +414,11 @@ install them):
 <div id="support">
             <h3><span>Support</span></h3>
 
-            <p class="p1"><span>As of November 2011 we have a mailing
-                list on Google Groups, as a discussion forum for cylc
-                development, user support, and release
-                announcements. To view the list archive, or join the 
-                group:</span></p>
+            <p class="p1"><span>We have a mailing list on Google Groups
+                as a discussion forum for cylc development, user
+                support, and release announcements:</span></p>
 
             <p class="p1"><span><a href="https://groups.google.com/group/cylc-dev/about">cylc-dev mailing list</a></span></p>
-
 
             <iframe id="forum_embed" 
                 src="javascript:void(0)"
@@ -433,10 +441,10 @@ install them):
 <div id="pending">
 <h3><span>Pending Changes</span></h3>
 
-<p class="p1"><span>For any changes uploaded to the source repository
-master branch, but not yet rolled out in a new release, see the final
+<p class="p1"><span>For changes uploaded to the source repository
+master branch but not yet rolled out in a new release, see the final
 PENDING section of the 
-<a href="https://github.com/hjoliver/cylc/blob/master/changelog.txt">cylc change log</a>.</span></p>
+<a href="https://github.com/hjoliver/cylc/blob/master/changelog.txt">change log</a>.</span></p>
 
     <p class="nav"><span><a href="#">(back to top)</a></span></p>
 </div> <!--pending-->
@@ -455,15 +463,14 @@ PENDING section of the
             </span></p>
 
             <p class="p2"><span>
-                We currently use the <em>integrator</em> or 
-                <em>fork and pull</em> model
-            of distributed development. Developers do not require write
-            access to the cylc master repository; instead they fork the
-            master repository on GitHub, and clone their fork to
-            their local workstation(s).  Changes are pushed to the
-            developer fork and a pull request issued to the master
-            repository maintainer (Hilary Oliver), who reviews the
-            changes and pulls them into the master repository.
+                We use the <em>integrator</em> or 
+                <em>fork and pull</em> model of distributed development.
+                Developers fork the master repository on GitHub, and
+                clone their fork to their local workstation.  Changes
+                are pushed to the developer fork and a pull request
+                issued to the master repository maintainer (Hilary
+                Oliver), who reviews the changes and pulls them into the
+                master repository.
             </span></p>
 
             <!--
@@ -514,7 +521,7 @@ PENDING section of the
 <li> <a id="fn3" href="#fnr3" title="This is a footnote; return to main text.">(back)</a>
 Pyro 4, which is compatible with Python 3, is now recommended for
 production use, but does not yet have the connection authentication used
-by cylc.
+by cylc (apparently it will in an upcoming release).
 </li>
      </ol>
 
@@ -534,7 +541,6 @@ by cylc.
 
 </div> <!--subcontainer-->
 </div> <!--container-->
-
 
 </body>
 </html>

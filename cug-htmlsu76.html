@@ -4,56 +4,40 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Switching A Suite Between Simulation And Live Modes?</title> 
+<head><title>Version 4.0</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
 <meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
 <!-- xhtml,3,next,html --> 
 <meta name="src" content="cug-html.tex" /> 
-<meta name="date" content="2012-03-15 23:47:00" /> 
+<meta name="date" content="2012-07-31 01:15:00" /> 
 <link rel="stylesheet" type="text/css" href="cug-html.css" /> 
 </head><body 
 >
-   <!--l. 5191--><div class="crosslinks"><p class="noindent">[<a 
-href="cug-htmlse18.html" >next</a>] [<a 
+   <!--l. 5357--><div class="crosslinks"><p class="noindent">[<a 
+href="cug-htmlse21.html" >next</a>] [<a 
 href="cug-htmlsu75.html" >prev</a>] [<a 
 href="cug-htmlsu75.html#tailcug-htmlsu75.html" >prev-tail</a>] [<a 
 href="#tailcug-htmlsu76.html">tail</a>] [<a 
-href="cug-htmlse17.html#cug-htmlsu76.html" >up</a>] </p></div>
-   <h4 class="subsectionHead"><span class="titlemark">E.2   </span> <a 
- id="x111-345000E.2"></a>Switching A Suite Between Simulation And Live Modes?</h4>
-<!--l. 5193--><p class="noindent" >The scheduler mode (simulation or live) is recorded in the suite state dump file. Cylc will not let you <span 
-class="cmti-10">restart </span>a
-simulation mode suite in live mode, or vice versa - any attempt to do the former would certainly be a
-mistake (because the simulation mode dummy tasks do not generate any of the real outputs depended
-on by downstream live tasks), and the latter, while feasible, would corrupt the live state dump and
-turn it over to simulation mode. The easiest way to test a live suite in simulation mode, if you don&#8217;t
-want to obliterate the current state dump by doing a cold or warm start (as opposed to a restart
-from the previous state) is to take a quick copy of the suite and run the copy in simulation mode.
-However, if you really want to run a live suite forward in simulation mode without copying it, do
-this:
-     </p><ol  class="enumerate1" >
-     <li 
-  class="enumerate" id="x111-345002x1">Backup the live state dump file.
+href="cug-htmlse20.html#cug-htmlsu76.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">F.3   </span> <a 
+ id="x114-358000F.3"></a>Version 4.0</h4>
+<!--l. 5359--><p class="noindent" >Version 4.0 has the following major improvements over cylc-3.x, along with many refinements:  </p>
+     <ul class="itemize1">
+     <li class="itemize">Suite registration has been generalized from GROUP:NAME to a hierarchy of arbitrary depth, e.g
+     foo.bar.baz, allowing suites to be organized in a tree-like structure.
      </li>
-     <li 
-  class="enumerate" id="x111-345004x2">Edit the mode line in the state dump file and restart in simulation mode.
+     <li class="itemize">The suite.rc file has been extensively reorganized. In particular it now defines a <span 
+class="cmti-10">namespace hierarchy </span>of
+     families and tasks to allow common runtime properties to be grouped naturally among related tasks.
      </li>
-     <li 
-  class="enumerate" id="x111-345006x3">Later, restart the live suite from the restored live state dump backup.</li></ol>
-<!--l. 5211--><p class="indent" >   <span 
-class="cmti-10">Finally, it should be noted that cylc previously had the ability to create an instant safe simulation mode clone of</span>
-<span 
-class="cmti-10">the current state of any suite, running or stopped, but this &#8220;practice mode&#8221; has been disabled since the upgrade to</span>
-<span 
-class="cmti-10">cylc-3, pending testing; it could easily be restored if needed.</span>
-</p>
-   <!--l. 5315--><div class="crosslinks"><p class="noindent">[<a 
-href="cug-htmlse18.html" >next</a>] [<a 
+     <li class="itemize">The Jinja2 template engine is now supported, adding general programmability to cylc suite definitions.</li></ul>
+   <!--l. 5373--><div class="crosslinks"><p class="noindent">[<a 
+href="cug-htmlse21.html" >next</a>] [<a 
 href="cug-htmlsu75.html" >prev</a>] [<a 
 href="cug-htmlsu75.html#tailcug-htmlsu75.html" >prev-tail</a>] [<a 
 href="cug-htmlsu76.html" >front</a>] [<a 
-href="cug-htmlse17.html#cug-htmlsu76.html" >up</a>] </p></div>
-<!--l. 5315--><p class="indent" >   <a 
+href="cug-htmlse20.html#cug-htmlsu76.html" >up</a>] </p></div>
+<!--l. 5373--><p class="indent" >   <a 
  id="tailcug-htmlsu76.html"></a> </p> 
 </body></html> 

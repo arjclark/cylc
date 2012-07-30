@@ -4,45 +4,76 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Orderly Product Generation?</title> 
+<head><title>Top Level Items</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
 <meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
 <!-- xhtml,3,next,html --> 
 <meta name="src" content="cug-html.tex" /> 
-<meta name="date" content="2012-03-15 23:47:00" /> 
+<meta name="date" content="2012-07-31 01:15:00" /> 
 <link rel="stylesheet" type="text/css" href="cug-html.css" /> 
 </head><body 
 >
-   <!--l. 4989--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 18--><div class="crosslinks"><p class="noindent">[<a 
 href="cug-htmlsu64.html" >next</a>] [<a 
-href="cug-htmlsu62.html" >prev</a>] [<a 
-href="cug-htmlsu62.html#tailcug-htmlsu62.html" >prev-tail</a>] [<a 
+href="cug-htmlse15.html" >prev</a>] [<a 
+href="cug-htmlse15.html#tailcug-htmlse15.html" >prev-tail</a>] [<a 
 href="#tailcug-htmlsu63.html">tail</a>] [<a 
-href="cug-htmlse12.html#cug-htmlsu63.html" >up</a>] </p></div>
-   <h4 class="subsectionHead"><span class="titlemark">12.11   </span> <a 
- id="x91-15400012.11"></a>Orderly Product Generation?</h4>
-<!--l. 4992--><p class="noindent" >Correct scheduling is not equivalent to &#8220;orderly generation of products by cycle time&#8221;. Under cylc, a product
-generation task will trigger as soon as its prerequisites are satisfied (i.e.&#x00A0;when its input files are ready,
-generally) regardless of whether other tasks with the same cycle time have finished or have yet to
-run. If your product delivery or presentation system demands that all products for one cycle time
-are uploaded (or whatever) before any from the next cycle, then be aware that this may be quite
-inefficient if your suite is ever faced with catching up from a significant delay or running over historical
-data.
-</p><!--l. 5002--><p class="indent" >   If you must, however, you can introduce artificial dependencies into your suite to ensure that the final products
-never arrive out of sequence. One way of doing this would be to have a final &#8220;product upload&#8221; task that depends on
-completion of all the real product generation tasks at the same cycle time, and then declare it to be
-sequential.
+href="cug-htmlse15.html#cug-htmlsu63.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">A.1   </span> <a 
+ id="x94-166000A.1"></a>Top Level Items</h4>
+<!--l. 20--><p class="noindent" >The only top level configuration items at present are the suite title and description.
+</p><!--l. 23--><p class="noindent" >
+</p>
+   <h5 class="subsubsectionHead"><span class="titlemark">A.1.1   </span> <a 
+ id="x94-167000A.1.1"></a>title</h5>
+<!--l. 25--><p class="noindent" >The suite title is displayed in the gcylc suite database window. It can also be retrieved from a suite at run time with
+<span class="lstinline"><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">show</span></span> (or use <span class="lstinline"><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">get</span><span 
+class="pcrr7t-">-</span><span 
+class="pcrr7t-">config</span></span>).
+</p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmti-10">type: </span>string
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">default: </span>&#8220;No title provided&#8221;</li></ul>
+<!--l. 34--><p class="noindent" >
+</p>
+   <h5 class="subsubsectionHead"><span class="titlemark">A.1.2   </span> <a 
+ id="x94-168000A.1.2"></a>description</h5>
+<!--l. 36--><p class="noindent" >The suite description can be retrieved by gcylc right-click menu. It can also be retrieved from a suite at run time
+with <span class="lstinline"><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">show</span></span> (or use <span class="lstinline"><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">get</span><span 
+class="pcrr7t-">-</span><span 
+class="pcrr7t-">config</span></span>).
+</p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmti-10">type: </span>string
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">default: </span>&#8220;No description provided&#8221;</li></ul>
                                                                                          
 
                                                                                          
-</p>
-   <!--l. 5009--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 45--><div class="crosslinks"><p class="noindent">[<a 
 href="cug-htmlsu64.html" >next</a>] [<a 
-href="cug-htmlsu62.html" >prev</a>] [<a 
-href="cug-htmlsu62.html#tailcug-htmlsu62.html" >prev-tail</a>] [<a 
+href="cug-htmlse15.html" >prev</a>] [<a 
+href="cug-htmlse15.html#tailcug-htmlse15.html" >prev-tail</a>] [<a 
 href="cug-htmlsu63.html" >front</a>] [<a 
-href="cug-htmlse12.html#cug-htmlsu63.html" >up</a>] </p></div>
-<!--l. 5009--><p class="indent" >   <a 
- id="tailcug-htmlsu63.html"></a> </p> 
+href="cug-htmlse15.html#cug-htmlsu63.html" >up</a>] </p></div>
+<!--l. 45--><p class="indent" >   <a 
+ id="tailcug-htmlsu63.html"></a>  </p> 
 </body></html> 

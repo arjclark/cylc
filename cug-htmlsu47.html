@@ -4,133 +4,105 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>Whither Task stdout And stderr?</title> 
+<head><title>Task States</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
 <meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
 <!-- xhtml,3,next,html --> 
 <meta name="src" content="cug-html.tex" /> 
-<meta name="date" content="2012-03-15 23:47:00" /> 
+<meta name="date" content="2012-07-31 01:15:00" /> 
 <link rel="stylesheet" type="text/css" href="cug-html.css" /> 
 </head><body 
 >
-   <!--l. 4267--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 4402--><div class="crosslinks"><p class="noindent">[<a 
 href="cug-htmlsu48.html" >next</a>] [<a 
-href="cug-htmlsu46.html" >prev</a>] [<a 
-href="cug-htmlsu46.html#tailcug-htmlsu46.html" >prev-tail</a>] [<a 
+href="cug-htmlse11.html" >prev</a>] [<a 
+href="cug-htmlse11.html#tailcug-htmlse11.html" >prev-tail</a>] [<a 
 href="#tailcug-htmlsu47.html">tail</a>] [<a 
-href="cug-htmlse10.html#cug-htmlsu47.html" >up</a>] </p></div>
-   <h4 class="subsectionHead"><span class="titlemark">10.3   </span> <a 
- id="x71-13100010.3"></a>Whither Task stdout And stderr?</h4>
-<!--l. 4270--><p class="noindent" >When a task is ready to run cylc generates task-specific stdout and stderr filenames containing the task name, cycle
-time, and a string of digits (seconds since epoch) to ensure uniqueness - rerunning the task won&#8217;t overwrite any old
-output:  </p><!--l. 4275--><div class="lstlisting">
-<span 
-class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x71-131001r1"></a></span><span 
-class="pcrro7t-">#</span><span 
-class="pcrro7t-">&#x00A0;</span><span 
-class="pcrro7t-">task</span><span 
-class="pcrro7t-">&#x00A0;</span><span 
-class="pcrro7t-">job</span><span 
-class="pcrro7t-">&#x00A0;</span><span 
-class="pcrro7t-">script</span><span 
-class="pcrro7t-">:</span><span 
-class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x71-131002r2"></a></span><span 
-class="pcrr7t-">~/</span><span 
-class="pcrr7t-">cylc</span><span 
-class="pcrr7t-">-</span><span 
-class="pcrr7t-">run</span><span 
-class="pcrr7t-">/</span><span 
-class="pcrr7t-">QuickStart</span><span 
-class="pcrr7t-">.</span><span 
-class="pcrr7t-">c</span><span 
-class="pcrr7t-">/</span><span 
-class="pcrr7t-">log</span><span 
-class="pcrr7t-">/</span><span 
-class="pcrr7t-">job</span><span 
-class="pcrr7t-">/</span><span 
-class="pcrr7t-">Model</span><span 
-class="pcrr7t-">%2011080506-1317298378.191123</span><span 
-class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x71-131003r3"></a></span><span 
-class="pcrro7t-">#</span><span 
-class="pcrro7t-">&#x00A0;</span><span 
-class="pcrro7t-">task</span><span 
-class="pcrro7t-">&#x00A0;</span><span 
-class="pcrro7t-">stdout</span><span 
-class="pcrro7t-">:</span><span 
-class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x71-131004r4"></a></span><span 
-class="pcrr7t-">~/</span><span 
-class="pcrr7t-">cylc</span><span 
-class="pcrr7t-">-</span><span 
-class="pcrr7t-">run</span><span 
-class="pcrr7t-">/</span><span 
-class="pcrr7t-">QuickStart</span><span 
-class="pcrr7t-">.</span><span 
-class="pcrr7t-">c</span><span 
-class="pcrr7t-">/</span><span 
-class="pcrr7t-">log</span><span 
-class="pcrr7t-">/</span><span 
-class="pcrr7t-">job</span><span 
-class="pcrr7t-">/</span><span 
-class="pcrr7t-">Model</span><span 
-class="pcrr7t-">%2011080506-1317298378.191123.</span><span 
-class="pcrr7t-">out</span><span 
-class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x71-131005r5"></a></span><span 
-class="pcrro7t-">#</span><span 
-class="pcrro7t-">&#x00A0;</span><span 
-class="pcrro7t-">task</span><span 
-class="pcrro7t-">&#x00A0;</span><span 
-class="pcrro7t-">stderr</span><span 
-class="pcrro7t-">:</span><span 
-class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x71-131006r6"></a></span><span 
-class="pcrr7t-">~/</span><span 
-class="pcrr7t-">cylc</span><span 
-class="pcrr7t-">-</span><span 
-class="pcrr7t-">run</span><span 
-class="pcrr7t-">/</span><span 
-class="pcrr7t-">QuickStart</span><span 
-class="pcrr7t-">.</span><span 
-class="pcrr7t-">c</span><span 
-class="pcrr7t-">/</span><span 
-class="pcrr7t-">log</span><span 
-class="pcrr7t-">/</span><span 
-class="pcrr7t-">job</span><span 
-class="pcrr7t-">/</span><span 
-class="pcrr7t-">Model</span><span 
-class="pcrr7t-">%2011080506-1317298378.191123.</span><span 
-class="pcrr7t-">err</span>
-
-
-   </div>
-<!--l. 4283--><p class="indent" >   (the job submission log directory is configurable in the suite.rc file).
-</p><!--l. 4285--><p class="indent" >   How the stdout and stderr streams are directed into these files depends on the job submission method.
-The <span class="lstinline"><span 
-class="pcrr7t-">background</span></span> method just uses appropriate output redirection on the command line, as shown
-above. The <span class="lstinline"><span 
-class="pcrr7t-">loadleveler</span></span> method writes appropriate directives to the job script that is submitted to
-loadleveler.
-</p><!--l. 4291--><p class="indent" >   Cylc obviously has no control over the stdout and stderr output from tasks that do their own internal output
-management (e.g.&#x00A0;tasks that submit internal jobs and direct their output to other files). For less internally complex
-tasks, however, these will be complete task job logs. <span 
-class="cmti-10">They can be viewed updating in real time in the suite control</span>
-<span 
-class="cmti-10">GUIs</span>.
-                                                                                         
-
-                                                                                         
+href="cug-htmlse11.html#cug-htmlsu47.html" >up</a>] </p></div>
+   <h4 class="subsectionHead"><span class="titlemark">11.1   </span> <a 
+ id="x70-13900011.1"></a>Task States</h4>
+<!--l. 4404--><p class="noindent" >As a suite runs its tasks (or rather the task proxies that represent the real tasks) move through a series of defined
+states:
 </p>
-   <!--l. 4299--><div class="crosslinks"><p class="noindent">[<a 
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmbx-10">waiting </span>- prerequisites have not yet been satisfied (clock-triggered tasks also wait on their trigger
+     time).
+     </li>
+     <li class="itemize"><span 
+class="cmbx-10">queued </span>- ready to be submitted (i.e.&#x00A0;prerequisites satisfied) but temporarily held back by an internal
+     cylc queue (see Section&#x00A0;<a 
+href="cug-htmlsu49.html#x74-14700011.3.2">11.3.2<!--tex4ht:ref: InternalQueues --></a>).
+     </li>
+     <li class="itemize"><span 
+class="cmbx-10">submitted </span>- submitted to be executed by the specified job submission method, but not yet running
+     (it may be waiting in an external batch scheduler queue, for example).
+     </li>
+     <li class="itemize"><span 
+class="cmbx-10">running </span>- the task &#8220;started&#8221; message received (sent when a task starts executing) but not yet finished.
+     </li>
+     <li class="itemize"><span 
+class="cmbx-10">retry delayed </span>- if a task configures the &#8220;retry delays&#8221; item (a list of delay intervals in minutes), then
+     if it fails it will be put in this state for the specified interval and then resubmitted after incrementing
+     the task try number. A task only enters the final &#8220;failed&#8221; if the last retry fails.
+     </li>
+     <li class="itemize">two finished states:
+                                                                                         
+
+                                                                                         
+         <ul class="itemize2">
+         <li class="itemize"><span 
+class="cmbx-10">succeeded </span>- a <span 
+class="cmti-10">succeeded  </span>task has finished successfully. It will remain in the suite so long as its
+         outputs could be needed to satisfy the prerequisites of waiting tasks, and then it will be removed
+         from the suite.
+         </li>
+         <li class="itemize"><span 
+class="cmbx-10">failed </span>- a <span 
+class="cmti-10">failed </span>task has aborted after reporting failure. Failed tasks are not automatically removed
+         from the suite, they must be handled by the suite operator (e.g.&#x00A0;by retriggering after fixing the
+         problem).</li></ul>
+     </li></ul>
+<!--l. 4443--><p class="indent" >   In addition, there are two held (paused) task states:
+</p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmbx-10">held </span>- a <span 
+class="cmti-10">held </span>task will not be submitted, even if it is ready to run, until it is released. Tasks that are
+     already running cannot be held. The suite operator can deliberately hold tasks, and cylc itself puts
+     tasks on hold under certain circumstances. For example, if the suite has been told to &#8220;shut down after
+     currently running tasks have finished&#8221; waiting tasks will be put on hold while currently running tasks
+     are finishing.
+     </li>
+     <li class="itemize"><span 
+class="cmbx-10">runahead </span>- a task in the <span 
+class="cmti-10">runahead </span>state has exceeded the suite runahead limit, i.e.&#x00A0;it has got &#8220;too
+     far ahead&#8221; of the slowest tasks and will be held back until they have caught up sufficiently. This state
+     is automatically managed by cylc. See <span 
+class="cmti-10">The Suite Runahead Limit</span>, Section&#x00A0;<a 
+href="cug-htmlsu49.html#x74-14600011.3.1">11.3.1<!--tex4ht:ref: RunaheadLimit --></a>.
+     </li></ul>
+<!--l. 4464--><p class="indent" >   Finally, you may see references to the following pseudo states:
+</p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmbx-10">ready </span>- to set a task to <span 
+class="cmti-10">ready </span>means to set all of its prerequisites satisfied - i.e.&#x00A0;ready to run (except
+     clock-triggered tasks, which also wait on a trigger time).
+     </li>
+     <li class="itemize"><span 
+class="cmbx-10">base </span>(Graph Control GUI only) - off-white base graph nodes do not represent current live task proxies
+     in the suite, they just connect the current live nodes according to the full suite graph.</li></ul>
+                                                                                         
+
+                                                                                         
+   <!--l. 4477--><div class="crosslinks"><p class="noindent">[<a 
 href="cug-htmlsu48.html" >next</a>] [<a 
-href="cug-htmlsu46.html" >prev</a>] [<a 
-href="cug-htmlsu46.html#tailcug-htmlsu46.html" >prev-tail</a>] [<a 
+href="cug-htmlse11.html" >prev</a>] [<a 
+href="cug-htmlse11.html#tailcug-htmlse11.html" >prev-tail</a>] [<a 
 href="cug-htmlsu47.html" >front</a>] [<a 
-href="cug-htmlse10.html#cug-htmlsu47.html" >up</a>] </p></div>
-<!--l. 4299--><p class="indent" >   <a 
+href="cug-htmlse11.html#cug-htmlsu47.html" >up</a>] </p></div>
+<!--l. 4477--><p class="indent" >   <a 
  id="tailcug-htmlsu47.html"></a> </p> 
 </body></html> 

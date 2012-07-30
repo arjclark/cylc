@@ -4,56 +4,2174 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>The Graph-Based Suite Control GUI</title> 
+<head><title>Command Reference</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
 <meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
 <!-- xhtml,3,next,html --> 
 <meta name="src" content="cug-html.tex" /> 
-<meta name="date" content="2012-03-15 23:47:00" /> 
+<meta name="date" content="2012-07-31 01:15:00" /> 
 <link rel="stylesheet" type="text/css" href="cug-html.css" /> 
 </head><body 
 >
-   <!--l. 5112--><div class="crosslinks"><p class="noindent">[<a 
-href="cug-htmlse17.html" >next</a>] [<a 
-href="cug-htmlse15.html" >prev</a>] [<a 
-href="cug-htmlse15.html#tailcug-htmlse15.html" >prev-tail</a>] [<a 
+   <!--l. 5061--><div class="crosslinks"><p class="noindent">[<a 
+href="cug-htmlsu70.html" >next</a>] [<a 
+href="cug-htmlsu69.html" >prev</a>] [<a 
+href="cug-htmlsu69.html#tailcug-htmlsu69.html" >prev-tail</a>] [<a 
 href="#tailcug-htmlse16.html">tail</a>] [<a 
 href="cug-html.html#cug-htmlse16.html" >up</a>] </p></div>
-   <h3 class="sectionHead"><span class="titlemark">D   </span> <a 
- id="x108-342000D"></a>The Graph-Based Suite Control GUI</h3>
-<!--l. 5115--><p class="noindent" >The graph-based suite control GUI has the advantage that it shows the structure of a suite very clearly as it evolves.
-It works remarkably well even for very large suites, on the order of one hundred tasks or more <span 
-class="cmti-10">but </span>on the downside,
-the graphviz engine does a new global optimization every time the graph changes, so the layout is often not very
-stable. This may or may not be a solvable problem - it seems likely that making continual incremental changes to
-an existing graph without redoing the global layout would inevitably result in some kind of horrible
-mess.
-</p><!--l. 5125--><p class="indent" >   The following features of the graph-based control GUI go a long way toward mitigating the changing layout
-problem:
+   <h3 class="sectionHead"><span class="titlemark">B   </span> <a 
+ id="x103-275000B"></a>Command Reference</h3>
+<a 
+ id="x103-275001"></a>
+   <!--l. 2--><pre class="listings"><!--l. 2--><div class="lstinputlisting"><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275002r1"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275003r2"></a></span><span 
+class="pcrr7t-">Cylc</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">("</span><span 
+class="pcrr7t-">silk</span><span 
+class="pcrr7t-">")</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">is</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">a</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">suite</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">engine</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">and</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">metascheduler</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">that</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">specializes</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">in</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275004r3"></a></span><span 
+class="pcrr7t-">cycling</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">weather</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">and</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">climate</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">forecasting</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">suites</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">and</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">related</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">processing</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275005r4"></a></span><span 
+class="pcrr7t-">(</span><span 
+class="pcrr7t-">but</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">it</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">can</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">also</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">be</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">used</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">for</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">one</span><span 
+class="pcrr7t-">-</span><span 
+class="pcrr7t-">off</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">workflows</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">of</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">non</span><span 
+class="pcrr7t-">-</span><span 
+class="pcrr7t-">cycling</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">tasks</span><span 
+class="pcrr7t-">).</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275006r5"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275007r6"></a></span><span 
+class="pcrr7t-">Version</span><span 
+class="pcrr7t-">:</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">-4.5.0</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275008r7"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275009r8"></a></span><span 
+class="pcrr7t-">This</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">is</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">the</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">Command</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">Line</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">Interface</span><span 
+class="pcrr7t-">;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">the</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">Graphical</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">User</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">Interface</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">is</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275010r9"></a></span><span 
+class="pcrr7t-">"</span><span 
+class="pcrr7t-">gcylc</span><span 
+class="pcrr7t-">"</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">(</span><span 
+class="pcrr7t-">a</span><span 
+class="pcrr7t-">.</span><span 
+class="pcrr7t-">k</span><span 
+class="pcrr7t-">.</span><span 
+class="pcrr7t-">a</span><span 
+class="pcrr7t-">.</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">"</span><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">gui</span><span 
+class="pcrr7t-">").</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">Control</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">GUIs</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">for</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">particular</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">suites</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">can</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">be</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275011r10"></a></span><span 
+class="pcrr7t-">invoked</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">directly</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">with</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">"</span><span 
+class="pcrr7t-">gcontrol</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">SUITE</span><span 
+class="pcrr7t-">"</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">(</span><span 
+class="pcrr7t-">a</span><span 
+class="pcrr7t-">.</span><span 
+class="pcrr7t-">k</span><span 
+class="pcrr7t-">.</span><span 
+class="pcrr7t-">a</span><span 
+class="pcrr7t-">.</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">"</span><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">gcontrol</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">SUITE</span><span 
+class="pcrr7t-">").</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275012r11"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275013r12"></a></span><span 
+class="pcrr7t-">USAGE</span><span 
+class="pcrr7t-">:</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275014r13"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">%</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">-</span><span 
+class="pcrr7t-">v</span><span 
+class="pcrr7t-">,--</span><span 
+class="pcrr7t-">version</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">#</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">print</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">version</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275015r14"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">%</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">help</span><span 
+class="pcrr7t-">,--</span><span 
+class="pcrr7t-">help</span><span 
+class="pcrr7t-">,-</span><span 
+class="pcrr7t-">h</span><span 
+class="pcrr7t-">,?</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">#</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">print</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">this</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">help</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">page</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275016r15"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">%</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">-</span><span 
+class="pcrr7t-">V</span><span 
+class="pcrr7t-">,--</span><span 
+class="pcrr7t-">Version</span><span 
+class="pcrr7t-">=</span><span 
+class="pcrr7t-">avail</span><span 
+class="pcrr7t-">[</span><span 
+class="pcrr7t-">able</span><span 
+class="pcrr7t-">]</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">#</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">print</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">available</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">versions</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275017r16"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">%</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">-</span><span 
+class="pcrr7t-">V</span><span 
+class="pcrr7t-">,--</span><span 
+class="pcrr7t-">Version</span><span 
+class="pcrr7t-">=</span><span 
+class="pcrr7t-">x</span><span 
+class="pcrr7t-">.</span><span 
+class="pcrr7t-">y</span><span 
+class="pcrr7t-">.</span><span 
+class="pcrr7t-">z</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">#</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">reinvoke</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">with</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">another</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">version</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275018r17"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275019r18"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">%</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">help</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">CATEGORY</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">#</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">print</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">help</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">by</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">category</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275020r19"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">%</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">CATEGORY</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">help</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">#</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">(</span><span 
+class="pcrr7t-">ditto</span><span 
+class="pcrr7t-">)</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275021r20"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275022r21"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">%</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">help</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">[</span><span 
+class="pcrr7t-">CATEGORY</span><span 
+class="pcrr7t-">]</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">COMMAND</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">#</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">print</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">command</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">help</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275023r22"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">%</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">[</span><span 
+class="pcrr7t-">CATEGORY</span><span 
+class="pcrr7t-">]</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">COMMAND</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">help</span><span 
+class="pcrr7t-">,--</span><span 
+class="pcrr7t-">help</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">#</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">(</span><span 
+class="pcrr7t-">ditto</span><span 
+class="pcrr7t-">)</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275024r23"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275025r24"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">%</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">[</span><span 
+class="pcrr7t-">CATEGORY</span><span 
+class="pcrr7t-">]</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">COMMAND</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">[</span><span 
+class="pcrr7t-">options</span><span 
+class="pcrr7t-">]</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">SUITE</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">[</span><span 
+class="pcrr7t-">arguments</span><span 
+class="pcrr7t-">]</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275026r25"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">%</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">[</span><span 
+class="pcrr7t-">CATEGORY</span><span 
+class="pcrr7t-">]</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">COMMAND</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">[</span><span 
+class="pcrr7t-">options</span><span 
+class="pcrr7t-">]</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">SUITE</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">TASK</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">[</span><span 
+class="pcrr7t-">arguments</span><span 
+class="pcrr7t-">]</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275027r26"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275028r27"></a></span><span 
+class="pcrr7t-">Commands</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">and</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">categories</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">can</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">both</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">be</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">abbreviated</span><span 
+class="pcrr7t-">.</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">Use</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">of</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">categories</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">is</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275029r28"></a></span><span 
+class="pcrr7t-">optional</span><span 
+class="pcrr7t-">,</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">but</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">they</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">organize</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">help</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">and</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">disambiguate</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">abbreviated</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">commands</span><span 
+class="pcrr7t-">:</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275030r29"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">%</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">control</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">trigger</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">SUITE</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">TASK</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">#</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">trigger</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">TASK</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">in</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">SUITE</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275031r30"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">%</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">trigger</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">SUITE</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">TASK</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">#</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">ditto</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275032r31"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">%</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">con</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">trig</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">SUITE</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">TASK</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">#</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">ditto</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275033r32"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">%</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">c</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">t</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">SUITE</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">TASK</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">#</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">ditto</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275034r33"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275035r34"></a></span><span 
+class="pcrr7t-">SUITE</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">NAMES</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">AND</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">DATABASES</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275036r35"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">Suites</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">are</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">addressed</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">by</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">hierarchical</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">names</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">(</span><span 
+class="pcrr7t-">e</span><span 
+class="pcrr7t-">.</span><span 
+class="pcrr7t-">g</span><span 
+class="pcrr7t-">.</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">suite1</span><span 
+class="pcrr7t-">,</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">nwp</span><span 
+class="pcrr7t-">.</span><span 
+class="pcrr7t-">oper</span><span 
+class="pcrr7t-">,</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275037r36"></a></span><span 
+class="pcrr7t-">nwp</span><span 
+class="pcrr7t-">.</span><span 
+class="pcrr7t-">test</span><span 
+class="pcrr7t-">.</span><span 
+class="pcrr7t-">LAM2</span><span 
+class="pcrr7t-">,</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">etc</span><span 
+class="pcrr7t-">.)</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">registered</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">in</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">a</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">suite</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">database</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">that</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">associates</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275038r37"></a></span><span 
+class="pcrr7t-">suite</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">the</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">names</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">with</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">suite</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">definition</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">directory</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">locations</span><span 
+class="pcrr7t-">.</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">Your</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">default</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275039r38"></a></span><span 
+class="pcrr7t-">database</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">is</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">located</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">at</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr8c-">$</span><span 
+class="pcrr7t-">HOME</span><span 
+class="pcrr7t-">/.</span><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">/</span><span 
+class="pcrr7t-">DB</span><span 
+class="pcrr7t-">.</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">The</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">'--</span><span 
+class="pcrr7t-">db</span><span 
+class="pcrr7t-">='</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">command</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">option</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">can</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">be</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275040r39"></a></span><span 
+class="pcrr7t-">used</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">to</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">work</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">with</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">suites</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">registered</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">in</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">other</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">databases</span><span 
+class="pcrr7t-">.</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">You</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">should</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275041r40"></a></span><span 
+class="pcrr7t-">be</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">able</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">to</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">read</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">and</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">graph</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">(</span><span 
+class="pcrr7t-">etc</span><span 
+class="pcrr7t-">.)</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">another</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">user</span><span 
+class="pcrr7t-">'</span><span 
+class="pcrr7t-">s</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">suite</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">definitions</span><span 
+class="pcrr7t-">,</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">from</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275042r41"></a></span><span 
+class="pcrr7t-">their</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">default</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">database</span><span 
+class="pcrr7t-">,</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">with</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">the</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">'--</span><span 
+class="pcrr7t-">db</span><span 
+class="pcrr7t-">=</span><span 
+class="pcrr7t-">u</span><span 
+class="pcrr7t-">:</span><span 
+class="pcrr7t-">USER</span><span 
+class="pcrr7t-">'</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">option</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">(</span><span 
+class="pcrr7t-">access</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">is</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275043r42"></a></span><span 
+class="pcrr7t-">governed</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">by</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">normal</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">filesystem</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">permissions</span><span 
+class="pcrr7t-">).</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275044r43"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275045r44"></a></span><span 
+class="pcrr7t-">REMOTE</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">COMMAND</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">RE</span><span 
+class="pcrr7t-">-</span><span 
+class="pcrr7t-">INVOCATION</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">BY</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">SSH</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275046r45"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">If</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">passwordless</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">ssh</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">is</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">configured</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">appropriately</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">use</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">of</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">the</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">'--</span><span 
+class="pcrr7t-">host</span><span 
+class="pcrr7t-">='</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275047r46"></a></span><span 
+class="pcrr7t-">and</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">'--</span><span 
+class="pcrr7t-">owner</span><span 
+class="pcrr7t-">='</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">command</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">options</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">will</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">result</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">in</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">most</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">commands</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">being</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275048r47"></a></span><span 
+class="pcrr7t-">re</span><span 
+class="pcrr7t-">-</span><span 
+class="pcrr7t-">invoked</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">on</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">another</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">host</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">or</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">user</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">account</span><span 
+class="pcrr7t-">.</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">With</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">the</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">'--</span><span 
+class="pcrr7t-">use</span><span 
+class="pcrr7t-">-</span><span 
+class="pcrr7t-">ssh</span><span 
+class="pcrr7t-">'</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">flag</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275049r48"></a></span><span 
+class="pcrr7t-">this</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">also</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">goes</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">for</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">suite</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">control</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">commands</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">which</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">normally</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">use</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">direct</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275050r49"></a></span><span 
+class="pcrr7t-">network</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">RPC</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">instead</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">of</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">re</span><span 
+class="pcrr7t-">-</span><span 
+class="pcrr7t-">invocation</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">-</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">see</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">below</span><span 
+class="pcrr7t-">.</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275051r50"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275052r51"></a></span><span 
+class="pcrr7t-">REMOTE</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">SUITE</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">CONTROL</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">BY</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">RPC</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">(</span><span 
+class="pcrr7t-">PYRO</span><span 
+class="pcrr7t-">)</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275053r52"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">Cylc</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">commands</span><span 
+class="pcrr7t-">,</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">GUIs</span><span 
+class="pcrr7t-">,</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">and</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">tasks</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">that</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">interact</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">with</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">running</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">suites</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">use</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">a</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275054r53"></a></span><span 
+class="pcrr7t-">network</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">RPC</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">protocol</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">(</span><span 
+class="pcrr7t-">Pyro</span><span 
+class="pcrr7t-">)</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">with</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">passphrase</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">authentication</span><span 
+class="pcrr7t-">.</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">The</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">'--</span><span 
+class="pcrr7t-">host</span><span 
+class="pcrr7t-">'</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275055r54"></a></span><span 
+class="pcrr7t-">and</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">'--</span><span 
+class="pcrr7t-">owner</span><span 
+class="pcrr7t-">'</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">command</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">options</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">will</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">target</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">a</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">suite</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">running</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">on</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">another</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275056r55"></a></span><span 
+class="pcrr7t-">host</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">or</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">user</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">account</span><span 
+class="pcrr7t-">.</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">The</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">suite</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">passphrase</span><span 
+class="pcrr7t-">,</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">generated</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">in</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">the</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">suite</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275057r56"></a></span><span 
+class="pcrr7t-">definition</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">directory</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">at</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">registration</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">time</span><span 
+class="pcrr7t-">,</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">should</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">be</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">installed</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">on</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">a</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275058r57"></a></span><span 
+class="pcrr7t-">remote</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">control</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">host</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">in</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">one</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">of</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">the</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">following</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">locations</span><span 
+class="pcrr7t-">:</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275059r58"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">1)</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr8c-">$</span><span 
+class="pcrr7t-">HOME</span><span 
+class="pcrr7t-">/.</span><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">/&#x003C;</span><span 
+class="pcrr7t-">HOST</span><span 
+class="pcrr7t-">&#x003E;/&#x003C;</span><span 
+class="pcrr7t-">OWNER</span><span 
+class="pcrr7t-">&#x003E;/&#x003C;</span><span 
+class="pcrr7t-">SUITE</span><span 
+class="pcrr7t-">&#x003E;/</span><span 
+class="pcrr7t-">passphrase</span><span 
+class="pcrr7t-">,</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275060r59"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">2)</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr8c-">$</span><span 
+class="pcrr7t-">HOME</span><span 
+class="pcrr7t-">/.</span><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">/&#x003C;</span><span 
+class="pcrr7t-">HOST</span><span 
+class="pcrr7t-">&#x003E;/&#x003C;</span><span 
+class="pcrr7t-">SUITE</span><span 
+class="pcrr7t-">&#x003E;/</span><span 
+class="pcrr7t-">passphrase</span><span 
+class="pcrr7t-">,</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">or</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275061r60"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">3)</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr8c-">$</span><span 
+class="pcrr7t-">HOME</span><span 
+class="pcrr7t-">/.</span><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">/&#x003C;</span><span 
+class="pcrr7t-">SUITE</span><span 
+class="pcrr7t-">&#x003E;/</span><span 
+class="pcrr7t-">passphrase</span><span 
+class="pcrr7t-">).</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275062r61"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">4)</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">Or</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">specify</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">the</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">location</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">explicitly</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">with</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">'--</span><span 
+class="pcrr7t-">p</span><span 
+class="pcrr7t-">','--</span><span 
+class="pcrr7t-">passphrase</span><span 
+class="pcrr7t-">='.</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275063r62"></a></span><span 
+class="pcrr7t-">A</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">running</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">task</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">first</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">looks</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">in</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">the</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">suite</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">definition</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">directory</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">for</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">the</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275064r63"></a></span><span 
+class="pcrr7t-">passphrase</span><span 
+class="pcrr7t-">,</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">then</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">the</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">above</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">locations</span><span 
+class="pcrr7t-">.</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">Likewise</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">a</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">remote</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">task</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">checks</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275065r64"></a></span><span 
+class="pcrr7t-">the</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">remote</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">suite</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">definition</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">directory</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">first</span><span 
+class="pcrr7t-">,</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">if</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">one</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">is</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">configured</span><span 
+class="pcrr7t-">.</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275066r65"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275067r66"></a></span><span 
+class="pcrr7t-">REMOVE</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">SUITE</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">CONTROL</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">BY</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">SSH</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">RE</span><span 
+class="pcrr7t-">-</span><span 
+class="pcrr7t-">INVOCATION</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275068r67"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">If</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">the</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">network</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">ports</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">required</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">by</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">Pyro</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">are</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">not</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">open</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">you</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">can</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">use</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">the</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275069r68"></a></span><span 
+class="pcrr7t-">'--</span><span 
+class="pcrr7t-">use</span><span 
+class="pcrr7t-">-</span><span 
+class="pcrr7t-">ssh</span><span 
+class="pcrr7t-">'</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">flag</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">to</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">re</span><span 
+class="pcrr7t-">-</span><span 
+class="pcrr7t-">invoke</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">suite</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">control</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">commands</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">on</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">the</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">suite</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">host</span><span 
+class="pcrr7t-">.</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275070r69"></a></span><span 
+class="pcrr7t-">For</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">remote</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">tasks</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">the</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">same</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">can</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">be</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">achieved</span><span 
+class="pcrr7t-">,</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">in</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">the</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">suite</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">definition</span><span 
+class="pcrr7t-">,</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">by</span><span 
+class="pcrr7t-">:</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275071r70"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">[</span><span 
+class="pcrr7t-">runtime</span><span 
+class="pcrr7t-">]-&#x003E;[[</span><span 
+class="pcrr7t-">NAMESPACE</span><span 
+class="pcrr7t-">]]-&#x003E;[[[</span><span 
+class="pcrr7t-">remote</span><span 
+class="pcrr7t-">]]]-&#x003E;'</span><span 
+class="pcrr7t-">ssh</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">messaging</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">=</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">True</span><span 
+class="pcrr7t-">'</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275072r71"></a></span><span 
+class="pcrr7t-">then</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">the</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">passphrase</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">is</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">not</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">needed</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">on</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">the</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">remote</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">host</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">because</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">the</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">RPC</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275073r72"></a></span><span 
+class="pcrr7t-">connection</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">is</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">only</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">made</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">on</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">the</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">suite</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">host</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">(</span><span 
+class="pcrr7t-">ssh</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">keys</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">are</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">needed</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">though</span><span 
+class="pcrr7t-">).</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275074r73"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275075r74"></a></span><span 
+class="pcrr7t-">TASK</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">IDENTIFICATION</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275076r75"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">Tasks</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">are</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">identified</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">by</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">NAME</span><span 
+class="pcrr7t-">%</span><span 
+class="pcrr7t-">TAG</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">where</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">for</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">cycling</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">tasks</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">TAG</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">is</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">a</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275077r76"></a></span><span 
+class="pcrr7t-">cycle</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">time</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">(</span><span 
+class="pcrr7t-">YYYY</span><span 
+class="pcrr7t-">[</span><span 
+class="pcrr7t-">MM</span><span 
+class="pcrr7t-">[</span><span 
+class="pcrr7t-">DD</span><span 
+class="pcrr7t-">[</span><span 
+class="pcrr7t-">HH</span><span 
+class="pcrr7t-">[</span><span 
+class="pcrr7t-">mm</span><span 
+class="pcrr7t-">[</span><span 
+class="pcrr7t-">ss</span><span 
+class="pcrr7t-">]]]]])</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">and</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">for</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">asynchronous</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">tasks</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">TAG</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">is</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275078r77"></a></span><span 
+class="pcrr7t-">an</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">integer</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">(</span><span 
+class="pcrr7t-">just</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">'1'</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">for</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">one</span><span 
+class="pcrr7t-">-</span><span 
+class="pcrr7t-">off</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">asynchronous</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">tasks</span><span 
+class="pcrr7t-">).</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">On</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">the</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">command</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275079r78"></a></span><span 
+class="pcrr7t-">line</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">an</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">asynchronous</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">tag</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">must</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">be</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">preceded</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">by</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">"</span><span 
+class="pcrr7t-">a</span><span 
+class="pcrr7t-">:"</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">(</span><span 
+class="pcrr7t-">a</span><span 
+class="pcrr7t-">:1).</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275080r79"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275081r80"></a></span><span 
+class="pcrr7t-">HOW</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">TO</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">DRILL</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">DOWN</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">TO</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">COMMAND</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">USAGE</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">HELP</span><span 
+class="pcrr7t-">:</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275082r81"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">%</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">help</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">#</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">list</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">all</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">available</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">categories</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">(</span><span 
+class="pcrr7t-">this</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">page</span><span 
+class="pcrr7t-">)</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275083r82"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">%</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">help</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">prep</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">#</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">list</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">commands</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">in</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">category</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">'</span><span 
+class="pcrr7t-">preparation</span><span 
+class="pcrr7t-">'</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275084r83"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">%</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">help</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">prep</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">edit</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">#</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">command</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">usage</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">help</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">for</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">'</span><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">[</span><span 
+class="pcrr7t-">prep</span><span 
+class="pcrr7t-">]</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">edit</span><span 
+class="pcrr7t-">'</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275085r84"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275086r85"></a></span><span 
+class="pcrr7t-">Command</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">CATEGORIES</span><span 
+class="pcrr7t-">:</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275087r86"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">all</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">...........</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">The</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">complete</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">command</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">set</span><span 
+class="pcrr7t-">.</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275088r87"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">db</span><span 
+class="pcrr7t-">|</span><span 
+class="pcrr7t-">database</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">...</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">Suite</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">registration</span><span 
+class="pcrr7t-">,</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">copying</span><span 
+class="pcrr7t-">,</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">deletion</span><span 
+class="pcrr7t-">,</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">etc</span><span 
+class="pcrr7t-">.</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275089r88"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">preparation</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">...</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">Suite</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">editing</span><span 
+class="pcrr7t-">,</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">validation</span><span 
+class="pcrr7t-">,</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">visualization</span><span 
+class="pcrr7t-">,</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">etc</span><span 
+class="pcrr7t-">.</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275090r89"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">information</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">...</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">Interrogate</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">suite</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">definitions</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">and</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">running</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">suites</span><span 
+class="pcrr7t-">.</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275091r90"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">discovery</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">.....</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">Detect</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">running</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">suites</span><span 
+class="pcrr7t-">.</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275092r91"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">control</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">.......</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">Suite</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">start</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">up</span><span 
+class="pcrr7t-">,</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">monitoring</span><span 
+class="pcrr7t-">,</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">and</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">control</span><span 
+class="pcrr7t-">.</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275093r92"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">utility</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">.......</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">Cycle</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">arithmetic</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">and</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">templating</span><span 
+class="pcrr7t-">,</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">housekeeping</span><span 
+class="pcrr7t-">,</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">etc</span><span 
+class="pcrr7t-">.</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275094r93"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">task</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">..........</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">The</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">task</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">messaging</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">interface</span><span 
+class="pcrr7t-">.</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275095r94"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">hook</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">..........</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">Suite</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">and</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">task</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">event</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">hook</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">scripts</span><span 
+class="pcrr7t-">.</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275096r95"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">admin</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">.........</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">Cylc</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">installation</span><span 
+class="pcrr7t-">,</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">testing</span><span 
+class="pcrr7t-">,</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">and</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">example</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">suites</span><span 
+class="pcrr7t-">.</span><span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x103-275097r96"></a></span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">license</span><span 
+class="pcrr7t-">|</span><span 
+class="pcrr7t-">GPL</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">...</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">Software</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">licensing</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">information</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">(</span><span 
+class="pcrr7t-">GPL</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">v3</span><span 
+class="pcrr7t-">.0).</span></div>
+   </pre>
+<!--l. 3--><p class="noindent" >
 </p>
-     <ul class="itemize1">
-     <li class="itemize">The disconnect button can be used to temporarily prevent the graph from changing as the content of
-     the suite changes (and in real time operation suites evolve quite slowly anyway)
-     </li>
-     <li class="itemize">Right-click on a task and choose the &#8220;Focus&#8221; option to restrict the graph display to that task&#8217;s cycle
-     time. Anything interesting happening in other cycles will show up as disconnected rectangular nodes
-     to the right of the graph (and you can click on those to intantly refocus to their cycles).
-     </li>
-     <li class="itemize">Task filtering is the ultimate quick route to temporarily focusing on just the tasks you&#8217;re interested in
-     (but this will destroy the graph structure, to state the obvious).</li></ul>
-<!--l. 5142--><p class="indent" >   In future cylc releases we plan to keep the graph centered, after layout changes, on the most recently clicked-on
-task.
+   <div class="subsectionTOCS">
+   &#x00A0;<span class="subsectionToc" >B.1 <a 
+href="cug-htmlsu70.html#x104-276000B.1">Command Categories</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.1.1 <a 
+href="cug-htmlsu70.html#x104-277000B.1.1" id="QQ2-104-328">admin</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.1.2 <a 
+href="cug-htmlsu70.html#x104-278000B.1.2" id="QQ2-104-330">all</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.1.3 <a 
+href="cug-htmlsu70.html#x104-279000B.1.3" id="QQ2-104-332">control</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.1.4 <a 
+href="cug-htmlsu70.html#x104-280000B.1.4" id="QQ2-104-334">database</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.1.5 <a 
+href="cug-htmlsu70.html#x104-281000B.1.5" id="QQ2-104-336">discovery</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.1.6 <a 
+href="cug-htmlsu70.html#x104-282000B.1.6" id="QQ2-104-338">hook</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.1.7 <a 
+href="cug-htmlsu70.html#x104-283000B.1.7" id="QQ2-104-340">information</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.1.8 <a 
+href="cug-htmlsu70.html#x104-284000B.1.8" id="QQ2-104-342">license</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.1.9 <a 
+href="cug-htmlsu70.html#x104-285000B.1.9" id="QQ2-104-344">preparation</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.1.10 <a 
+href="cug-htmlsu70.html#x104-286000B.1.10" id="QQ2-104-346">task</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.1.11 <a 
+href="cug-htmlsu70.html#x104-287000B.1.11" id="QQ2-104-348">utility</a></span>
+<br />   &#x00A0;<span class="subsectionToc" >B.2 <a 
+href="cug-htmlsu71.html#x105-288000B.2">Commands</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.1 <a 
+href="cug-htmlsu71.html#x105-289000B.2.1" id="QQ2-105-351">alias</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.2 <a 
+href="cug-htmlsu71.html#x105-290000B.2.2" id="QQ2-105-353">block</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.3 <a 
+href="cug-htmlsu71.html#x105-291000B.2.3" id="QQ2-105-355">check-examples</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.4 <a 
+href="cug-htmlsu71.html#x105-292000B.2.4" id="QQ2-105-357">checkvars</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.5 <a 
+href="cug-htmlsu71.html#x105-293000B.2.5" id="QQ2-105-359">conditions</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.6 <a 
+href="cug-htmlsu71.html#x105-294000B.2.6" id="QQ2-105-361">copy</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.7 <a 
+href="cug-htmlsu71.html#x105-295000B.2.7" id="QQ2-105-363">cycletime</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.8 <a 
+href="cug-htmlsu71.html#x105-296000B.2.8" id="QQ2-105-365">depend</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.9 <a 
+href="cug-htmlsu71.html#x105-297000B.2.9" id="QQ2-105-367">diff</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.10 <a 
+href="cug-htmlsu71.html#x105-298000B.2.10" id="QQ2-105-369">documentation</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.11 <a 
+href="cug-htmlsu71.html#x105-299000B.2.11" id="QQ2-105-371">dump</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.12 <a 
+href="cug-htmlsu71.html#x105-300000B.2.12" id="QQ2-105-373">edit</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.13 <a 
+href="cug-htmlsu71.html#x105-301000B.2.13" id="QQ2-105-375">email-suite</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.14 <a 
+href="cug-htmlsu71.html#x105-302000B.2.14" id="QQ2-105-377">email-task</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.15 <a 
+href="cug-htmlsu71.html#x105-303000B.2.15" id="QQ2-105-379">failed</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.16 <a 
+href="cug-htmlsu71.html#x105-304000B.2.16" id="QQ2-105-381">gcontrol</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.17 <a 
+href="cug-htmlsu71.html#x105-305000B.2.17" id="QQ2-105-383">get-config</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.18 <a 
+href="cug-htmlsu71.html#x105-306000B.2.18" id="QQ2-105-385">get-directory</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.19 <a 
+href="cug-htmlsu71.html#x105-307000B.2.19" id="QQ2-105-387">graph</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.20 <a 
+href="cug-htmlsu71.html#x105-308000B.2.20" id="QQ2-105-389">gui</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.21 <a 
+href="cug-htmlsu71.html#x105-309000B.2.21" id="QQ2-105-391">hold</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.22 <a 
+href="cug-htmlsu71.html#x105-310000B.2.22" id="QQ2-105-393">housekeeping</a></span>
                                                                                          
 
                                                                                          
-</p>
-   <!--l. 5146--><div class="crosslinks"><p class="noindent">[<a 
-href="cug-htmlse17.html" >next</a>] [<a 
-href="cug-htmlse15.html" >prev</a>] [<a 
-href="cug-htmlse15.html#tailcug-htmlse15.html" >prev-tail</a>] [<a 
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.23 <a 
+href="cug-htmlsu71.html#x105-311000B.2.23" id="QQ2-105-395">import-examples</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.24 <a 
+href="cug-htmlsu71.html#x105-312000B.2.24" id="QQ2-105-397">insert</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.25 <a 
+href="cug-htmlsu71.html#x105-313000B.2.25" id="QQ2-105-399">jobscript</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.26 <a 
+href="cug-htmlsu71.html#x105-314000B.2.26" id="QQ2-105-401">list</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.27 <a 
+href="cug-htmlsu71.html#x105-315000B.2.27" id="QQ2-105-403">lockclient</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.28 <a 
+href="cug-htmlsu71.html#x105-316000B.2.28" id="QQ2-105-405">lockserver</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.29 <a 
+href="cug-htmlsu71.html#x105-317000B.2.29" id="QQ2-105-407">log</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.30 <a 
+href="cug-htmlsu71.html#x105-318000B.2.30" id="QQ2-105-409">message</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.31 <a 
+href="cug-htmlsu71.html#x105-319000B.2.31" id="QQ2-105-411">monitor</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.32 <a 
+href="cug-htmlsu71.html#x105-320000B.2.32" id="QQ2-105-413">nudge</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.33 <a 
+href="cug-htmlsu71.html#x105-321000B.2.33" id="QQ2-105-415">ping</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.34 <a 
+href="cug-htmlsu71.html#x105-322000B.2.34" id="QQ2-105-417">print</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.35 <a 
+href="cug-htmlsu71.html#x105-323000B.2.35" id="QQ2-105-419">purge</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.36 <a 
+href="cug-htmlsu71.html#x105-324000B.2.36" id="QQ2-105-421">refresh</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.37 <a 
+href="cug-htmlsu71.html#x105-325000B.2.37" id="QQ2-105-423">register</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.38 <a 
+href="cug-htmlsu71.html#x105-326000B.2.38" id="QQ2-105-425">release</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.39 <a 
+href="cug-htmlsu71.html#x105-327000B.2.39" id="QQ2-105-427">remove</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.40 <a 
+href="cug-htmlsu71.html#x105-328000B.2.40" id="QQ2-105-429">reregister</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.41 <a 
+href="cug-htmlsu71.html#x105-329000B.2.41" id="QQ2-105-431">reset</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.42 <a 
+href="cug-htmlsu71.html#x105-330000B.2.42" id="QQ2-105-433">restart</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.43 <a 
+href="cug-htmlsu71.html#x105-331000B.2.43" id="QQ2-105-435">run</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.44 <a 
+href="cug-htmlsu71.html#x105-332000B.2.44" id="QQ2-105-437">scan</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.45 <a 
+href="cug-htmlsu71.html#x105-333000B.2.45" id="QQ2-105-439">scp-transfer</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.46 <a 
+href="cug-htmlsu71.html#x105-334000B.2.46" id="QQ2-105-441">search</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.47 <a 
+href="cug-htmlsu71.html#x105-335000B.2.47" id="QQ2-105-443">set-runahead</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.48 <a 
+href="cug-htmlsu71.html#x105-336000B.2.48" id="QQ2-105-445">set-verbosity</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.49 <a 
+href="cug-htmlsu71.html#x105-337000B.2.49" id="QQ2-105-447">show</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.50 <a 
+href="cug-htmlsu71.html#x105-338000B.2.50" id="QQ2-105-449">started</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.51 <a 
+href="cug-htmlsu71.html#x105-339000B.2.51" id="QQ2-105-451">stop</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.52 <a 
+href="cug-htmlsu71.html#x105-340000B.2.52" id="QQ2-105-453">submit</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.53 <a 
+href="cug-htmlsu71.html#x105-341000B.2.53" id="QQ2-105-455">succeeded</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.54 <a 
+href="cug-htmlsu71.html#x105-342000B.2.54" id="QQ2-105-457">test-db</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.55 <a 
+href="cug-htmlsu71.html#x105-343000B.2.55" id="QQ2-105-459">test-suite</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.56 <a 
+href="cug-htmlsu71.html#x105-344000B.2.56" id="QQ2-105-461">trigger</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.57 <a 
+href="cug-htmlsu71.html#x105-345000B.2.57" id="QQ2-105-463">unblock</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.58 <a 
+href="cug-htmlsu71.html#x105-346000B.2.58" id="QQ2-105-465">unregister</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.59 <a 
+href="cug-htmlsu71.html#x105-347000B.2.59" id="QQ2-105-467">validate</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.60 <a 
+href="cug-htmlsu71.html#x105-348000B.2.60" id="QQ2-105-469">view</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >B.2.61 <a 
+href="cug-htmlsu71.html#x105-349000B.2.61" id="QQ2-105-471">warranty</a></span>
+   </div>
+
+                                                                                         
+
+                                                                                         
+   <!--l. 5070--><div class="crosslinks"><p class="noindent">[<a 
+href="cug-htmlsu70.html" >next</a>] [<a 
+href="cug-htmlsu69.html" >prev</a>] [<a 
+href="cug-htmlsu69.html#tailcug-htmlsu69.html" >prev-tail</a>] [<a 
 href="cug-htmlse16.html" >front</a>] [<a 
 href="cug-html.html#cug-htmlse16.html" >up</a>] </p></div>
-<!--l. 5146--><p class="indent" >   <a 
+<!--l. 5070--><p class="indent" >   <a 
  id="tailcug-htmlse16.html"></a> </p> 
 </body></html> 
