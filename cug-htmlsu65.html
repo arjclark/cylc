@@ -4,949 +4,666 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>[scheduling]</title> 
+<head><title>[cylc]</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
 <meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
 <!-- xhtml,3,next,html --> 
 <meta name="src" content="cug-html.tex" /> 
-<meta name="date" content="2012-07-31 01:15:00" /> 
+<meta name="date" content="2012-08-03 00:47:00" /> 
 <link rel="stylesheet" type="text/css" href="cug-html.css" /> 
 </head><body 
 >
-   <!--l. 335--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 45--><div class="crosslinks"><p class="noindent">[<a 
 href="cug-htmlsu66.html" >next</a>] [<a 
 href="cug-htmlsu64.html" >prev</a>] [<a 
 href="cug-htmlsu64.html#tailcug-htmlsu64.html" >prev-tail</a>] [<a 
 href="#tailcug-htmlsu65.html">tail</a>] [<a 
 href="cug-htmlse15.html#cug-htmlsu65.html" >up</a>] </p></div>
-   <h4 class="subsectionHead"><span class="titlemark">A.3   </span> <a 
- id="x96-195000A.3"></a>[scheduling]</h4>
-<!--l. 337--><p class="noindent" >This section allows cylc to determine when tasks are ready to run.
-</p><!--l. 339--><p class="noindent" >
+   <h4 class="subsectionHead"><span class="titlemark">A.2   </span> <a 
+ id="x96-172000A.2"></a>[cylc]</h4>
+<!--l. 47--><p class="noindent" >This section is for suite configuration that is not specifically task-related.
+</p><!--l. 50--><p class="noindent" >
 </p>
-   <h5 class="subsubsectionHead"><span class="titlemark">A.3.1   </span> <a 
- id="x96-196000A.3.1"></a>[scheduling] <span 
-class="cmsy-10">&#x2192; </span>initial cycle time</h5>
-<!--l. 341--><p class="noindent" >At startup each cycling task (unless specifically excluded under [special tasks]) will be inserted into the suite with
-this cycle time, or with the closest subsequent valid cycle time for the task. Note that whether or not <span 
-class="cmti-10">cold-start</span>
-<span 
-class="cmti-10">tasks</span>, specified under [special tasks], are inserted, and in what state they are inserted, depends on the start up
-method - cold, warm, or raw. If this item is provided you can override it on the command line or in the gcylc suite
-start panel.
+   <h5 class="subsubsectionHead"><span class="titlemark">A.2.1   </span> <a 
+ id="x96-173000A.2.1"></a> [cylc] <span 
+class="cmsy-10">&#x2192; </span>UTC mode</h5>
+<!--l. 52--><p class="noindent" >Cylc runs off the suite host&#8217;s system clock by default. This item allows you to run the suite in UTC even if the
+system clock is set to local time. Clock-triggered tasks will trigger when the current UTC time is
+equal to their cycle time plus offset; other time values used, reported, or logged by cylc will also be in
+UTC.
 </p>
      <ul class="itemize1">
      <li class="itemize"><span 
-class="cmti-10">type: </span>integer (YYYY[MM[DD[HH[mm[ss]]]]])
+class="cmti-10">type: </span>boolean
      </li>
      <li class="itemize"><span 
-class="cmti-10">default: </span>(none)</li></ul>
-<!--l. 354--><p class="noindent" >
+class="cmti-10">default: </span>False</li></ul>
+<!--l. 63--><p class="noindent" >
 </p>
-   <h5 class="subsubsectionHead"><span class="titlemark">A.3.2   </span> <a 
- id="x96-197000A.3.2"></a>[scheduling] <span 
-class="cmsy-10">&#x2192; </span>final cycle time</h5>
-<!--l. 356--><p class="noindent" >Cycling tasks are held (i.e.&#x00A0;not allowed to spawn a successor) once they pass the final cycle time, if one is specified.
-Once all tasks have achieved this state the suite will shut down. If this item is provided you can override it on the
-command line or in the gcylc suite start panel.
+   <h5 class="subsubsectionHead"><span class="titlemark">A.2.2   </span> <a 
+ id="x96-174000A.2.2"></a> [cylc] <span 
+class="cmsy-10">&#x2192; </span>simulation mode only</h5>
+<!--l. 65--><p class="noindent" >This prevents a suite from running in real mode - use for demo suites created by copying real suites out of their
+normal operating environment.
 </p>
      <ul class="itemize1">
      <li class="itemize"><span 
-class="cmti-10">type: </span>integer (YYYY[MM[DD[HH[mm[ss]]]]])
+class="cmti-10">type: </span>boolean
      </li>
      <li class="itemize"><span 
-class="cmti-10">default: </span>(none)</li></ul>
-<!--l. 366--><p class="noindent" >
+class="cmti-10">default: </span>False</li></ul>
+<!--l. 73--><p class="noindent" >
 </p>
-   <h5 class="subsubsectionHead"><span class="titlemark">A.3.3   </span> <a 
- id="x96-198000A.3.3"></a>[scheduling] <span 
-class="cmsy-10">&#x2192; </span>runahead limit</h5>
-<!--l. 368--><p class="noindent" >The suite runahead limit prevents the fastest tasks in a suite from getting too far ahead of the slowest ones, as
-documented in Section&#x00A0;<a 
-href="cug-htmlsu49.html#x74-14600011.3.1">11.3.1<!--tex4ht:ref: RunaheadLimit --></a>. Tasks exceeding the limit will be put into a special runahead held state until slower
-tasks have caught up sufficiently. The limit must be long enough to cover the minimum cycle time range of tasks
-present in the suite: a task that only runs once per day, for instance, needs to spawn 24 hours ahead. Failed tasks,
-which are not automatically removed from a suite, are ignored when computing the runahead limit.
-</p>
+   <h5 class="subsubsectionHead"><span class="titlemark">A.2.3   </span> <a 
+ id="x96-175000A.2.3"></a>[cylc] <span 
+class="cmsy-10">&#x2192; </span>[[logging]]</h5>
+<!--l. 75--><p class="noindent" >This section configures cylc&#8217;s logging functionality, which records time-stamped events to a special log
+file.
                                                                                          
 
                                                                                          
+</p><!--l. 78--><p class="noindent" >
+</p>
+<!--l. 78--><p class="noindent" ><span class="paragraphHead"><a 
+ id="x96-176000A.2.3.1"></a><span 
+class="cmbx-10">[cylc] </span><span 
+class="cmsy-10">&#x2192; </span><span 
+class="cmbx-10">[[logging]] </span><span 
+class="cmsy-10">&#x2192; </span><span 
+class="cmbx-10">directory</span></span>
+   The cylc log and its backups are stored in this directory. If you change the directory make sure it remains
+suite-specific by using suite identity environment variables in the path.
+</p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmti-10">type: </span>string (directory path, may contain environment variables)
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">default: </span><span class="lstinline"><span 
+class="pcrr8c-">$</span><span 
+class="pcrr7t-">HOME</span><span 
+class="pcrr7t-">/</span><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">-</span><span 
+class="pcrr7t-">run</span><span 
+class="pcrr7t-">/</span><span 
+class="pcrr8c-">$</span><span 
+class="pcrr7t-">CYLC_SUITE_REG_NAME</span><span 
+class="pcrr7t-">/</span><span 
+class="pcrr7t-">log</span><span 
+class="pcrr7t-">/</span><span 
+class="pcrr7t-">suite</span></span></li></ul>
+<!--l. 89--><p class="noindent" >
+</p>
+<!--l. 89--><p class="noindent" ><span class="paragraphHead"><a 
+ id="x96-177000A.2.3.2"></a><span 
+class="cmbx-10">[cylc] </span><span 
+class="cmsy-10">&#x2192; </span><span 
+class="cmbx-10">[[logging]] </span><span 
+class="cmsy-10">&#x2192; </span><span 
+class="cmbx-10">roll over at start-up</span></span>
+   Suite logs roll over (start anew) automatically when they reach a certain size - currently hardwired to 1MB in
+<span class="lstinline"><span 
+class="pcrr8c-">$</span><span 
+class="pcrr7t-">CYLC_DIR</span><span 
+class="pcrr7t-">/</span><span 
+class="pcrr7t-">lib</span><span 
+class="pcrr7t-">/</span><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">/</span><span 
+class="pcrr7t-">pimp_my_logger</span><span 
+class="pcrr7t-">.</span><span 
+class="pcrr7t-">py</span></span>. They can also be rolled automatically whenever a suite is started
+or restarted.
+</p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmti-10">type: </span>boolean
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">default: </span>True</li></ul>
+<!--l. 102--><p class="noindent" >
+</p>
+   <h5 class="subsubsectionHead"><span class="titlemark">A.2.4   </span> <a 
+ id="x96-178000A.2.4"></a> [cylc] <span 
+class="cmsy-10">&#x2192; </span>[[state dumps]] </h5>
+<!--l. 104--><p class="noindent" >State dump files allow cylc to restart suites from previous states of operation.
+</p><!--l. 107--><p class="noindent" >
+</p>
+<!--l. 107--><p class="noindent" ><span class="paragraphHead"><a 
+ id="x96-179000A.2.4.1"></a><span 
+class="cmbx-10">[cylc] </span><span 
+class="cmsy-10">&#x2192; </span><span 
+class="cmbx-10">[[state dumps]] </span><span 
+class="cmsy-10">&#x2192; </span><span 
+class="cmbx-10">directory</span></span>
+   The rolling archive of suite state dump files, backups of the default state dump, and any special pre-intervention
+state dumps, are stored under this directory. If you change this directory make sure it remains suite-specific by using
+suite identity environment variables in the path.
+</p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmti-10">type: </span>string (directory path, may contain environment variables)
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">default: </span><span class="lstinline"><span 
+class="pcrr8c-">$</span><span 
+class="pcrr7t-">HOME</span><span 
+class="pcrr7t-">/</span><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">-</span><span 
+class="pcrr7t-">run</span><span 
+class="pcrr7t-">/</span><span 
+class="pcrr8c-">$</span><span 
+class="pcrr7t-">CYLC_SUITE_REG_NAME</span><span 
+class="pcrr7t-">/</span><span 
+class="pcrr7t-">state</span></span></li></ul>
+                                                                                         
+
+                                                                                         
+<!--l. 120--><p class="noindent" >
+</p>
+<!--l. 120--><p class="noindent" ><span class="paragraphHead"><a 
+ id="x96-180000A.2.4.2"></a><span 
+class="cmbx-10">[cylc] </span><span 
+class="cmsy-10">&#x2192; </span><span 
+class="cmbx-10">[[state dumps]] </span><span 
+class="cmsy-10">&#x2192; </span><span 
+class="cmbx-10">number of backups</span></span>
+   This is the length, in number of changes, of the automatic rolling archive of state dump files that allows you to
+restart a suite from a previous state. Every time a task changes state cylc updates the state dump and rolls previous
+states back one on the archive. You&#8217;ll probably only ever need the latest (most recent) state dump, which is
+automatically used in a restart, but any previous state still in the archive can be used. Additionally, special labeled
+state dumps are written out prior to actioning any suite intervention - their filenames are logged by
+cylc.
+</p>
      <ul class="itemize1">
      <li class="itemize"><span 
 class="cmti-10">type: </span>integer (<span 
-class="cmsy-10">&#x2265; </span>0, hours)
+class="cmsy-10">&#x2265; </span>1)
      </li>
      <li class="itemize"><span 
-class="cmti-10">default: </span>24</li></ul>
-<!--l. 382--><p class="noindent" >
+class="cmti-10">default: </span>10</li></ul>
+<!--l. 137--><p class="noindent" >
 </p>
-   <h5 class="subsubsectionHead"><span class="titlemark">A.3.4   </span> <a 
- id="x96-199000A.3.4"></a>[scheduling] <span 
-class="cmsy-10">&#x2192; </span>[[queues]]</h5>
-<!--l. 384--><p class="noindent" >Configuration of internal queues, by which the number of simultaneously active tasks (submitted or running) can be
-limited, per queue. By default a single queue called <span 
-class="cmti-10">default </span>is defined, with all tasks assigned to it and no limit. To
-use a single queue for the whole suite just set the limit on the <span 
-class="cmti-10">default </span>queue as required. See also
-Section&#x00A0;<a 
-href="cug-htmlsu49.html#x74-14700011.3.2">11.3.2<!--tex4ht:ref: InternalQueues --></a>.
-</p><!--l. 391--><p class="noindent" >
+   <h5 class="subsubsectionHead"><span class="titlemark">A.2.5   </span> <a 
+ id="x96-181000A.2.5"></a>[cylc] <span 
+class="cmsy-10">&#x2192; </span>[[event hooks]]</h5>
+<!--l. 140--><p class="noindent" >Cylc can call a nominated &#8220;event handler&#8221; script when certain suite events occur. This is intended
+to facilitate centralized alerting and automated handling of critical events. Event handlers can do
+anything you like, such as send emails or SMS, call pagers, or intervene in the operation of their parent
+suite with cylc commands. The command <span class="lstinline"><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">[</span><span 
+class="pcrr7t-">hook</span><span 
+class="pcrr7t-">]</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">email</span><span 
+class="pcrr7t-">-</span><span 
+class="pcrr7t-">suite</span></span> is a ready made suite event
+handler.
+</p><!--l. 147--><p class="indent" >   A single script can be nominated to handle a list of chosen events, and the event name is passed to the handler
+to allow it to distinguish between them.
+</p><!--l. 151--><p class="indent" >   Custom suite event handlers can be located in the suite bin directory. They are passed the following arguments
+by cylc:
 </p>
-<!--l. 391--><p class="noindent" ><span class="paragraphHead"><a 
- id="x96-200000A.3.4.1"></a><span 
-class="cmbx-10">[scheduling] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[queues]] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[[</span><span 
-class="cmbx-10">_</span><span 
-class="cmbx-10">_QUEUE</span><span 
-class="cmbx-10">_</span><span 
-class="cmbx-10">_]]]</span></span>
-   Section heading for configuration of a single queue. Replace __QUEUE__ with a queue name, and repeat the
-section as required.
-</p>
+   <!--l. 154--><div class="lstlisting">
+<span 
+class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
+ id="x96-181001r1"></a></span><span 
+class="pcrr7t-">&#x003C;</span><span 
+class="pcrr7t-">hook</span><span 
+class="pcrr7t-">-</span><span 
+class="pcrr7t-">script</span><span 
+class="pcrr7t-">&#x003E;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">EVENT</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">SUITE</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">MESSAGE</span>
+
+
+   </div>
+<!--l. 157--><p class="indent" >   Currently there is only one suite EVENT defined:  </p>
      <ul class="itemize1">
-     <li class="itemize"><span 
-class="cmti-10">type: </span>string
-     </li>
-     <li class="itemize"><span 
-class="cmti-10">default: </span>&#8220;default&#8221;</li></ul>
-<!--l. 401--><p class="noindent" >
+     <li class="itemize">&#8216;shutdown&#8217; - the suite stopped, normally or not.</li></ul>
+<!--l. 161--><p class="noindent" >MESSAGE, if provided, describes what has happened.
+</p><!--l. 163--><p class="indent" >   <span 
+class="cmti-10">Note that event handlers are called by cylc itself </span>so if you wish to pass them additional information via the
+environment you must use [cylc] <span 
+class="cmsy-10">&#x2192; </span>[[environment]], not task runtime environments.
+</p><!--l. 167--><p class="indent" >   See also Section&#x00A0;<a 
+href="cug-htmlsu67.html#x100-251000A.4.1.11">A.4.1.11<!--tex4ht:ref: TaskEventHandling --></a> for task event hooks.
+</p><!--l. 169--><p class="noindent" >
 </p>
-<!--l. 401--><p class="noindent" ><span class="paragraphHead"><a 
- id="x96-201000A.3.4.2"></a><span 
-class="cmbx-10">[scheduling] </span><span 
+<!--l. 169--><p class="noindent" ><span class="paragraphHead"><a 
+ id="x96-182000A.2.5.1"></a><span 
+class="cmbx-10">[cylc] </span><span 
 class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[queues]] </span><span 
+class="cmbx-10">[[event hooks]] </span><span 
 class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[[</span><span 
-class="cmbx-10">_</span><span 
-class="cmbx-10">_QUEUE</span><span 
-class="cmbx-10">_</span><span 
-class="cmbx-10">_]]] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">limit</span></span>
-   The maximum number of active tasks allowed at any one time, for this queue.  </p>
-     <ul class="itemize1">
-     <li class="itemize"><span 
-class="cmti-10">type: </span>integer
-     </li>
-     <li class="itemize"><span 
-class="cmti-10">default: </span>0 (i.e.&#x00A0;no limit)</li></ul>
-<!--l. 409--><p class="noindent" >
-</p>
-<!--l. 409--><p class="noindent" ><span class="paragraphHead"><a 
- id="x96-202000A.3.4.3"></a><span 
-class="cmbx-10">[scheduling] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[queues]] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[[</span><span 
-class="cmbx-10">_</span><span 
-class="cmbx-10">_QUEUE</span><span 
-class="cmbx-10">_</span><span 
-class="cmbx-10">_]]] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">members</span></span>
-   A list of member tasks, or task family names, to assign to this queue (assigned tasks will automatically be
-removed from the default queue).  </p>
+class="cmbx-10">events </span></span>
+   The list of events to handle, as documented for EVENT just above.  </p>
+                                                                                         
+
+                                                                                         
      <ul class="itemize1">
      <li class="itemize"><span 
 class="cmti-10">type: </span>list of strings
      </li>
      <li class="itemize"><span 
-class="cmti-10">default: </span>none for user-defined queues; all tasks for the &#8220;default&#8221; queue</li></ul>
-                                                                                         
-
-                                                                                         
-<!--l. 418--><p class="noindent" >
+class="cmti-10">default: </span>(none)</li></ul>
+<!--l. 177--><p class="noindent" >
 </p>
-   <h5 class="subsubsectionHead"><span class="titlemark">A.3.5   </span> <a 
- id="x96-203000A.3.5"></a>[scheduling] <span 
-class="cmsy-10">&#x2192; </span>[[special tasks]]</h5>
-<!--l. 420--><p class="noindent" >This section identifies any tasks with special behaviour. By default (i.e.&#x00A0;non &#8220;special&#8221;
-behaviour) tasks submit (or queue) as soon as their prerequisites are satisfied, and they spawn
-a successor at the next valid cycle time for the task as soon as they enter the submitted
-state<span class="footnote-mark"><a 
-href="cug-html97.html#fn16x0"><sup class="textsuperscript">16</sup></a></span><a 
- id="x96-203001f16"></a> 
-</p>
-<!--l. 428--><p class="noindent" ><span class="paragraphHead"><a 
- id="x96-204000A.3.5.1"></a><span 
-class="cmbx-10">[scheduling] </span><span 
+<!--l. 177--><p class="noindent" ><span class="paragraphHead"><a 
+ id="x96-183000A.2.5.2"></a><span 
+class="cmbx-10">[cylc] </span><span 
 class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[special tasks]] </span><span 
+class="cmbx-10">[[event hooks]] </span><span 
 class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">clock-triggered</span></span>
-   Clock-triggered tasks wait on a wall clock time specified as an offset <span 
-class="cmti-10">in hours </span>relative to their own cycle time, in
-addition to any dependence they have on other tasks. Generally speaking, only tasks that wait on external real time
-data need to be clock-triggered. Note that in computing the trigger time the full wall clock time and cycle time are
-compared, not just hours and minutes of the day, so when running a suite in catchup/delayed operation, or over
-historical periods, clock-triggered tasks will not constrain the suite at all until they catch up to the wall
-clock.
+class="cmbx-10">script</span></span>
+   The handler script to call when one of the nominated events occurs.
 </p>
      <ul class="itemize1">
      <li class="itemize"><span 
-class="cmti-10">type: </span>list of tasknames with offsets (hours, positive or negative)
+class="cmti-10">type: </span>string
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">default: </span>(none)</li></ul>
+<!--l. 187--><p class="noindent" >
+</p>
+   <h5 class="subsubsectionHead"><span class="titlemark">A.2.6   </span> <a 
+ id="x96-184000A.2.6"></a>[cylc] <span 
+class="cmsy-10">&#x2192; </span>[[max simultaneous job submissions]]</h5>
+<!--l. 189--><p class="noindent" >This sets the maximum allowable number of simultaneous (parallel) job submissions. If a greater number of tasks
+than this happen to become ready to run at once (as would be typical for ensemble suites), cylc will submit them in
+batches of this size, waiting for all members of a batch to return before proceeding to the next batch. See
+Section&#x00A0;<a 
+href="cug-htmlsu49.html#x74-14500011.3">11.3<!--tex4ht:ref: MaxSimJobSub --></a>.
+</p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmti-10">type: </span>integer (minimum 1)
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">default: </span>50</li></ul>
+<!--l. 201--><p class="noindent" >
+</p>
+   <h5 class="subsubsectionHead"><span class="titlemark">A.2.7   </span> <a 
+ id="x96-185000A.2.7"></a>[cylc] <span 
+class="cmsy-10">&#x2192; </span>[[pyro connection timeout]]</h5>
+<!--l. 203--><p class="noindent" >This sets the network connection timeout for Pyro connections to a running suite. The default is no timeout at all.
+See Section&#x00A0;<a 
+href="cug-htmlsu49.html#x74-14500011.3">11.3<!--tex4ht:ref: MaxSimJobSub --></a> for more on why this matters.
+</p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmti-10">type: </span>float (seconds; minimum 0.0)
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">default: </span>(none)</li></ul>
+                                                                                         
+
+                                                                                         
+<!--l. 212--><p class="noindent" >
+</p>
+<!--l. 212--><p class="noindent" ><span class="paragraphHead"><a 
+ id="x96-186000A.2.7.1"></a><span 
+class="cmbx-10">[cylc] </span><span 
+class="cmsy-10">&#x2192; </span><span 
+class="cmbx-10">[[logging]] </span><span 
+class="cmsy-10">&#x2192; </span><span 
+class="cmbx-10">directory</span></span>
+   The cylc log and its backups are stored in this directory. If you change the directory make sure it remains
+suite-specific by using suite identity environment variables in the path.
+</p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmti-10">type: </span>string (directory path, may contain environment variables)
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">default: </span><span class="lstinline"><span 
+class="pcrr8c-">$</span><span 
+class="pcrr7t-">HOME</span><span 
+class="pcrr7t-">/</span><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">-</span><span 
+class="pcrr7t-">run</span><span 
+class="pcrr7t-">/</span><span 
+class="pcrr8c-">$</span><span 
+class="pcrr7t-">CYLC_SUITE_REG_NAME</span><span 
+class="pcrr7t-">/</span><span 
+class="pcrr7t-">log</span><span 
+class="pcrr7t-">/</span><span 
+class="pcrr7t-">suite</span></span></li></ul>
+<!--l. 223--><p class="noindent" >
+</p>
+<!--l. 223--><p class="noindent" ><span class="paragraphHead"><a 
+ id="x96-187000A.2.7.2"></a><span 
+class="cmbx-10">[cylc] </span><span 
+class="cmsy-10">&#x2192; </span><span 
+class="cmbx-10">[[logging]] </span><span 
+class="cmsy-10">&#x2192; </span><span 
+class="cmbx-10">roll over at start-up</span></span>
+   Suite logs roll over (start anew) automatically when they reach a certain size - currently hardwired to 1MB in
+<span class="lstinline"><span 
+class="pcrr8c-">$</span><span 
+class="pcrr7t-">CYLC_DIR</span><span 
+class="pcrr7t-">/</span><span 
+class="pcrr7t-">lib</span><span 
+class="pcrr7t-">/</span><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">/</span><span 
+class="pcrr7t-">pimp_my_logger</span><span 
+class="pcrr7t-">.</span><span 
+class="pcrr7t-">py</span></span>. They can also be rolled automatically whenever a suite is started
+or restarted.
+</p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmti-10">type: </span>boolean
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">default: </span>True</li></ul>
+<!--l. 237--><p class="noindent" >
+</p>
+   <h5 class="subsubsectionHead"><span class="titlemark">A.2.8   </span> <a 
+ id="x96-188000A.2.8"></a>[cylc] <span 
+class="cmsy-10">&#x2192; </span>[[lockserver]]</h5>
+<!--l. 239--><p class="noindent" >The cylc lockserver brokers suite and task locks on the network (these are somewhat analagous to traditional local
+<span 
+class="cmti-10">lock files</span>). It prevents multiple instances of a suite or task from being invoked at the same time (via scheduler
+instances or <span class="lstinline"><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">submit</span></span>).
+</p><!--l. 244--><p class="indent" >   See <span class="lstinline"><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">lockserver</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">--</span><span 
+class="pcrr7t-">help</span></span> for how to run the lockserver, and <span class="lstinline"><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">lockclient</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">--</span><span 
+class="pcrr7t-">help</span></span> for
+occasional manual lock management requirements.
+</p><!--l. 248--><p class="noindent" >
+</p>
+<!--l. 248--><p class="noindent" ><span class="paragraphHead"><a 
+ id="x96-189000A.2.8.1"></a><span 
+class="cmbx-10">[cylc] </span><span 
+class="cmsy-10">&#x2192; </span><span 
+class="cmbx-10">[[lockserver]] </span><span 
+class="cmsy-10">&#x2192; </span><span 
+class="cmbx-10">enable</span></span>
+   The lockserver is currently disabled by default. It is intended mainly for operational use.
+</p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmti-10">type: </span>boolean
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">default: </span>False</li></ul>
+                                                                                         
+
+                                                                                         
+<!--l. 258--><p class="noindent" >
+</p>
+<!--l. 258--><p class="noindent" ><span class="paragraphHead"><a 
+ id="x96-190000A.2.8.2"></a><span 
+class="cmbx-10">[cylc] </span><span 
+class="cmsy-10">&#x2192; </span><span 
+class="cmbx-10">[[lockserver]] </span><span 
+class="cmsy-10">&#x2192; </span><span 
+class="cmbx-10">simultaneous instances</span></span>
+   By default the lockserver prevents multiple simultaneous instances of a suite from running even under different
+registered names. But allowing this may be desirable if the I/O paths of every task in the suite are dynamically
+configured to be suite specific (and similarly for the suite state dump and logging directories, by using suite identity
+variables in their directory paths). Note that <span 
+class="cmti-10">the lockserver cannot protect you from running multiple distinct </span><span 
+class="cmbx-10">copies</span>
+<span 
+class="cmti-10">of a suite simultaneously</span>.
+</p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmti-10">type: </span>boolean
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">default: </span>False</li></ul>
+<!--l. 273--><p class="noindent" >
+</p>
+   <h5 class="subsubsectionHead"><span class="titlemark">A.2.9   </span> <a 
+ id="x96-191000A.2.9"></a>[cylc] <span 
+class="cmsy-10">&#x2192; </span>[[environment]]</h5>
+<!--l. 275--><p class="noindent" >Variables defined here are exported into the environment in which cylc itself runs. They are then available to <span 
+class="cmti-10">local</span>
+<span 
+class="cmti-10">processes spawned directly by cylc</span>. Any variables read by task event handlers must be defined here, for instance,
+because event handlers are executed directly by cylc, not by running tasks. And similarly the command lines issued
+by cylc to invoke event handlers or to submit task job scripts could, in principle, make use of environment variables
+defined here.
+</p>
+<!--l. 283--><p class="noindent" ><span class="paragraphHead"><a 
+ id="x96-192000A.2.9.1"></a><span 
+class="cmbx-10">Warnings</span></span>
+</p>
+     <ul class="itemize1">
+     <li class="itemize">Cylc local variables are not available to executing tasks unless you happen to choose a local direct job
+     submission method. <span 
+class="cmti-10">Always use task runtime environments to pass variables into the task execution</span>
+     <span 
+class="cmti-10">environment (</span><a 
+href="cug-htmlsu67.html#x100-258000A.4.1.12.1"><span 
+class="cmti-10">A.4.1.12.1</span><!--tex4ht:ref: AppendixTaskExecutionEnvironment --></a><span 
+class="cmti-10">).</span>
+     </li>
+     <li class="itemize">Unlike task execution environment variables, which are written to job scripts and interpreted by the
+     shell at run time, cylc local environment variables are written directly to the environment by Python
+     as literal strings <span 
+class="cmti-10">so shell variable expansion expressions cannot be used here.</span></li></ul>
+<!--l. 298--><p class="noindent" >
+</p>
+<!--l. 298--><p class="noindent" ><span class="paragraphHead"><a 
+ id="x96-193000A.2.9.2"></a><span 
+class="cmbx-10">[cylc] </span><span 
+class="cmsy-10">&#x2192; </span><span 
+class="cmbx-10">[[environment]] </span><span 
+class="cmsy-10">&#x2192; </span><span 
+class="cmbx-10">_</span><span 
+class="cmbx-10">_VARIABLE</span><span 
+class="cmbx-10">_</span><span 
+class="cmbx-10">_</span></span>
+   Replace __VARIABLE__ with any number of environment variable assignment expressions. Values may refer to
+other local environment variables (order of definition is preserved) and are not evaluated or manipulated by
+cylc, so any variable assignment expression that is legal in the shell in which cylc is running can be
+used (but see the warning above on variable expansions, which will not be evaluated). White space
+around the &#8216;=&#8217; is allowed (as far as cylc&#8217;s suite.rc parser is concerned these are normal configuration
+items).
+                                                                                         
+
+                                                                                         
+</p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmti-10">type: </span>string
      </li>
      <li class="itemize"><span 
 class="cmti-10">default: </span>(none)
      </li>
      <li class="itemize"><span 
-class="cmti-10">example: </span><span class="lstinline"><span 
-class="pcrr7t-">clock</span><span 
-class="pcrr7t-">-</span><span 
-class="pcrr7t-">triggered</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">=</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">foo</span><span 
-class="pcrr7t-">(1.5),</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">bar</span><span 
-class="pcrr7t-">(2.25)</span></span></li></ul>
-<!--l. 446--><p class="noindent" >
-</p>
-<!--l. 446--><p class="noindent" ><span class="paragraphHead"><a 
- id="x96-205000A.3.5.2"></a><span 
-class="cmbx-10">[scheduling] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[special tasks]] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">start-up</span></span>
-   Start-up tasks are one-off tasks (they do not spawn a successor) that only run in the first cycle (and only in a
-cold-start) and any dependence on them is ignored in subsequent cycles. They can be used to prepare a suite
-workspace, for example, before other tasks run. Start-up tasks cannot appear in conditional trigger expressions with
-normal cycling tasks, because the meaning of the conditional expression becomes undefined in subsequent
-cycles.
-</p>
-     <ul class="itemize1">
-     <li class="itemize"><span 
-class="cmti-10">type: </span>list of task names
-     </li>
-     <li class="itemize"><span 
-class="cmti-10">default: </span>(none)</li></ul>
-<!--l. 461--><p class="noindent" >
-</p>
-<!--l. 461--><p class="noindent" ><span class="paragraphHead"><a 
- id="x96-206000A.3.5.3"></a><span 
-class="cmbx-10">[scheduling] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[special tasks]] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">cold-start</span></span>
-                                                                                         
-
-                                                                                         
-   A cold-start task is one-off task used to satisfy the dependence of an associated task with the same cycle
-time, on outputs from a previous cycle - when those outputs are not available. The primary use for
-this is to cold-start a warm-cycled forecast model that normally depends on restart files (e.g.&#x00A0;model
-background fields) generated by its previous forecast, when there is no previous forecast. This is required
-when cold-starting the suite, but cold-start tasks can also be inserted into a running suite to restart a
-model that has had to skip some cycles after running into problems. Cold-start tasks can invoke real
-cold-start processes, or they can just be dummy tasks that represent some external process that has to be
-completed before the suite is started. Unlike <span 
-class="cmti-10">start-up </span>tasks, dependence on cold-start tasks is preseverved in
-subsequent cycles so they must typically be used in OR&#8217;d conditional expressions to avoid holding up the
-suite.
-</p>
-     <ul class="itemize1">
-     <li class="itemize"><span 
-class="cmti-10">type: </span>list of task names
-     </li>
-     <li class="itemize"><span 
-class="cmti-10">default: </span>(none)</li></ul>
-<!--l. 483--><p class="noindent" >
-</p>
-<!--l. 483--><p class="noindent" ><span class="paragraphHead"><a 
- id="x96-207000A.3.5.4"></a><span 
-class="cmbx-10">[scheduling] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[special tasks]] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">sequential</span></span>
-   By default, a task spawns a successor as soon as it is submitted to run so that successive instances of the same
-task can run in parallel if the opportunity arises (i.e.&#x00A0;if their prerequisites happen to be satisfied before their
-predecessor has finished). <span 
-class="cmti-10">Sequential tasks</span>, however, will not spawn a successor until they have finished successfully.
-This should be used for (a) <span 
-class="cmti-10">tasks that cannot run in parallel with their own previous instances </span>because they would
-somehow interfere with each other (use cycle time in all I/O paths to avoid this); and (b) <span 
-class="cmti-10">warm cycled forecast</span>
-<span 
-class="cmti-10">models that write out restart files for multiple cycles ahead </span>(exception: see &#8220;explicit restart outputs&#8221;
-below).<span class="footnote-mark"><a 
-href="cug-html98.html#fn17x0"><sup class="textsuperscript">17</sup></a></span><a 
- id="x96-207001f17"></a> 
-</p>
-     <ul class="itemize1">
-     <li class="itemize"><span 
-class="cmti-10">type: </span>list of task names
-     </li>
-     <li class="itemize"><span 
-class="cmti-10">default: </span>(none)</li></ul>
-<!--l. 507--><p class="noindent" ><span class="paragraphHead"><a 
- id="x96-208000A.3.5.5"></a><span 
-class="cmbx-10">[scheduling] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[special tasks]] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">one-off</span></span>
-   Synchronous one-off tasks have an associated cycle time but do not spawn a successor. Synchronous <span 
-class="cmti-10">start-up </span>and
-<span 
-class="cmti-10">cold-start </span>tasks are automatically one-off tasks and do not need to be listed here. Dependence on one-off tasks is not
-restricted to the first cycle.
-</p>
-     <ul class="itemize1">
-     <li class="itemize"><span 
-class="cmti-10">type: </span>list of task names
-                                                                                         
-
-                                                                                         
-     </li>
-     <li class="itemize"><span 
-class="cmti-10">default: </span>(none)</li></ul>
-<!--l. 519--><p class="noindent" >
-</p>
-<!--l. 519--><p class="noindent" ><span class="paragraphHead"><a 
- id="x96-209000A.3.5.6"></a><span 
-class="cmbx-10">[scheduling] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[special tasks]] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">explicit restart outputs</span></span>
-   This is only required in the event that you need a warm cycled forecast model to start at the instant its restart
-files are ready (if other prerequisites are satisfied) <span 
-class="cmti-10">even if its previous instance has not finished yet</span>. If so, the model
-task has to depend on special output messages emitted by the previous instance as soon as its restart files are
-ready, instead of just on the previous instance finishing. <span 
-class="cmti-10">Tasks in this category must define special</span>
-<span 
-class="cmti-10">restart output messages containing the word &#8220;restart&#8221;</span>, in [runtime] <span 
-class="cmsy-10">&#x2192; </span>[[TASK]] <span 
-class="cmsy-10">&#x2192; </span>[[[outputs]]] - see
-Section&#x00A0;<a 
-href="cug-htmlsu41.html#x61-1190009.4.2">9.4.2<!--tex4ht:ref: RIOC --></a>.
-</p>
-     <ul class="itemize1">
-     <li class="itemize"><span 
-class="cmti-10">type: </span>list of task names
-     </li>
-     <li class="itemize"><span 
-class="cmti-10">default: </span>(none)</li></ul>
-<!--l. 539--><p class="noindent" >
-</p>
-<!--l. 539--><p class="noindent" ><span class="paragraphHead"><a 
- id="x96-210000A.3.5.7"></a><span 
-class="cmbx-10">[scheduling] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[special tasks]] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">exclude at start-up</span></span>
-   Any task listed here will be excluded from the initial task pool (this goes for suite restarts too). If an <span 
-class="cmti-10">inclusion</span>
-list is also specified, the initial pool will contain only included tasks that have not been excluded. Excluded tasks
-can still be inserted at run time. Other tasks may still depend on excluded tasks if they have not been removed from
-the suite dependency graph, in which case some manual triggering, or insertion of excluded tasks, may be
-required.
-</p>
-     <ul class="itemize1">
-     <li class="itemize"><span 
-class="cmti-10">type: </span>list of task names
-     </li>
-     <li class="itemize"><span 
-class="cmti-10">default: </span>(none)</li></ul>
-<!--l. 555--><p class="noindent" >
-</p>
-<!--l. 555--><p class="noindent" ><span class="paragraphHead"><a 
- id="x96-211000A.3.5.8"></a><span 
-class="cmbx-10">[scheduling] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[special tasks]] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">include at start-up</span></span>
-   If this list is not empty, any task <span 
-class="cmti-10">not </span>listed in it will be excluded from the initial task pool (this goes for suite
-restarts too). If an <span 
-class="cmti-10">exclusion </span>list is also specified, the initial pool will contain only included tasks that have not been
-excluded. Excluded tasks can still be inserted at run time. Other tasks may still depend on excluded tasks if they
-have not been removed from the suite dependency graph, in which case some manual triggering, or insertion of
-excluded tasks, may be required.
-</p>
-                                                                                         
-
-                                                                                         
-     <ul class="itemize1">
-     <li class="itemize"><span 
-class="cmti-10">type: </span>list of task names
-     </li>
-     <li class="itemize"><span 
-class="cmti-10">default: </span>(none)</li></ul>
-<!--l. 572--><p class="noindent" >
-</p>
-   <h5 class="subsubsectionHead"><span class="titlemark">A.3.6   </span> <a 
- id="x96-212000A.3.6"></a>[scheduling] <span 
-class="cmsy-10">&#x2192; </span>[[dependencies]]</h5>
-<!--l. 574--><p class="noindent" >The suite dependency graph is defined under this section. You can plot the dependency graph as you work on it,
-with <span class="lstinline"><span 
-class="pcrr7t-">cylc</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">graph</span></span> or by right clicking on the suite in gcylc. See also Section&#x00A0;<a 
-href="cug-htmlsu32.html#x46-670008.3">8.3<!--tex4ht:ref: DependencyGraphs --></a>.
-</p><!--l. 579--><p class="noindent" >
-</p>
-<!--l. 579--><p class="noindent" ><span class="paragraphHead"><a 
- id="x96-213000A.3.6.1"></a> <span 
-class="cmbx-10">[scheduling] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[dependencies]] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">graph </span></span>
-   The dependency graph for any one-off asynchronous (non-cycling) tasks in the suite goes here. This can be used
-to construct a suite of one-off tasks (e.g.&#x00A0;build jobs and related processing) that just completes and then
-exits, or an initial suite section that completes prior to the cycling tasks starting (if you make the first
-cycling tasks depend on the last one-off ones). But note that synchronous <span 
-class="cmti-10">start-up </span>tasks can also be
-used for the latter purpose. See Section&#x00A0;<a 
-href="#x96-215000A.3.6.2.1">A.3.6.2.1<!--tex4ht:ref: GraphDescrip --></a> below for graph string syntax, and Section&#x00A0;<a 
-href="cug-htmlsu32.html#x46-670008.3">8.3<!--tex4ht:ref: DependencyGraphs --></a>.
-</p>
-     <ul class="itemize1">
-     <li class="itemize"><span 
-class="cmti-10">type: </span>string
-     </li>
-     <li class="itemize"><span 
-class="cmti-10">example: </span>(see Section&#x00A0;<a 
-href="#x96-215000A.3.6.2.1">A.3.6.2.1<!--tex4ht:ref: GraphDescrip --></a> below)</li></ul>
-<!--l. 594--><p class="noindent" >
-</p>
-<!--l. 594--><p class="noindent" ><span class="paragraphHead"><a 
- id="x96-214000A.3.6.2"></a><span 
-class="cmbx-10">[scheduling] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[dependencies]] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[[</span><span 
-class="cmbx-10">_</span><span 
-class="cmbx-10">_VALIDITY</span><span 
-class="cmbx-10">_</span><span 
-class="cmbx-10">_]]]</span></span>
-   Replace __VALIDITY__ with a comma-separated list of integer hours, 0 <span 
-class="cmsy-10">&#x2264; </span><span 
-class="cmmi-10">H </span><span 
-class="cmsy-10">&#x2264; </span>23, defining the valid cycle times
-for the subsequent graph of cycling tasks, or multiple such subsections as required for different dependencies at
-different hours; or with &#8216;ASYNCID:<span 
-class="cmti-10">pattern</span>&#8217;, where <span 
-class="cmti-10">pattern </span>is a regular expression that matches an asynchronous
-task ID, for each graph of repeating asynchronous tasks.
-</p>
-     <ul class="itemize1">
-     <li class="itemize"><span 
 class="cmti-10">examples:</span>
          <ul class="itemize2">
-         <li class="itemize">(cycling tasks) <span class="lstinline"><span 
-class="pcrr7t-">[[0,6,12,18]]</span></span>
-         </li>
-         <li class="itemize">(repeating asynchronous tasks) <span class="lstinline"><span 
-class="pcrr7t-">[[</span><span 
-class="pcrr7t-">ASYNCID</span><span 
-class="pcrr7t-">:</span><span 
-class="pcrr7t-">SAT</span><span 
-class="pcrr7t-">-\</span><span 
-class="pcrr7t-">d</span><span 
-class="pcrr7t-">+]]</span></span></li></ul>
-     </li>
-     <li class="itemize"><span 
-class="cmti-10">default: </span>(none)</li></ul>
-<!--l. 612--><p class="noindent" >For a cycling graph with multiple validity sections for different hours of the day, the different sections <span 
-class="cmti-10">add </span>to generate
-the complete graph. Different graph sections can overlap (i.e.&#x00A0;the same hours may appear in multiple section
-                                                                                         
-
-                                                                                         
-headings) and the same tasks may appear in multiple sections, but the individual dependencies must be unique
-across the entire graph. Duplicate dependencies will cause a run time error at start-up, as documented in <span 
-class="cmti-10">How</span>
-<span 
-class="cmti-10">Multiple Graph Strings Combine </span>(Section&#x00A0;<a 
-href="cug-htmlsu32.html#x46-740008.3.3.2.1">8.3.3.2.1<!--tex4ht:ref: HowMultipleGraphStringsCombine --></a>).
-</p><!--l. 621--><p class="noindent" >
-</p>
-<!--l. 621--><p class="indent" >   <span class="subparagraphHead"> <a 
- id="x96-215000A.3.6.2.1"></a><span 
-class="cmbx-10">[scheduling] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[dependencies]] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[[</span><span 
-class="cmbx-10">_</span><span 
-class="cmbx-10">_VALIDITY</span><span 
-class="cmbx-10">_</span><span 
-class="cmbx-10">_]]] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">graph </span></span>
-   The dependency graph for the specified validity section (described just above) goes here. Syntax examples follow;
-see also Sections&#x00A0;<a 
-href="cug-htmlsu32.html#x46-670008.3">8.3<!--tex4ht:ref: DependencyGraphs --></a> (<span 
-class="cmti-10">Dependency Graphs</span>) and&#x00A0;<a 
-href="cug-htmlsu32.html#x46-780008.3.4">8.3.4<!--tex4ht:ref: TriggerTypes --></a> (<span 
-class="cmti-10">Trigger Types</span>).
-</p>
-     <ul class="itemize1">
-     <li class="itemize"><span 
-class="cmti-10">type: </span>string
-     </li>
-     <li class="itemize"><span 
-class="cmti-10">examples: </span><!--l. 632--><div class="lstlisting">
-<span 
-class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x96-215001r1"></a></span><span 
-class="pcrr7t-">graph</span><span 
+         <li class="itemize"><span class="lstinline"><span 
+class="pcrr7t-">FOO</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">=</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">"</span><span 
-class="pcrr7t-">"</span><span 
-class="pcrr7t-">"</span><span 
-class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x96-215002r2"></a></span></span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">foo</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">=&#x003E;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">bar</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">=&#x003E;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">baz</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&amp;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">waz</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">#</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">baz</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">and</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">waz</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">both</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">trigger</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">off</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">bar</span><span 
-class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x96-215003r3"></a></span></span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">baz</span><span 
-class="pcrr7t-">:</span><span 
-class="pcrr7t-">out1</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">=&#x003E;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">faz</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">#</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">faz</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">triggers</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">off</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">an</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">internal</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">output</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">of</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">baz</span><span 
-class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x96-215004r4"></a></span></span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">ColdFoo</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">|</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">foo</span><span 
-class="pcrr7t-">[</span><span 
-class="pcrr7t-">T</span><span 
-class="pcrr7t-">-6]</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">=&#x003E;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">foo</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">#</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">cold</span><span 
-class="pcrr7t-">-</span><span 
-class="pcrr7t-">start</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">or</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">restart</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">for</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">foo</span><span 
-class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x96-215005r5"></a></span></span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">X</span><span 
-class="pcrr7t-">:</span><span 
-class="pcrr7t-">start</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">=&#x003E;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">Y</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">#</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">Y</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">triggers</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">if</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">X</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">starts</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">executing</span><span 
-class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x96-215006r6"></a></span></span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">X</span><span 
-class="pcrr7t-">:</span><span 
-class="pcrr7t-">fail</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">=&#x003E;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">Y</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">#</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">Y</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">triggers</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">if</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">X</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">fails</span><span 
-class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x96-215007r7"></a></span></span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">foo</span><span 
-class="pcrr7t-">[</span><span 
-class="pcrr7t-">T</span><span 
-class="pcrr7t-">-6]:</span><span 
-class="pcrr7t-">fail</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">=&#x003E;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">bar</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">#</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">bar</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">triggers</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">if</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">foo</span><span 
-class="pcrr7t-">[</span><span 
-class="pcrr7t-">T</span><span 
-class="pcrr7t-">-6]</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">fails</span><span 
-class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x96-215008r8"></a></span></span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">X</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">=&#x003E;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">!</span><span 
-class="pcrr7t-">Y</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">#</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">Y</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">suicides</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">if</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">X</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">succeeds</span><span 
-class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x96-215009r9"></a></span></span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">X</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">|</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">X</span><span 
-class="pcrr7t-">:</span><span 
-class="pcrr7t-">fail</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">=&#x003E;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">Z</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">#</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">Z</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">triggers</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">if</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">X</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">succeeds</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">or</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">fails</span><span 
-class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x96-215010r10"></a></span></span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">X</span><span 
-class="pcrr7t-">:</span><span 
-class="pcrr7t-">finish</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">=&#x003E;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">Z</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">#</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">Z</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">triggers</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">if</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">X</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">succeeds</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">or</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">fails</span><span 
-class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x96-215011r11"></a></span></span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">(</span><span 
-class="pcrr7t-">A</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">|</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">B</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&amp;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">C</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">)</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">|</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">D</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">=&#x003E;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">foo</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">#</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">general</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">conditional</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">triggers</span><span 
-class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x96-215012r12"></a></span></span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">#</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">comment</span><span 
-class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x96-215013r13"></a></span></span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">"</span><span 
-class="pcrr7t-">"</span><span 
-class="pcrr7t-">"</span>
-
-
-     </div>
-     </li>
-     <li class="itemize"><span 
-class="cmti-10">default: </span>(none)</li></ul>
-<!--l. 650--><p class="noindent" >
+class="pcrr8c-">$</span><span 
+class="pcrr7t-">HOME</span><span 
+class="pcrr7t-">/</span><span 
+class="pcrr7t-">foo</span></span></li></ul>
+     </li></ul>
+<!--l. 319--><p class="noindent" >
 </p>
-<!--l. 650--><p class="indent" >   <span class="subparagraphHead"> <a 
- id="x96-216000A.3.6.2.2"></a><span 
-class="cmbx-10">[scheduling] </span><span 
+   <h5 class="subsubsectionHead"><span class="titlemark">A.2.10   </span> <a 
+ id="x96-194000A.2.10"></a>[cylc] <span 
+class="cmsy-10">&#x2192; </span>[[simulation mode]] </h5>
+<!--l. 321--><p class="noindent" >Items specific to running suites in simulation mode.
+</p><!--l. 323--><p class="noindent" >
+</p>
+<!--l. 323--><p class="noindent" ><span class="paragraphHead"><a 
+ id="x96-195000A.2.10.1"></a><span 
+class="cmbx-10">[cylc] </span><span 
 class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[dependencies]] </span><span 
+class="cmbx-10">[[simulation mode]] </span><span 
 class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[[</span><span 
-class="cmbx-10">_</span><span 
-class="cmbx-10">_VALIDITY</span><span 
-class="cmbx-10">_</span><span 
-class="cmbx-10">_]]] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">daemon </span></span>
-   For [[[ASYNCID:pattern]]] validity sections only, list <span 
-class="cmti-10">asynchronous daemon </span>tasks by name. This item is located
-here rather than under [scheduling] <span 
-class="cmsy-10">&#x2192; </span>[[special tasks]] because a damon task is associated with a particular
-asynchronous ID.
+class="cmbx-10">clock rate</span></span>
+   This determines the speed at which the simulation mode clock runs, in real seconds per simulated hour. A value
+of 10, for example, means it will take 10 real seconds to simulate one hour of operation.
 </p>
      <ul class="itemize1">
      <li class="itemize"><span 
-class="cmti-10">type: </span>list of task names
+class="cmti-10">type: </span>integer (<span 
+class="cmsy-10">&#x2265; </span>0, real seconds per simulated hour)
      </li>
      <li class="itemize"><span 
-class="cmti-10">default: </span>(none)</li></ul>
+class="cmti-10">default: </span>10</li></ul>
+<!--l. 334--><p class="noindent" >
+</p>
+<!--l. 334--><p class="noindent" ><span class="paragraphHead"><a 
+ id="x96-196000A.2.10.2"></a><span 
+class="cmbx-10">[cylc] </span><span 
+class="cmsy-10">&#x2192; </span><span 
+class="cmbx-10">[[simulation mode]] </span><span 
+class="cmsy-10">&#x2192; </span><span 
+class="cmbx-10">clock offset</span></span>
+   The clock offset determines the initial time on the simulation clock, at suite startup, relative to the initial cycle
+time. An offset of 0 simulates real time operation; greater offsets simulate catch up from a delay and subsequent
+transition to real time operation.
+</p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmti-10">type: </span>integer (<span 
+class="cmsy-10">&#x2265; </span>0, hours behind initial cycle time)
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">default: </span>24</li></ul>
                                                                                          
 
                                                                                          
-   <!--l. 662--><div class="crosslinks"><p class="noindent">[<a 
+<!--l. 346--><p class="noindent" >
+</p>
+<!--l. 346--><p class="noindent" ><span class="paragraphHead"><a 
+ id="x96-197000A.2.10.3"></a> <span 
+class="cmbx-10">[cylc] </span><span 
+class="cmsy-10">&#x2192; </span><span 
+class="cmbx-10">[[simulation mode]] </span><span 
+class="cmsy-10">&#x2192; </span><span 
+class="cmbx-10">command scripting</span></span>
+   The command scripting to execute for all tasks when running in simulation mode.  </p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmti-10">type: </span>string (scripting valid in job submission shell; triple quote for multiple lines)
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">default: </span><span class="lstinline"><span 
+class="pcrb7t-">echo</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">SIMULATION</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">MODE</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr8c-">$</span><span 
+class="pcrr7t-">CYLC_TASK_ID</span><span 
+class="pcrr7t-">;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">sleep</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">10;</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrb7t-">echo</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">BYE</span></span></li></ul>
+<!--l. 355--><p class="noindent" >
+</p>
+<!--l. 355--><p class="noindent" ><span class="paragraphHead"><a 
+ id="x96-198000A.2.10.4"></a><span 
+class="cmbx-10">[cylc] </span><span 
+class="cmsy-10">&#x2192; </span><span 
+class="cmbx-10">[[simulation mode]] </span><span 
+class="cmsy-10">&#x2192; </span><span 
+class="cmbx-10">[[[job submission]]]</span></span>
+   Configure job submission for simulation mode.
+</p><!--l. 359--><p class="noindent" >
+</p>
+<!--l. 359--><p class="indent" >   <span class="subparagraphHead"> <a 
+ id="x96-199000A.2.10.4.1"></a><span 
+class="cmbx-10">[cylc] </span><span 
+class="cmsy-10">&#x2192; </span><span 
+class="cmbx-10">[[simulation mode]] </span><span 
+class="cmsy-10">&#x2192; </span><span 
+class="cmbx-10">[[[job submission]]] </span><span 
+class="cmsy-10">&#x2192; </span><span 
+class="cmbx-10">method </span></span>
+   The job submission method to use for all tasks in simulation mode. Any available method can be used but the
+default is probably sufficient for simulation mode.
+</p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmti-10">type: </span>string (a job submission method name - see Section&#x00A0;<a 
+href="cug-htmlsu67.html#x100-235000A.4.1.9.1">A.4.1.9.1<!--tex4ht:ref: RuntimeJobSubMethods --></a>)
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">default: </span><span class="lstinline"><span 
+class="pcrr7t-">background</span></span></li></ul>
+<!--l. 369--><p class="noindent" >
+</p>
+<!--l. 369--><p class="noindent" ><span class="paragraphHead"><a 
+ id="x96-200000A.2.10.5"></a><span 
+class="cmbx-10">[cylc] </span><span 
+class="cmsy-10">&#x2192; </span><span 
+class="cmbx-10">[[simulation mode]] </span><span 
+class="cmsy-10">&#x2192; </span><span 
+class="cmbx-10">[[[event hooks]]]</span></span>
+   Configure event hooks for simulation mode.
+</p><!--l. 373--><p class="noindent" >
+</p>
+<!--l. 373--><p class="indent" >   <span class="subparagraphHead"> <a 
+ id="x96-201000A.2.10.5.1"></a><span 
+class="cmbx-10">[cylc] </span><span 
+class="cmsy-10">&#x2192; </span><span 
+class="cmbx-10">[[simulation mode]] </span><span 
+class="cmsy-10">&#x2192; </span><span 
+class="cmbx-10">[[[event hooks]]] </span><span 
+class="cmsy-10">&#x2192; </span><span 
+class="cmbx-10">enable </span></span>
+   Event hooks are disabled by default in simulation mode. They can be enabled in order to test automated alerts,
+for example, without running the real suite tasks, but be aware that timeouts will be relative to the accelerated
+simulation mode clock which by default runs very quickly.
+</p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmti-10">type: </span>boolean
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">default: </span>False</li></ul>
+                                                                                         
+
+                                                                                         
+   <!--l. 386--><div class="crosslinks"><p class="noindent">[<a 
 href="cug-htmlsu66.html" >next</a>] [<a 
 href="cug-htmlsu64.html" >prev</a>] [<a 
 href="cug-htmlsu64.html#tailcug-htmlsu64.html" >prev-tail</a>] [<a 
 href="cug-htmlsu65.html" >front</a>] [<a 
 href="cug-htmlse15.html#cug-htmlsu65.html" >up</a>] </p></div>
-<!--l. 662--><p class="indent" >   <a 
+<!--l. 386--><p class="indent" >   <a 
  id="tailcug-htmlsu65.html"></a>    </p> 
 </body></html> 

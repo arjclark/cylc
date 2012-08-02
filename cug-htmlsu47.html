@@ -10,11 +10,11 @@
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
 <!-- xhtml,3,next,html --> 
 <meta name="src" content="cug-html.tex" /> 
-<meta name="date" content="2012-07-31 01:15:00" /> 
+<meta name="date" content="2012-08-03 00:47:00" /> 
 <link rel="stylesheet" type="text/css" href="cug-html.css" /> 
 </head><body 
 >
-   <!--l. 4402--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 4401--><div class="crosslinks"><p class="noindent">[<a 
 href="cug-htmlsu48.html" >next</a>] [<a 
 href="cug-htmlse11.html" >prev</a>] [<a 
 href="cug-htmlse11.html#tailcug-htmlse11.html" >prev-tail</a>] [<a 
@@ -22,7 +22,7 @@ href="#tailcug-htmlsu47.html">tail</a>] [<a
 href="cug-htmlse11.html#cug-htmlsu47.html" >up</a>] </p></div>
    <h4 class="subsectionHead"><span class="titlemark">11.1   </span> <a 
  id="x70-13900011.1"></a>Task States</h4>
-<!--l. 4404--><p class="noindent" >As a suite runs its tasks (or rather the task proxies that represent the real tasks) move through a series of defined
+<!--l. 4403--><p class="noindent" >As a suite runs its tasks (or rather the task proxies that represent the real tasks) move through a series of defined
 states:
 </p>
      <ul class="itemize1">
@@ -33,7 +33,7 @@ class="cmbx-10">waiting </span>- prerequisites have not yet been satisfied (cloc
      <li class="itemize"><span 
 class="cmbx-10">queued </span>- ready to be submitted (i.e.&#x00A0;prerequisites satisfied) but temporarily held back by an internal
      cylc queue (see Section&#x00A0;<a 
-href="cug-htmlsu49.html#x74-14700011.3.2">11.3.2<!--tex4ht:ref: InternalQueues --></a>).
+href="cug-htmlsu50.html#x75-15000011.4.2">11.4.2<!--tex4ht:ref: InternalQueues --></a>).
      </li>
      <li class="itemize"><span 
 class="cmbx-10">submitted </span>- submitted to be executed by the specified job submission method, but not yet running
@@ -46,11 +46,11 @@ class="cmbx-10">running </span>- the task &#8220;started&#8221; message received
 class="cmbx-10">retry delayed </span>- if a task configures the &#8220;retry delays&#8221; item (a list of delay intervals in minutes), then
      if it fails it will be put in this state for the specified interval and then resubmitted after incrementing
      the task try number. A task only enters the final &#8220;failed&#8221; if the last retry fails.
-     </li>
-     <li class="itemize">two finished states:
                                                                                          
 
                                                                                          
+     </li>
+     <li class="itemize">two finished states:
          <ul class="itemize2">
          <li class="itemize"><span 
 class="cmbx-10">succeeded </span>- a <span 
@@ -64,7 +64,7 @@ class="cmti-10">failed </span>task has aborted after reporting failure. Failed t
          from the suite, they must be handled by the suite operator (e.g.&#x00A0;by retriggering after fixing the
          problem).</li></ul>
      </li></ul>
-<!--l. 4443--><p class="indent" >   In addition, there are two held (paused) task states:
+<!--l. 4442--><p class="indent" >   In addition, there are two held (paused) task states:
 </p>
      <ul class="itemize1">
      <li class="itemize"><span 
@@ -81,9 +81,9 @@ class="cmti-10">runahead </span>state has exceeded the suite runahead limit, i.e
      far ahead&#8221; of the slowest tasks and will be held back until they have caught up sufficiently. This state
      is automatically managed by cylc. See <span 
 class="cmti-10">The Suite Runahead Limit</span>, Section&#x00A0;<a 
-href="cug-htmlsu49.html#x74-14600011.3.1">11.3.1<!--tex4ht:ref: RunaheadLimit --></a>.
+href="cug-htmlsu50.html#x75-14900011.4.1">11.4.1<!--tex4ht:ref: RunaheadLimit --></a>.
      </li></ul>
-<!--l. 4464--><p class="indent" >   Finally, you may see references to the following pseudo states:
+<!--l. 4463--><p class="indent" >   Finally, you may see references to the following pseudo states:
 </p>
      <ul class="itemize1">
      <li class="itemize"><span 
@@ -97,12 +97,12 @@ class="cmbx-10">base </span>(Graph Control GUI only) - off-white base graph node
                                                                                          
 
                                                                                          
-   <!--l. 4477--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 4476--><div class="crosslinks"><p class="noindent">[<a 
 href="cug-htmlsu48.html" >next</a>] [<a 
 href="cug-htmlse11.html" >prev</a>] [<a 
 href="cug-htmlse11.html#tailcug-htmlse11.html" >prev-tail</a>] [<a 
 href="cug-htmlsu47.html" >front</a>] [<a 
 href="cug-htmlse11.html#cug-htmlsu47.html" >up</a>] </p></div>
-<!--l. 4477--><p class="indent" >   <a 
+<!--l. 4476--><p class="indent" >   <a 
  id="tailcug-htmlsu47.html"></a> </p> 
 </body></html> 

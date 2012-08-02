@@ -10,11 +10,11 @@
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
 <!-- xhtml,3,next,html --> 
 <meta name="src" content="cug-html.tex" /> 
-<meta name="date" content="2012-07-31 01:15:00" /> 
+<meta name="date" content="2012-08-03 00:47:00" /> 
 <link rel="stylesheet" type="text/css" href="cug-html.css" /> 
 </head><body 
 >
-   <!--l. 4477--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 4476--><div class="crosslinks"><p class="noindent">[<a 
 href="cug-htmlsu49.html" >next</a>] [<a 
 href="cug-htmlsu47.html" >prev</a>] [<a 
 href="cug-htmlsu47.html#tailcug-htmlsu47.html" >prev-tail</a>] [<a 
@@ -22,7 +22,7 @@ href="#tailcug-htmlsu48.html">tail</a>] [<a
 href="cug-htmlse11.html#cug-htmlsu48.html" >up</a>] </p></div>
    <h4 class="subsectionHead"><span class="titlemark">11.2   </span> <a 
  id="x71-14000011.2"></a>Secure Passphrases, Remote Control, And Task Messaging</h4>
-<!--l. 4480--><p class="noindent" >There are two ways in which suite interrogation and control commands, suite control GUIs, and running tasks (cylc
+<!--l. 4479--><p class="noindent" >There are two ways in which suite interrogation and control commands, suite control GUIs, and running tasks (cylc
 clients) can communicate with running suites (cylc servers):
      </p><ol  class="enumerate1" >
      <li 
@@ -31,7 +31,7 @@ clients) can communicate with running suites (cylc servers):
      <li 
   class="enumerate" id="x71-140004x2">Re-invocation of cylc commands on the suite host by passwordless ssh, so that the ultimate Pyro RPC
      connection only occurs on the suite host.</li></ol>
-<!--l. 4489--><p class="noindent" >For the Pyro connection method to work the right network ports must be open (cylc starts grabbing ports at port 7766 by
+<!--l. 4488--><p class="noindent" >For the Pyro connection method to work the right network ports must be open (cylc starts grabbing ports at port 7766 by
 default.<span class="footnote-mark"><a 
 href="cug-html72.html#fn12x0"><sup class="textsuperscript">12</sup></a></span><a 
  id="x71-140005f12"></a> )
@@ -39,7 +39,7 @@ and there must be network routing between the involved hosts.
 </p>
    <h5 class="subsubsectionHead"><span class="titlemark">11.2.1   </span> <a 
  id="x71-14100011.2.1"></a>Pyro Connections and Secure Passphrases</h5>
-<!--l. 4497--><p class="noindent" >All Pyro connections to a suite require authentication with a secure
+<!--l. 4496--><p class="noindent" >All Pyro connections to a suite require authentication with a secure
 passphrase.<span class="footnote-mark"><a 
 href="cug-html73.html#fn13x0"><sup class="textsuperscript">13</sup></a></span><a 
  id="x71-141001f13"></a> 
@@ -100,7 +100,7 @@ class="pcrr7t-">-</span><span
 class="pcrr7t-">p</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">FILE</span></span>)</li></ol>
-<!--l. 4512--><p class="noindent" >The locations under <span class="lstinline"><span 
+<!--l. 4511--><p class="noindent" >The locations under <span class="lstinline"><span 
 class="pcrr8c-">$</span><span 
 class="pcrr7t-">HOME</span><span 
 class="pcrr7t-">/.</span><span 
@@ -117,14 +117,14 @@ listed above.
 </p>
    <h5 class="subsubsectionHead"><span class="titlemark">11.2.2   </span> <a 
  id="x71-14200011.2.2"></a>Ssh-Pyro Connections</h5>
-<!--l. 4523--><p class="noindent" >For ssh-based messaging and suite control, ssh keys must be installed in the relevant accounts to allow passwordless
+<!--l. 4522--><p class="noindent" >For ssh-based messaging and suite control, ssh keys must be installed in the relevant accounts to allow passwordless
 ssh connections back to the suite host account. The suite passphrase is then only required on the suite
 host.
-</p><!--l. 4528--><p class="noindent" >
+</p><!--l. 4527--><p class="noindent" >
 </p>
    <h5 class="subsubsectionHead"><span class="titlemark">11.2.3   </span> <a 
  id="x71-14300011.2.3"></a>Choosing The Communication Method</h5>
-<!--l. 4530--><p class="noindent" >The Pyro connection method is the default because it is simpler and more efficient, but if your remote task host
+<!--l. 4529--><p class="noindent" >The Pyro connection method is the default because it is simpler and more efficient, but if your remote task host
 does not have the right network ports open, and the IT staff are reluctant to change that, then the ssh alternative is
 available <span 
 class="cmti-10">so long as your local system and network configurations do not also prevent ssh connections back to the</span>
@@ -134,7 +134,7 @@ class="cmti-10">&#x00A0;</span><a
 href="#x71-14400011.2.4"><span 
 class="cmti-10">11.2.4</span><!--tex4ht:ref: difficultnetworkenv --></a> <span 
 class="cmti-10">below</span>.
-</p><!--l. 4537--><p class="indent" >   To use the ssh-Pyro connection method:  </p>
+</p><!--l. 4536--><p class="indent" >   To use the ssh-Pyro connection method:  </p>
      <ul class="itemize1">
      <li class="itemize">For remote tasks, set <span class="lstinline"><span 
 class="pcrr7t-">ssh</span><span 
@@ -159,11 +159,11 @@ class="pcrr7t-">-</span><span
 class="pcrr7t-">f</span><span 
 class="pcrr7t-">,--</span><span 
 class="pcrr7t-">force</span></span>.</li></ul>
-<!--l. 4548--><p class="noindent" >
+<!--l. 4547--><p class="noindent" >
 </p>
    <h5 class="subsubsectionHead"><span class="titlemark">11.2.4   </span> <a 
  id="x71-14400011.2.4"></a>If You Cannot Use Pyro or Ssh Connections</h5>
-<!--l. 4551--><p class="noindent" >It has come to our attention that some HPC facilities do not have any networking routing back out of the compute
+<!--l. 4550--><p class="noindent" >It has come to our attention that some HPC facilities do not have any networking routing back out of the compute
 nodes, for security reasons and/or to avoid network chatter that could affect performance. Any kind of
 communication back to a cylc suite running on an external host would then presumably be impossible,
 but:

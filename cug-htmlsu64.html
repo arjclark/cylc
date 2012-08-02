@@ -4,571 +4,76 @@
 <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
 <html xmlns="http://www.w3.org/1999/xhtml"  
 > 
-<head><title>[cylc]</title> 
+<head><title>Top Level Items</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
 <meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
 <!-- xhtml,3,next,html --> 
 <meta name="src" content="cug-html.tex" /> 
-<meta name="date" content="2012-07-31 01:15:00" /> 
+<meta name="date" content="2012-08-03 00:47:00" /> 
 <link rel="stylesheet" type="text/css" href="cug-html.css" /> 
 </head><body 
 >
-   <!--l. 45--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 18--><div class="crosslinks"><p class="noindent">[<a 
 href="cug-htmlsu65.html" >next</a>] [<a 
-href="cug-htmlsu63.html" >prev</a>] [<a 
-href="cug-htmlsu63.html#tailcug-htmlsu63.html" >prev-tail</a>] [<a 
+href="cug-htmlse15.html" >prev</a>] [<a 
+href="cug-htmlse15.html#tailcug-htmlse15.html" >prev-tail</a>] [<a 
 href="#tailcug-htmlsu64.html">tail</a>] [<a 
 href="cug-htmlse15.html#cug-htmlsu64.html" >up</a>] </p></div>
-   <h4 class="subsectionHead"><span class="titlemark">A.2   </span> <a 
- id="x95-169000A.2"></a>[cylc]</h4>
-<!--l. 47--><p class="noindent" >This section is for suite configuration that is not specifically task-related.
-</p><!--l. 50--><p class="noindent" >
+   <h4 class="subsectionHead"><span class="titlemark">A.1   </span> <a 
+ id="x95-169000A.1"></a>Top Level Items</h4>
+<!--l. 20--><p class="noindent" >The only top level configuration items at present are the suite title and description.
+</p><!--l. 23--><p class="noindent" >
 </p>
-   <h5 class="subsubsectionHead"><span class="titlemark">A.2.1   </span> <a 
- id="x95-170000A.2.1"></a> [cylc] <span 
-class="cmsy-10">&#x2192; </span>UTC mode</h5>
-<!--l. 52--><p class="noindent" >Cylc runs off the suite host&#8217;s system clock by default. This item allows you to run the suite in UTC even if the
-system clock is set to local time. Clock-triggered tasks will trigger when the current UTC time is
-equal to their cycle time plus offset; other time values used, reported, or logged by cylc will also be in
-UTC.
-</p>
-     <ul class="itemize1">
-     <li class="itemize"><span 
-class="cmti-10">type: </span>boolean
-     </li>
-     <li class="itemize"><span 
-class="cmti-10">default: </span>False</li></ul>
-<!--l. 63--><p class="noindent" >
-</p>
-   <h5 class="subsubsectionHead"><span class="titlemark">A.2.2   </span> <a 
- id="x95-171000A.2.2"></a> [cylc] <span 
-class="cmsy-10">&#x2192; </span>simulation mode only</h5>
-<!--l. 65--><p class="noindent" >This prevents a suite from running in real mode - use for demo suites created by copying real suites out of their
-normal operating environment.
-</p>
-     <ul class="itemize1">
-     <li class="itemize"><span 
-class="cmti-10">type: </span>boolean
-     </li>
-     <li class="itemize"><span 
-class="cmti-10">default: </span>False</li></ul>
-<!--l. 73--><p class="noindent" >
-</p>
-   <h5 class="subsubsectionHead"><span class="titlemark">A.2.3   </span> <a 
- id="x95-172000A.2.3"></a>[cylc] <span 
-class="cmsy-10">&#x2192; </span>[[logging]]</h5>
-<!--l. 75--><p class="noindent" >This section configures cylc&#8217;s logging functionality, which records time-stamped events to a special log
-file.
-                                                                                         
-
-                                                                                         
-</p><!--l. 78--><p class="noindent" >
-</p>
-<!--l. 78--><p class="noindent" ><span class="paragraphHead"><a 
- id="x95-173000A.2.3.1"></a><span 
-class="cmbx-10">[cylc] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[logging]] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">directory</span></span>
-   The cylc log and its backups are stored in this directory. If you change the directory make sure it remains
-suite-specific by using suite identity environment variables in the path.
-</p>
-     <ul class="itemize1">
-     <li class="itemize"><span 
-class="cmti-10">type: </span>string (directory path, may contain environment variables)
-     </li>
-     <li class="itemize"><span 
-class="cmti-10">default: </span><span class="lstinline"><span 
-class="pcrr8c-">$</span><span 
-class="pcrr7t-">HOME</span><span 
-class="pcrr7t-">/</span><span 
-class="pcrr7t-">cylc</span><span 
-class="pcrr7t-">-</span><span 
-class="pcrr7t-">run</span><span 
-class="pcrr7t-">/</span><span 
-class="pcrr8c-">$</span><span 
-class="pcrr7t-">CYLC_SUITE_REG_NAME</span><span 
-class="pcrr7t-">/</span><span 
-class="pcrr7t-">log</span><span 
-class="pcrr7t-">/</span><span 
-class="pcrr7t-">suite</span></span></li></ul>
-<!--l. 89--><p class="noindent" >
-</p>
-<!--l. 89--><p class="noindent" ><span class="paragraphHead"><a 
- id="x95-174000A.2.3.2"></a><span 
-class="cmbx-10">[cylc] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[logging]] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">roll over at start-up</span></span>
-   Suite logs roll over (start anew) automatically when they reach a certain size - currently hardwired to 1MB in
+   <h5 class="subsubsectionHead"><span class="titlemark">A.1.1   </span> <a 
+ id="x95-170000A.1.1"></a>title</h5>
+<!--l. 25--><p class="noindent" >The suite title is displayed in the gcylc suite database window. It can also be retrieved from a suite at run time with
 <span class="lstinline"><span 
-class="pcrr8c-">$</span><span 
-class="pcrr7t-">CYLC_DIR</span><span 
-class="pcrr7t-">/</span><span 
-class="pcrr7t-">lib</span><span 
-class="pcrr7t-">/</span><span 
-class="pcrr7t-">cylc</span><span 
-class="pcrr7t-">/</span><span 
-class="pcrr7t-">pimp_my_logger</span><span 
-class="pcrr7t-">.</span><span 
-class="pcrr7t-">py</span></span>. They can also be rolled automatically whenever a suite is started
-or restarted.
-</p>
-     <ul class="itemize1">
-     <li class="itemize"><span 
-class="cmti-10">type: </span>boolean
-     </li>
-     <li class="itemize"><span 
-class="cmti-10">default: </span>True</li></ul>
-<!--l. 102--><p class="noindent" >
-</p>
-   <h5 class="subsubsectionHead"><span class="titlemark">A.2.4   </span> <a 
- id="x95-175000A.2.4"></a> [cylc] <span 
-class="cmsy-10">&#x2192; </span>[[state dumps]] </h5>
-<!--l. 104--><p class="noindent" >State dump files allow cylc to restart suites from previous states of operation.
-</p><!--l. 107--><p class="noindent" >
-</p>
-<!--l. 107--><p class="noindent" ><span class="paragraphHead"><a 
- id="x95-176000A.2.4.1"></a><span 
-class="cmbx-10">[cylc] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[state dumps]] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">directory</span></span>
-   The rolling archive of suite state dump files, backups of the default state dump, and any special pre-intervention
-state dumps, are stored under this directory. If you change this directory make sure it remains suite-specific by using
-suite identity environment variables in the path.
-</p>
-     <ul class="itemize1">
-     <li class="itemize"><span 
-class="cmti-10">type: </span>string (directory path, may contain environment variables)
-     </li>
-     <li class="itemize"><span 
-class="cmti-10">default: </span><span class="lstinline"><span 
-class="pcrr8c-">$</span><span 
-class="pcrr7t-">HOME</span><span 
-class="pcrr7t-">/</span><span 
-class="pcrr7t-">cylc</span><span 
-class="pcrr7t-">-</span><span 
-class="pcrr7t-">run</span><span 
-class="pcrr7t-">/</span><span 
-class="pcrr8c-">$</span><span 
-class="pcrr7t-">CYLC_SUITE_REG_NAME</span><span 
-class="pcrr7t-">/</span><span 
-class="pcrr7t-">state</span></span></li></ul>
-                                                                                         
-
-                                                                                         
-<!--l. 120--><p class="noindent" >
-</p>
-<!--l. 120--><p class="noindent" ><span class="paragraphHead"><a 
- id="x95-177000A.2.4.2"></a><span 
-class="cmbx-10">[cylc] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[state dumps]] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">number of backups</span></span>
-   This is the length, in number of changes, of the automatic rolling archive of state dump files that allows you to
-restart a suite from a previous state. Every time a task changes state cylc updates the state dump and rolls previous
-states back one on the archive. You&#8217;ll probably only ever need the latest (most recent) state dump, which is
-automatically used in a restart, but any previous state still in the archive can be used. Additionally, special labeled
-state dumps are written out prior to actioning any suite intervention - their filenames are logged by
-cylc.
-</p>
-     <ul class="itemize1">
-     <li class="itemize"><span 
-class="cmti-10">type: </span>integer (<span 
-class="cmsy-10">&#x2265; </span>1)
-     </li>
-     <li class="itemize"><span 
-class="cmti-10">default: </span>10</li></ul>
-<!--l. 137--><p class="noindent" >
-</p>
-   <h5 class="subsubsectionHead"><span class="titlemark">A.2.5   </span> <a 
- id="x95-178000A.2.5"></a>[cylc] <span 
-class="cmsy-10">&#x2192; </span>[[event hooks]]</h5>
-<!--l. 140--><p class="noindent" >Cylc can call a nominated &#8220;event handler&#8221; script when certain suite events occur. This is intended
-to facilitate centralized alerting and automated handling of critical events. Event handlers can do
-anything you like, such as send emails or SMS, call pagers, or intervene in the operation of their parent
-suite with cylc commands. The command <span class="lstinline"><span 
 class="pcrr7t-">cylc</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">[</span><span 
-class="pcrr7t-">hook</span><span 
-class="pcrr7t-">]</span><span 
+class="pcrr7t-">show</span></span> (or use <span class="lstinline"><span 
+class="pcrr7t-">cylc</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">email</span><span 
+class="pcrr7t-">get</span><span 
 class="pcrr7t-">-</span><span 
-class="pcrr7t-">suite</span></span> is a ready made suite event
-handler.
-</p><!--l. 147--><p class="indent" >   A single script can be nominated to handle a list of chosen events, and the event name is passed to the handler
-to allow it to distinguish between them.
-</p><!--l. 151--><p class="indent" >   Custom suite event handlers can be located in the suite bin directory. They are passed the following arguments
-by cylc:
-</p>
-   <!--l. 154--><div class="lstlisting">
-<span 
-class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x95-178001r1"></a></span><span 
-class="pcrr7t-">&#x003C;</span><span 
-class="pcrr7t-">hook</span><span 
-class="pcrr7t-">-</span><span 
-class="pcrr7t-">script</span><span 
-class="pcrr7t-">&#x003E;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">EVENT</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">SUITE</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">MESSAGE</span>
-
-
-   </div>
-<!--l. 157--><p class="indent" >   Currently there is only one suite EVENT defined:  </p>
-     <ul class="itemize1">
-     <li class="itemize">&#8216;shutdown&#8217; - the suite stopped, normally or not.</li></ul>
-<!--l. 161--><p class="noindent" >MESSAGE, if provided, describes what has happened.
-</p><!--l. 163--><p class="indent" >   <span 
-class="cmti-10">Note that event handlers are called by cylc itself </span>so if you wish to pass them additional information via the
-environment you must use [cylc] <span 
-class="cmsy-10">&#x2192; </span>[[environment]], not task runtime environments.
-</p><!--l. 167--><p class="indent" >   See also Section&#x00A0;<a 
-href="cug-htmlsu66.html#x99-244000A.4.1.11">A.4.1.11<!--tex4ht:ref: TaskEventHandling --></a> for task event hooks.
-</p><!--l. 169--><p class="noindent" >
-</p>
-<!--l. 169--><p class="noindent" ><span class="paragraphHead"><a 
- id="x95-179000A.2.5.1"></a><span 
-class="cmbx-10">[cylc] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[event hooks]] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">events </span></span>
-   The list of events to handle, as documented for EVENT just above.  </p>
-                                                                                         
-
-                                                                                         
-     <ul class="itemize1">
-     <li class="itemize"><span 
-class="cmti-10">type: </span>list of strings
-     </li>
-     <li class="itemize"><span 
-class="cmti-10">default: </span>(none)</li></ul>
-<!--l. 177--><p class="noindent" >
-</p>
-<!--l. 177--><p class="noindent" ><span class="paragraphHead"><a 
- id="x95-180000A.2.5.2"></a><span 
-class="cmbx-10">[cylc] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[event hooks]] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">script</span></span>
-   The handler script to call when one of the nominated events occurs.
+class="pcrr7t-">config</span></span>).
 </p>
      <ul class="itemize1">
      <li class="itemize"><span 
 class="cmti-10">type: </span>string
      </li>
      <li class="itemize"><span 
-class="cmti-10">default: </span>(none)</li></ul>
-<!--l. 186--><p class="noindent" >
+class="cmti-10">default: </span>&#8220;No title provided&#8221;</li></ul>
+<!--l. 34--><p class="noindent" >
 </p>
-   <h5 class="subsubsectionHead"><span class="titlemark">A.2.6   </span> <a 
- id="x95-181000A.2.6"></a>[cylc] <span 
-class="cmsy-10">&#x2192; </span>[[lockserver]]</h5>
-<!--l. 188--><p class="noindent" >The cylc lockserver brokers suite and task locks on the network (these are somewhat analagous to traditional local
-<span 
-class="cmti-10">lock files</span>). It prevents multiple instances of a suite or task from being invoked at the same time (via scheduler
-instances or <span class="lstinline"><span 
+   <h5 class="subsubsectionHead"><span class="titlemark">A.1.2   </span> <a 
+ id="x95-171000A.1.2"></a>description</h5>
+<!--l. 36--><p class="noindent" >The suite description can be retrieved by gcylc right-click menu. It can also be retrieved from a suite at run time
+with <span class="lstinline"><span 
 class="pcrr7t-">cylc</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">submit</span></span>).
-</p><!--l. 193--><p class="indent" >   See <span class="lstinline"><span 
+class="pcrr7t-">show</span></span> (or use <span class="lstinline"><span 
 class="pcrr7t-">cylc</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">lockserver</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">--</span><span 
-class="pcrr7t-">help</span></span> for how to run the lockserver, and <span class="lstinline"><span 
-class="pcrr7t-">cylc</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">lockclient</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">--</span><span 
-class="pcrr7t-">help</span></span> for
-occasional manual lock management requirements.
-</p><!--l. 197--><p class="noindent" >
-</p>
-<!--l. 197--><p class="noindent" ><span class="paragraphHead"><a 
- id="x95-182000A.2.6.1"></a><span 
-class="cmbx-10">[cylc] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[lockserver]] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">enable</span></span>
-   The lockserver is currently disabled by default. It is intended mainly for operational use.
-</p>
-     <ul class="itemize1">
-     <li class="itemize"><span 
-class="cmti-10">type: </span>boolean
-     </li>
-     <li class="itemize"><span 
-class="cmti-10">default: </span>False</li></ul>
-<!--l. 207--><p class="noindent" >
-</p>
-<!--l. 207--><p class="noindent" ><span class="paragraphHead"><a 
- id="x95-183000A.2.6.2"></a><span 
-class="cmbx-10">[cylc] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[lockserver]] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">simultaneous instances</span></span>
-   By default the lockserver prevents multiple simultaneous instances of a suite from running even under different
-registered names. But allowing this may be desirable if the I/O paths of every task in the suite are dynamically
-configured to be suite specific (and similarly for the suite state dump and logging directories, by using suite identity
-variables in their directory paths). Note that <span 
-class="cmti-10">the lockserver cannot protect you from running multiple distinct </span><span 
-class="cmbx-10">copies</span>
-<span 
-class="cmti-10">of a suite simultaneously</span>.
-                                                                                         
-
-                                                                                         
-</p>
-     <ul class="itemize1">
-     <li class="itemize"><span 
-class="cmti-10">type: </span>boolean
-     </li>
-     <li class="itemize"><span 
-class="cmti-10">default: </span>False</li></ul>
-<!--l. 222--><p class="noindent" >
-</p>
-   <h5 class="subsubsectionHead"><span class="titlemark">A.2.7   </span> <a 
- id="x95-184000A.2.7"></a>[cylc] <span 
-class="cmsy-10">&#x2192; </span>[[environment]]</h5>
-<!--l. 224--><p class="noindent" >Variables defined here are exported into the environment in which cylc itself runs. They are then available to <span 
-class="cmti-10">local</span>
-<span 
-class="cmti-10">processes spawned directly by cylc</span>. Any variables read by task event handlers must be defined here, for instance,
-because event handlers are executed directly by cylc, not by running tasks. And similarly the command lines issued
-by cylc to invoke event handlers or to submit task job scripts could, in principle, make use of environment variables
-defined here.
-</p>
-<!--l. 232--><p class="noindent" ><span class="paragraphHead"><a 
- id="x95-185000A.2.7.1"></a><span 
-class="cmbx-10">Warnings</span></span>
-</p>
-     <ul class="itemize1">
-     <li class="itemize">Cylc local variables are not available to executing tasks unless you happen to choose a local direct job
-     submission method. <span 
-class="cmti-10">Always use task runtime environments to pass variables into the task execution</span>
-     <span 
-class="cmti-10">environment (</span><a 
-href="cug-htmlsu66.html#x99-251000A.4.1.12.1"><span 
-class="cmti-10">A.4.1.12.1</span><!--tex4ht:ref: AppendixTaskExecutionEnvironment --></a><span 
-class="cmti-10">).</span>
-     </li>
-     <li class="itemize">Unlike task execution environment variables, which are written to job scripts and interpreted by the
-     shell at run time, cylc local environment variables are written directly to the environment by Python
-     as literal strings <span 
-class="cmti-10">so shell variable expansion expressions cannot be used here.</span></li></ul>
-<!--l. 247--><p class="noindent" >
-</p>
-<!--l. 247--><p class="noindent" ><span class="paragraphHead"><a 
- id="x95-186000A.2.7.2"></a><span 
-class="cmbx-10">[cylc] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[environment]] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">_</span><span 
-class="cmbx-10">_VARIABLE</span><span 
-class="cmbx-10">_</span><span 
-class="cmbx-10">_</span></span>
-   Replace __VARIABLE__ with any number of environment variable assignment expressions. Values may refer to
-other local environment variables (order of definition is preserved) and are not evaluated or manipulated by
-cylc, so any variable assignment expression that is legal in the shell in which cylc is running can be
-used (but see the warning above on variable expansions, which will not be evaluated). White space
-around the &#8216;=&#8217; is allowed (as far as cylc&#8217;s suite.rc parser is concerned these are normal configuration
-items).
+class="pcrr7t-">get</span><span 
+class="pcrr7t-">-</span><span 
+class="pcrr7t-">config</span></span>).
 </p>
      <ul class="itemize1">
      <li class="itemize"><span 
 class="cmti-10">type: </span>string
      </li>
      <li class="itemize"><span 
-class="cmti-10">default: </span>(none)
+class="cmti-10">default: </span>&#8220;No description provided&#8221;</li></ul>
                                                                                          
 
                                                                                          
-     </li>
-     <li class="itemize"><span 
-class="cmti-10">examples:</span>
-         <ul class="itemize2">
-         <li class="itemize"><span class="lstinline"><span 
-class="pcrr7t-">FOO</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">=</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr8c-">$</span><span 
-class="pcrr7t-">HOME</span><span 
-class="pcrr7t-">/</span><span 
-class="pcrr7t-">foo</span></span></li></ul>
-     </li></ul>
-<!--l. 268--><p class="noindent" >
-</p>
-   <h5 class="subsubsectionHead"><span class="titlemark">A.2.8   </span> <a 
- id="x95-187000A.2.8"></a>[cylc] <span 
-class="cmsy-10">&#x2192; </span>[[simulation mode]] </h5>
-<!--l. 270--><p class="noindent" >Items specific to running suites in simulation mode.
-</p><!--l. 272--><p class="noindent" >
-</p>
-<!--l. 272--><p class="noindent" ><span class="paragraphHead"><a 
- id="x95-188000A.2.8.1"></a><span 
-class="cmbx-10">[cylc] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[simulation mode]] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">clock rate</span></span>
-   This determines the speed at which the simulation mode clock runs, in real seconds per simulated hour. A value
-of 10, for example, means it will take 10 real seconds to simulate one hour of operation.
-</p>
-     <ul class="itemize1">
-     <li class="itemize"><span 
-class="cmti-10">type: </span>integer (<span 
-class="cmsy-10">&#x2265; </span>0, real seconds per simulated hour)
-     </li>
-     <li class="itemize"><span 
-class="cmti-10">default: </span>10</li></ul>
-<!--l. 283--><p class="noindent" >
-</p>
-<!--l. 283--><p class="noindent" ><span class="paragraphHead"><a 
- id="x95-189000A.2.8.2"></a><span 
-class="cmbx-10">[cylc] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[simulation mode]] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">clock offset</span></span>
-   The clock offset determines the initial time on the simulation clock, at suite startup, relative to the initial cycle
-time. An offset of 0 simulates real time operation; greater offsets simulate catch up from a delay and subsequent
-transition to real time operation.
-</p>
-     <ul class="itemize1">
-     <li class="itemize"><span 
-class="cmti-10">type: </span>integer (<span 
-class="cmsy-10">&#x2265; </span>0, hours behind initial cycle time)
-     </li>
-     <li class="itemize"><span 
-class="cmti-10">default: </span>24</li></ul>
-<!--l. 295--><p class="noindent" >
-</p>
-<!--l. 295--><p class="noindent" ><span class="paragraphHead"><a 
- id="x95-190000A.2.8.3"></a> <span 
-class="cmbx-10">[cylc] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[simulation mode]] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">command scripting</span></span>
-   The command scripting to execute for all tasks when running in simulation mode.  </p>
-     <ul class="itemize1">
-     <li class="itemize"><span 
-class="cmti-10">type: </span>string (scripting valid in job submission shell; triple quote for multiple lines)
-                                                                                         
-
-                                                                                         
-     </li>
-     <li class="itemize"><span 
-class="cmti-10">default: </span><span class="lstinline"><span 
-class="pcrb7t-">echo</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">SIMULATION</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">MODE</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr8c-">$</span><span 
-class="pcrr7t-">CYLC_TASK_ID</span><span 
-class="pcrr7t-">;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">sleep</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">10;</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrb7t-">echo</span><span 
-class="pcrr7t-">&#x00A0;</span><span 
-class="pcrr7t-">BYE</span></span></li></ul>
-<!--l. 304--><p class="noindent" >
-</p>
-<!--l. 304--><p class="noindent" ><span class="paragraphHead"><a 
- id="x95-191000A.2.8.4"></a><span 
-class="cmbx-10">[cylc] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[simulation mode]] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[[job submission]]]</span></span>
-   Configure job submission for simulation mode.
-</p><!--l. 308--><p class="noindent" >
-</p>
-<!--l. 308--><p class="indent" >   <span class="subparagraphHead"> <a 
- id="x95-192000A.2.8.4.1"></a><span 
-class="cmbx-10">[cylc] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[simulation mode]] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[[job submission]]] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">method </span></span>
-   The job submission method to use for all tasks in simulation mode. Any available method can be used but the
-default is probably sufficient for simulation mode.
-</p>
-     <ul class="itemize1">
-     <li class="itemize"><span 
-class="cmti-10">type: </span>string (a job submission method name - see Section&#x00A0;<a 
-href="cug-htmlsu66.html#x99-228000A.4.1.9.1">A.4.1.9.1<!--tex4ht:ref: RuntimeJobSubMethods --></a>)
-     </li>
-     <li class="itemize"><span 
-class="cmti-10">default: </span><span class="lstinline"><span 
-class="pcrr7t-">background</span></span></li></ul>
-<!--l. 318--><p class="noindent" >
-</p>
-<!--l. 318--><p class="noindent" ><span class="paragraphHead"><a 
- id="x95-193000A.2.8.5"></a><span 
-class="cmbx-10">[cylc] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[simulation mode]] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[[event hooks]]]</span></span>
-   Configure event hooks for simulation mode.
-</p><!--l. 322--><p class="noindent" >
-</p>
-<!--l. 322--><p class="indent" >   <span class="subparagraphHead"> <a 
- id="x95-194000A.2.8.5.1"></a><span 
-class="cmbx-10">[cylc] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[simulation mode]] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">[[[event hooks]]] </span><span 
-class="cmsy-10">&#x2192; </span><span 
-class="cmbx-10">enable </span></span>
-   Event hooks are disabled by default in simulation mode. They can be enabled in order to test automated alerts,
-for example, without running the real suite tasks, but be aware that timeouts will be relative to the accelerated
-simulation mode clock which by default runs very quickly.
-</p>
-     <ul class="itemize1">
-     <li class="itemize"><span 
-class="cmti-10">type: </span>boolean
-     </li>
-     <li class="itemize"><span 
-class="cmti-10">default: </span>False</li></ul>
-                                                                                         
-
-                                                                                         
-   <!--l. 335--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 45--><div class="crosslinks"><p class="noindent">[<a 
 href="cug-htmlsu65.html" >next</a>] [<a 
-href="cug-htmlsu63.html" >prev</a>] [<a 
-href="cug-htmlsu63.html#tailcug-htmlsu63.html" >prev-tail</a>] [<a 
+href="cug-htmlse15.html" >prev</a>] [<a 
+href="cug-htmlse15.html#tailcug-htmlse15.html" >prev-tail</a>] [<a 
 href="cug-htmlsu64.html" >front</a>] [<a 
 href="cug-htmlse15.html#cug-htmlsu64.html" >up</a>] </p></div>
-<!--l. 335--><p class="indent" >   <a 
- id="tailcug-htmlsu64.html"></a>    </p> 
+<!--l. 45--><p class="indent" >   <a 
+ id="tailcug-htmlsu64.html"></a>  </p> 
 </body></html> 

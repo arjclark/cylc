@@ -10,49 +10,49 @@
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
 <!-- xhtml,3,next,html --> 
 <meta name="src" content="cug-html.tex" /> 
-<meta name="date" content="2012-07-31 01:15:00" /> 
+<meta name="date" content="2012-08-03 00:47:00" /> 
 <link rel="stylesheet" type="text/css" href="cug-html.css" /> 
 </head><body 
 >
-   <!--l. 4778--><div class="crosslinks"><p class="noindent">[<a 
-href="cug-htmlsu50.html" >next</a>] [<a 
+   <!--l. 4839--><div class="crosslinks"><p class="noindent">[<a 
+href="cug-htmlsu51.html" >next</a>] [<a 
 href="cug-htmlse13.html" >prev</a>] [<a 
 href="cug-htmlse13.html#tailcug-htmlse13.html" >prev-tail</a>] [<a 
 href="#tailcug-htmlse14.html">tail</a>] [<a 
 href="cug-html.html#cug-htmlse14.html" >up</a>] </p></div>
    <h3 class="sectionHead"><span class="titlemark">14   </span> <a 
- id="x77-15000014"></a>Suite Design Principles</h3>
-<!--l. 4783--><p class="noindent" >
+ id="x78-15300014"></a>Suite Design Principles</h3>
+<!--l. 4844--><p class="noindent" >
 </p>
    <div class="subsectionTOCS">
    &#x00A0;<span class="subsectionToc" >14.1 <a 
-href="cug-htmlsu50.html#x78-15100014.1">Make Fine-Grained Suites</a></span>
+href="cug-htmlsu51.html#x79-15400014.1">Make Fine-Grained Suites</a></span>
 <br />   &#x00A0;<span class="subsectionToc" >14.2 <a 
-href="cug-htmlsu51.html#x79-15200014.2">Make Tasks Rerunnable</a></span>
+href="cug-htmlsu52.html#x80-15500014.2">Make Tasks Rerunnable</a></span>
 <br />   &#x00A0;<span class="subsectionToc" >14.3 <a 
-href="cug-htmlsu52.html#x80-15300014.3">Make Models Rerunnable</a></span>
+href="cug-htmlsu53.html#x81-15600014.3">Make Models Rerunnable</a></span>
 <br />   &#x00A0;<span class="subsectionToc" >14.4 <a 
-href="cug-htmlsu53.html#x81-15400014.4">Limit Previous-Instance Dependence</a></span>
+href="cug-htmlsu54.html#x82-15700014.4">Limit Previous-Instance Dependence</a></span>
 <br />   &#x00A0;<span class="subsectionToc" >14.5 <a 
-href="cug-htmlsu54.html#x82-15500014.5">Put Task Cycle Time In All Output File Paths</a></span>
+href="cug-htmlsu55.html#x83-15800014.5">Put Task Cycle Time In All Output File Paths</a></span>
 <br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >14.5.1 <a 
-href="cug-htmlsu54.html#x82-15600014.5.1" id="QQ2-82-205">Use Cylc Cycle Time Filename Templating</a></span>
+href="cug-htmlsu55.html#x83-15900014.5.1" id="QQ2-83-208">Use Cylc Cycle Time Filename Templating</a></span>
 <br />   &#x00A0;<span class="subsectionToc" >14.6 <a 
-href="cug-htmlsu55.html#x83-15700014.6">How To Manage Input/Output File Dependencies</a></span>
+href="cug-htmlsu56.html#x84-16000014.6">How To Manage Input/Output File Dependencies</a></span>
 <br />   &#x00A0;<span class="subsectionToc" >14.7 <a 
-href="cug-htmlsu56.html#x84-15800014.7">Use Generic Task Scripts</a></span>
+href="cug-htmlsu57.html#x85-16100014.7">Use Generic Task Scripts</a></span>
 <br />   &#x00A0;<span class="subsectionToc" >14.8 <a 
-href="cug-htmlsu57.html#x85-15900014.8">Make Suites Portable</a></span>
+href="cug-htmlsu58.html#x86-16200014.8">Make Suites Portable</a></span>
 <br />   &#x00A0;<span class="subsectionToc" >14.9 <a 
-href="cug-htmlsu58.html#x86-16000014.9">Make Tasks As Self-Contained As Possible</a></span>
+href="cug-htmlsu59.html#x87-16300014.9">Make Tasks As Self-Contained As Possible</a></span>
 <br />   &#x00A0;<span class="subsectionToc" >14.10 <a 
-href="cug-htmlsu59.html#x88-16100014.10">Make Suites As Self-Contained As Possible</a></span>
+href="cug-htmlsu60.html#x89-16400014.10">Make Suites As Self-Contained As Possible</a></span>
 <br />   &#x00A0;<span class="subsectionToc" >14.11 <a 
-href="cug-htmlsu60.html#x90-16200014.11">Orderly Product Generation?</a></span>
+href="cug-htmlsu61.html#x91-16500014.11">Orderly Product Generation?</a></span>
 <br />   &#x00A0;<span class="subsectionToc" >14.12 <a 
-href="cug-htmlsu61.html#x91-16300014.12">Clock-triggered Tasks Wait On External Data</a></span>
+href="cug-htmlsu62.html#x92-16600014.12">Clock-triggered Tasks Wait On External Data</a></span>
 <br />   &#x00A0;<span class="subsectionToc" >14.13 <a 
-href="cug-htmlsu62.html#x92-16400014.13">Do Not Treat Real Time Operation As Special</a></span>
+href="cug-htmlsu63.html#x93-16700014.13">Do Not Treat Real Time Operation As Special</a></span>
    </div>
 
 
@@ -70,7 +70,7 @@ href="cug-htmlsu62.html#x92-16400014.13">Do Not Treat Real Time Operation As Spe
 
                                                                                          
    <!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
-href="cug-htmlsu50.html" >next</a>] [<a 
+href="cug-htmlsu51.html" >next</a>] [<a 
 href="cug-htmlse13.html" >prev</a>] [<a 
 href="cug-htmlse13.html#tailcug-htmlse13.html" >prev-tail</a>] [<a 
 href="cug-htmlse14.html" >front</a>] [<a 

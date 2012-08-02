@@ -10,7 +10,7 @@
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
 <!-- xhtml,3,next,html --> 
 <meta name="src" content="cug-html.tex" /> 
-<meta name="date" content="2012-07-31 01:15:00" /> 
+<meta name="date" content="2012-08-03 00:47:00" /> 
 <link rel="stylesheet" type="text/css" href="cug-html.css" /> 
 </head><body 
 >
@@ -37,7 +37,7 @@ href="cug-html52.html#fn10x0"><sup class="textsuperscript">10</sup></a></span><a
 that define runtime properties for individual tasks and families of tasks.
 </p><!--l. 2914--><p class="indent" >   Every namespace contains the same set of configuration items (see the <span 
 class="cmti-10">Suite.rc Reference</span>, Appendix&#x00A0;<a 
-href="cug-htmlse15.html#x93-165000A">A<!--tex4ht:ref: SuiteRCReference --></a>, for the
+href="cug-htmlse15.html#x94-168000A">A<!--tex4ht:ref: SuiteRCReference --></a>, for the
 complete list of items). Namespaces can inherit from other namespaces, overriding inherited items as required; <span 
 class="cmti-10">this</span>
 <span 
@@ -755,8 +755,8 @@ scripting, for example, defaults to printing a simple message, sleeping for ten 
 
                                                                                          
 default values are documented with each configuration item in Appendix&#x00A0;<a 
-href="cug-htmlse15.html#x93-165000A">A<!--tex4ht:ref: SuiteRCReference --></a>, and Section&#x00A0;<a 
-href="cug-htmlsu69.html#x102-274000A.7">A.7<!--tex4ht:ref: SuiteDefaults --></a> shows them all in
+href="cug-htmlse15.html#x94-168000A">A<!--tex4ht:ref: SuiteRCReference --></a>, and Section&#x00A0;<a 
+href="cug-htmlsu70.html#x103-281000A.7">A.7<!--tex4ht:ref: SuiteDefaults --></a> shows them all in
 context. You can override them or provide your own defaults for other items by explicitly configuring the root
 namespace.
 </p><!--l. 2970--><p class="noindent" >
@@ -2013,8 +2013,8 @@ task proxy object in the right suite.
 class="cmbx-10">Suite Share And Task Work Directories</span></span>
    The following variables are also available to running tasks, and can be configured in the suite.rc file (see
 Sections&#x00A0;<a 
-href="cug-htmlsu66.html#x99-232000A.4.1.9.5">A.4.1.9.5<!--tex4ht:ref: LocalWork --></a> and <a 
-href="cug-htmlsu66.html#x99-233000A.4.1.9.6">A.4.1.9.6<!--tex4ht:ref: LocalShare --></a>): </p><!--l. 3170--><div class="lstlisting">
+href="cug-htmlsu67.html#x100-239000A.4.1.9.5">A.4.1.9.5<!--tex4ht:ref: LocalWork --></a> and <a 
+href="cug-htmlsu67.html#x100-240000A.4.1.9.6">A.4.1.9.6<!--tex4ht:ref: LocalShare --></a>): </p><!--l. 3170--><div class="lstlisting">
 <span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
  id="x51-101001r1"></a></span><span 
@@ -2273,50 +2273,54 @@ class="cmti-10">allows you to submit a job locally to run on the remote host</sp
 </p><!--l. 3250--><p class="indent" >   Remote host functionality, like other namespace properties, can be declared globally (in the root namespace) or
 per family, or per individual task. Use the global settings if all or most of your tasks need to run on the same remote
 host.
-</p><!--l. 3255--><p class="indent" >   The remote cylc directory must be used to give remote tasks access to cylc commands if cylc is not in the default
-<span class="lstinline"><span 
+</p><!--l. 3255--><p class="indent" >   The remote cylc directory must be specified to give remote tasks access to cylc commands, if cylc is not in the
+default <span class="lstinline"><span 
 class="pcrr8c-">$</span><span 
-class="pcrr7t-">PATH</span></span>) on the remote host. Similarly the remote suite directory gives task access to suite files via
-<span class="lstinline"><span 
+class="pcrr7t-">PATH</span></span> on the remote host. If <span class="lstinline"><span 
 class="pcrr8c-">$</span><span 
-class="pcrr7t-">CYLC_SUITE_DEF_PATH</span></span> on the remote host and to the suite bin directory via <span class="lstinline"><span 
+class="pcrr7t-">PATH</span></span> is configured in your <span class="lstinline"><span 
 class="pcrr8c-">$</span><span 
-class="pcrr7t-">PATH</span></span>. If a remote suite definition
-directory is not given the local path will be used with the local user&#8217;s home directory, if present, substituted for the
-literal <span class="lstinline"><span 
+class="pcrr7t-">HOME</span><span 
+class="pcrr7t-">/.</span><span 
+class="pcrr7t-">profile</span></span> script it will be picked up as
+the remote job submission mechanism automatically sources <span class="lstinline"><span 
+class="pcrr7t-">.</span><span 
+class="pcrr7t-">profile</span></span> if it exists. Similarly the remote suite
+directory gives tasks access to suite files via <span class="lstinline"><span 
 class="pcrr8c-">$</span><span 
-class="pcrr7t-">HOME</span></span> for evaluation on the remote host.
-</p><!--l. 3264--><p class="indent" >   Note that you can easily run the cylc example suites on a remote host. For the example suites with task
-implementations that work with &#8220;real&#8221; files, you&#8217;ll have to run <span 
-class="cmti-10">all </span>tasks on the same remote host so that they
-can access their common input and output files. To distribute a suite across several hosts you must
-arrange (using additional tasks) to transfer files between the hosts as required to satisfy the real I/O
-dependencies.
-</p><!--l. 3272--><p class="noindent" >
+class="pcrr7t-">CYLC_SUITE_DEF_PATH</span></span> on the remote host and to the suite bin
+directory via <span class="lstinline"><span 
+class="pcrr8c-">$</span><span 
+class="pcrr7t-">PATH</span></span>. If a remote suite definition directory is not given the local (suite host) path will be assumed
+with the local home directory, if present, substituted with literal <span class="lstinline"><span 
+class="pcrr8c-">$</span><span 
+class="pcrr7t-">HOME</span></span> for evaluation on the remote
+host.
+</p><!--l. 3267--><p class="noindent" >
 </p>
-<!--l. 3272--><p class="noindent" ><span class="paragraphHead"><a 
+<!--l. 3267--><p class="noindent" ><span class="paragraphHead"><a 
  id="x51-1050008.4.5.1"></a><span 
-class="cmbx-10">Remote Log Directories</span></span>
+class="cmbx-10">Remote Task Log Directories</span></span>
+   The stdout and stderr streams from local tasks are directed into files in the <span 
+class="cmti-10">job submission log directory</span>
+(specified in the suite.rc file) as explained in Section&#x00A0;<a 
+href="cug-htmlsu44.html#x66-13300010.3">10.3<!--tex4ht:ref: WhitherStdoutAndStderr --></a>. The same goes for remotely hosted tasks, except
+that the task owner&#8217;s home directory is substituted as described above for the remote suite definition
                                                                                          
 
                                                                                          
-   The stdout and stderr from local tasks is directed into files in the <span 
-class="cmti-10">job submission log directory </span>(specified in the
-suite.rc file) as explained in Section&#x00A0;<a 
-href="cug-htmlsu44.html#x66-13300010.3">10.3<!--tex4ht:ref: WhitherStdoutAndStderr --></a>. The same goes for remotely hosted tasks, except that the task
-owner&#8217;s home directory is substituted as described above for the remote suite definition directory.
-Remote log directories are created on the fly by cylc, during job submission, if they do not already
-exist.
+directory. Remote task log directories, like local ones, are created on the fly, if necessary, during job
+submission.
                                                                                          
 
                                                                                          
 </p>
-   <!--l. 3283--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 3277--><div class="crosslinks"><p class="noindent">[<a 
 href="cug-htmlsu34.html" >next</a>] [<a 
 href="cug-htmlsu32.html" >prev</a>] [<a 
 href="cug-htmlsu32.html#tailcug-htmlsu32.html" >prev-tail</a>] [<a 
 href="cug-htmlsu33.html" >front</a>] [<a 
 href="cug-htmlse8.html#cug-htmlsu33.html" >up</a>] </p></div>
-<!--l. 3283--><p class="indent" >   <a 
+<!--l. 3277--><p class="indent" >   <a 
  id="tailcug-htmlsu33.html"></a>   </p> 
 </body></html> 

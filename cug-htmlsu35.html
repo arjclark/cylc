@@ -10,11 +10,11 @@
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
 <!-- xhtml,3,next,html --> 
 <meta name="src" content="cug-html.tex" /> 
-<meta name="date" content="2012-07-31 01:15:00" /> 
+<meta name="date" content="2012-08-03 00:47:00" /> 
 <link rel="stylesheet" type="text/css" href="cug-html.css" /> 
 </head><body 
 >
-   <!--l. 3416--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 3410--><div class="crosslinks"><p class="noindent">[<a 
 href="cug-htmlsu36.html" >next</a>] [<a 
 href="cug-htmlsu34.html" >prev</a>] [<a 
 href="cug-htmlsu34.html#tailcug-htmlsu34.html" >prev-tail</a>] [<a 
@@ -22,11 +22,11 @@ href="#tailcug-htmlsu35.html">tail</a>] [<a
 href="cug-htmlse8.html#cug-htmlsu35.html" >up</a>] </p></div>
    <h4 class="subsectionHead"><span class="titlemark">8.6   </span> <a 
  id="x54-1080008.6"></a>Jinja2 Suite Templates</h4>
-<!--l. 3419--><p class="noindent" >Support for the Jinja2 template processor adds general variables, mathematical expressions, loop control structures,
+<!--l. 3413--><p class="noindent" >Support for the Jinja2 template processor adds general variables, mathematical expressions, loop control structures,
 and conditional expressions to suite.rc files - which are automatically preprocessed to generate the final suite
 definition seen by cylc.
-</p><!--l. 3424--><p class="indent" >   The need for Jinja2 processing must be declared with a hash-bang comment as the first line of the suite.rc file:
-</p><!--l. 3426--><div class="lstlisting">
+</p><!--l. 3418--><p class="indent" >   The need for Jinja2 processing must be declared with a hash-bang comment as the first line of the suite.rc file:
+</p><!--l. 3420--><div class="lstlisting">
 <span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
  id="x54-108001r1"></a></span><span 
@@ -41,16 +41,16 @@ class="pcrr7t-">...</span>
 
 
    </div>
-<!--l. 3431--><p class="indent" >   Potential uses for this include automatic generation of repeated groups of similar tasks and dependencies, and
+<!--l. 3425--><p class="indent" >   Potential uses for this include automatic generation of repeated groups of similar tasks and dependencies, and
 inclusion or exclusion of entire suite sections according to the value of a single flag. Consider a large
 complicated operational suite and several related parallel test suites with slightly different task content and
 structure (the parallel suites, for instance, might take certain large input files from the operation or
 the archive rather than downloading them again) - these can now be maintained as a single master
 suite definition that reconfigures itself according to the value of a flag variable indicating the intended
 use.
-</p><!--l. 3441--><p class="indent" >   Template processing is the first thing done on parsing a suite definition so Jinja2 expressions can appear
+</p><!--l. 3435--><p class="indent" >   Template processing is the first thing done on parsing a suite definition so Jinja2 expressions can appear
 anywhere in the file (inside strings and namespace headings, for example).
-</p><!--l. 3445--><p class="indent" >   Jinja2 is well documented at <span class="obeylines-h"><a 
+</p><!--l. 3439--><p class="indent" >   Jinja2 is well documented at <span class="obeylines-h"><a 
 href="http://jinja.pocoo.org/docs" class="url" ><span 
 class="pcrr7t-">http://jinja.pocoo.org/docs</span></a></span>, so here we just provide an example suite
 that uses it. The meaning of the embedded Jinja2 code should be reasonably self-evident to anyone familiar with
@@ -69,9 +69,9 @@ standard programming techniques.
                                                                                          
 <div class="center" 
 >
-<!--l. 3451--><p class="noindent" >
+<!--l. 3445--><p class="noindent" >
 
-</p><!--l. 3452--><p class="noindent" ><img 
+</p><!--l. 3446--><p class="noindent" ><img 
 src="images/jinja2-ensemble-graph.png" alt="PIC"  
  /></p></div>
 <br /> <table class="caption" 
@@ -82,12 +82,12 @@ class="cmr-7">The Jinja2 ensemble example suite graph.</span></td></tr></table><
 
                                                                                          
    </td></tr></table></div><hr class="endfigure" />
-<!--l. 3459--><p class="indent" >   The <span class="lstinline"><span 
+<!--l. 3453--><p class="indent" >   The <span class="lstinline"><span 
 class="pcrr7t-">jinja2</span><span 
 class="pcrr7t-">.</span><span 
 class="pcrr7t-">ensemble</span></span> example, graphed in Figure&#x00A0;<a 
 href="#x54-10800334">34<!--tex4ht:ref: fig-jinja2-ensemble --></a>, shows an ensemble of similar tasks generated using
-Jinja2:  </p><!--l. 3463--><div class="lstlisting">
+Jinja2:  </p><!--l. 3457--><div class="lstlisting">
 <span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
  id="x54-108004r1"></a></span><span 
@@ -244,7 +244,7 @@ class="pcrr7t-">"</span>
 
 
    </div>
-<!--l. 3473--><p class="indent" >   Here is the generated suite definition, after Jinja2 processing:  </p><!--l. 3475--><div class="lstlisting">
+<!--l. 3467--><p class="indent" >   Here is the generated suite definition, after Jinja2 processing:  </p><!--l. 3469--><div class="lstlisting">
 <span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
  id="x54-108012r1"></a></span><span 
@@ -431,7 +431,7 @@ class="pcrr7t-">"</span>
 
 
    </div>
-<!--l. 3488--><p class="indent" >   And finally, the <span class="lstinline"><span 
+<!--l. 3482--><p class="indent" >   And finally, the <span class="lstinline"><span 
 class="pcrr7t-">jinja2</span><span 
 class="pcrr7t-">.</span><span 
 class="pcrr7t-">cities</span></span> example uses variables, includes or excludes special cleanup tasks according to
@@ -443,7 +443,7 @@ href="#x54-10808035">35<!--tex4ht:ref: fig-jinja2-cities --></a>.
 <a 
  id="x54-108022"></a>
 </p>
-   <!--l. 3498--><pre class="listings"><!--l. 3498--><div class="lstinputlisting"><span 
+   <!--l. 3492--><pre class="listings"><!--l. 3492--><div class="lstinputlisting"><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
  id="x54-108023r1"></a></span><span 
 class="pcrro7t-">#</span><span 
@@ -1379,9 +1379,9 @@ class="pcrr7t-">'</span></div>
                                                                                          
 <div class="center" 
 >
-<!--l. 3502--><p class="noindent" >
+<!--l. 3496--><p class="noindent" >
 
-</p><!--l. 3503--><p class="noindent" ><img 
+</p><!--l. 3497--><p class="noindent" ><img 
 src="images/jinja2-suite-graph.png" alt="PIC"  
  /></p></div>
 <br /> <table class="caption" 
@@ -1394,9 +1394,9 @@ class="cmr-7">The Jinja2 cities example suite graph, with the New York City task
    </td></tr></table></div><hr class="endfigure" />
    <h5 class="subsubsectionHead"><span class="titlemark">8.6.1   </span> <a 
  id="x54-1090008.6.1"></a>Accessing Environment Variables With Jinja2</h5>
-<!--l. 3513--><p class="noindent" >This functionality is not provided by Jinja2 by default, but cylc automatically imports the user environment to the
+<!--l. 3507--><p class="noindent" >This functionality is not provided by Jinja2 by default, but cylc automatically imports the user environment to the
 template in a dictionary structure called <span 
-class="cmti-10">environ</span>. A usage example: </p><!--l. 3516--><div class="lstlisting">
+class="cmti-10">environ</span>. A usage example: </p><!--l. 3510--><div class="lstlisting">
 <span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
  id="x54-109001r1"></a></span><span 
@@ -1460,17 +1460,17 @@ class="pcrr7t-">']}}</span>
 
 
    </div>
-<!--l. 3524--><p class="indent" >   This example is emphasizes that <span 
+<!--l. 3518--><p class="indent" >   This example is emphasizes that <span 
 class="cmti-10">the environment is read on the suite host at the time the suite definition is</span>
 <span 
 class="cmti-10">parsed </span>- it is not, for instance, read at task run time on the task host.
-</p><!--l. 3528--><p class="noindent" >
+</p><!--l. 3522--><p class="noindent" >
 </p>
    <h5 class="subsubsectionHead"><span class="titlemark">8.6.2   </span> <a 
  id="x54-1100008.6.2"></a>Custom Jinja2 Filters</h5>
-<!--l. 3530--><p class="noindent" >Jinja2 variable values can be modified by &#8220;filters&#8221;, using pipe notation. For example, the built-in <span class="lstinline"><span 
+<!--l. 3524--><p class="noindent" >Jinja2 variable values can be modified by &#8220;filters&#8221;, using pipe notation. For example, the built-in <span class="lstinline"><span 
 class="pcrr7t-">trim</span></span> filter strips
-leading and trailing white space from a string:  </p><!--l. 3534--><div class="lstlisting">
+leading and trailing white space from a string:  </p><!--l. 3528--><div class="lstlisting">
 <span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
  id="x54-110001r1"></a></span><span 
@@ -1515,8 +1515,8 @@ class="pcrro7t-">"</span>
 
 
    </div>
-<!--l. 3538--><p class="indent" >   (See official Jinja2 documentation for available built-in filters.)
-</p><!--l. 3540--><p class="indent" >   Cylc also supports custom Jinja2 filters. A custom filter is a single Python function in a source file with
+<!--l. 3532--><p class="indent" >   (See official Jinja2 documentation for available built-in filters.)
+</p><!--l. 3534--><p class="indent" >   Cylc also supports custom Jinja2 filters. A custom filter is a single Python function in a source file with
 the same name as the function (plus &#8220;.py&#8221; extension) and stored in one of the following locations:
 </p>
      <ul class="itemize1">
@@ -1549,12 +1549,12 @@ class="pcrr7t-">cylc</span><span
 class="pcrr7t-">/</span><span 
 class="pcrr7t-">Jinja2Filters</span><span 
 class="pcrr7t-">/</span></span></li></ul>
-<!--l. 3550--><p class="indent" >   In the filter function argument list, the first argument is the variable value to be &#8220;filtered&#8221;, and subsequent
+<!--l. 3544--><p class="indent" >   In the filter function argument list, the first argument is the variable value to be &#8220;filtered&#8221;, and subsequent
 arguments can be whatever is needed. Currently there is one custom filter called &#8220;pad&#8221; in the central cylc Jinja2
 filter directory, for padding string values to some constant length with a fill character - useful for generating task
 names and related values in ensemble suites:
 </p>
-   <!--l. 3558--><div class="lstlisting">
+   <!--l. 3552--><div class="lstlisting">
 <span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
  id="x54-110003r1"></a></span><span 
@@ -1647,12 +1647,12 @@ class="pcrr7t-">%}</span>
                                                                                          
 
                                                                                          
-   <!--l. 3566--><div class="crosslinks"><p class="noindent">[<a 
+   <!--l. 3560--><div class="crosslinks"><p class="noindent">[<a 
 href="cug-htmlsu36.html" >next</a>] [<a 
 href="cug-htmlsu34.html" >prev</a>] [<a 
 href="cug-htmlsu34.html#tailcug-htmlsu34.html" >prev-tail</a>] [<a 
 href="cug-htmlsu35.html" >front</a>] [<a 
 href="cug-htmlse8.html#cug-htmlsu35.html" >up</a>] </p></div>
-<!--l. 3566--><p class="indent" >   <a 
+<!--l. 3560--><p class="indent" >   <a 
  id="tailcug-htmlsu35.html"></a>  </p> 
 </body></html> 
