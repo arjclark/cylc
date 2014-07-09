@@ -812,8 +812,10 @@ class scheduler(object):
             run_dir = sitecfg.get_derived_host_item( self.suite, 'suite run directory' )
             if not self.is_restart:     # create new suite_db file (and dir) if needed
                 self.db = cylc.rundb.CylcRuntimeDAO(suite_dir=run_dir, new_mode=True)
+                self.view_db = cylc.rundb.CylcRuntimeDAO(suite_dir=run_dir, new_mode=True, primary_db=False)
             else:
                 self.db = cylc.rundb.CylcRuntimeDAO(suite_dir=run_dir)
+                self.view_db = cylc.rundb.CylcRuntimeDAO(suite_dir=run_dir, primary_db=False)
 
             self.hold_suite_now = False
             self.hold_time = None
@@ -1105,7 +1107,17 @@ class scheduler(object):
                 elif self.db.c.exception:
                     raise self.db.c.exception
                 else:
-                    raise SchedulerError( 'An unexpected error occurred while writing to the database' )
+                    raise SchedulerError( 'An unexpected error occurred while writing to the suite database' )
+
+            # we should filter down to only recording the utility relevent
+            # entries in the viewable database following database refactoring
+            for d in db_opers:
+                if self.view_db.c.is_alive():
+                    self.view_db.run_db_op(d)
+                elif self.view_db.c.exception:
+                    raise self.view_db.c.exception
+                else:
+                    raise SchedulerError( 'An unexpected error occurred while writing to the viewable database' )
 
             # process queued commands
             self.process_command_queue()
@@ -1343,6 +1355,11 @@ class scheduler(object):
         # disconnect from suite-db, stop db queue
         if getattr(self, "db", None) is not None:
             self.db.close()
+
+        # disconnect from suite-db viewable version, stop db queue
+        if getattr(self, "view_db", None) is not None:
+            self.view_db.close()
+
 
         if getattr(self, "config", None) is not None:
             # run shutdown handlers
