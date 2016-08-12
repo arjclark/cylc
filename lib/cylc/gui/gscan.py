@@ -399,9 +399,19 @@ class ScanApp(object):
         self.theme = gcfg.get(['themes', self.theme_name])
 
         self.dots = DotMaker(self.theme)
-        suite_treemodel = gtk.TreeStore(str, str, bool, str, int, str, str)
+        suite_treemodel = gtk.TreeStore(str, str, str, bool, str, int, str, str)
         self._prev_tooltip_location_id = None
         self.suite_treeview = gtk.TreeView(suite_treemodel)
+
+        # Construct the group column.
+        group_name_column = gtk.TreeViewColumn("Group")
+        cell_text_group = gtk.CellRendererText()
+        group_name_column.pack_start(cell_text_group, expand=False)
+        group_name_column.set_cell_data_func(
+            cell_text_group, self._set_cell_text_group)
+        group_name_column.set_sort_column_id(0)
+        group_name_column.set_visible("group" in gsfg.get(["columns"]))
+        group_name_column.set_resizable(True)
 
         # Construct the host column.
         host_name_column = gtk.TreeViewColumn("Host")
@@ -409,7 +419,7 @@ class ScanApp(object):
         host_name_column.pack_start(cell_text_host, expand=False)
         host_name_column.set_cell_data_func(
             cell_text_host, self._set_cell_text_host)
-        host_name_column.set_sort_column_id(0)
+        host_name_column.set_sort_column_id(1)
         host_name_column.set_visible("host" in gsfg.get(["columns"]))
         host_name_column.set_resizable(True)
 
@@ -419,7 +429,7 @@ class ScanApp(object):
         suite_name_column.pack_start(cell_text_name, expand=False)
         suite_name_column.set_cell_data_func(
             cell_text_name, self._set_cell_text_name)
-        suite_name_column.set_sort_column_id(1)
+        suite_name_column.set_sort_column_id(2)
         suite_name_column.set_visible("suite" in gsfg.get(["columns"]))
         suite_name_column.set_resizable(True)
 
@@ -429,7 +439,7 @@ class ScanApp(object):
         suite_title_column.pack_start(cell_text_title, expand=False)
         suite_title_column.set_cell_data_func(
             cell_text_title, self._set_cell_text_title)
-        suite_title_column.set_sort_column_id(3)
+        suite_title_column.set_sort_column_id(4)
         suite_title_column.set_visible("title" in gsfg.get(
             ["columns"]))
         suite_title_column.set_resizable(True)
@@ -440,10 +450,11 @@ class ScanApp(object):
         time_column.pack_start(cell_text_time, expand=False)
         time_column.set_cell_data_func(
             cell_text_time, self._set_cell_text_time)
-        time_column.set_sort_column_id(4)
+        time_column.set_sort_column_id(5)
         time_column.set_visible("updated" in gsfg.get(["columns"]))
         time_column.set_resizable(True)
 
+        self.suite_treeview.append_column(group_name_column)
         self.suite_treeview.append_column(host_name_column)
         self.suite_treeview.append_column(suite_name_column)
         self.suite_treeview.append_column(suite_title_column)
@@ -454,8 +465,8 @@ class ScanApp(object):
         status_column.set_sort_column_id(5)
         status_column.set_visible("status" in gsfg.get(["columns"]))
         status_column.set_resizable(True)
-        status_column_info = 6
-        cycle_column_info = 5
+        status_column_info = 7
+        cycle_column_info = 6
         cell_text_cycle = gtk.CellRendererText()
         status_column.pack_start(cell_text_cycle, expand=False)
         status_column.set_cell_data_func(
@@ -518,10 +529,10 @@ class ScanApp(object):
             path, col, cellx, celly = pth
 
             iter_ = treemodel.get_iter(path)
-            host, suite = treemodel.get(iter_, 0, 1)
+            host, suite = treemodel.get(iter_, 1, 2)
             if suite is None:
                 # On an expanded cycle point row, so get from parent.
-                host, suite = treemodel.get(treemodel.iter_parent(iter_), 0, 1)
+                host, suite = treemodel.get(treemodel.iter_parent(iter_), 1, 2)
             suite_host_tuples.append((suite, host))
 
         if event.type == gtk.gdk._2BUTTON_PRESS:
@@ -582,14 +593,14 @@ class ScanApp(object):
         iter_ = model.get_iter(path)
         parent_iter = model.iter_parent(iter_)
         if parent_iter is None:
-            host = model.get_value(iter_, 0)
-            suite = model.get_value(iter_, 1)
+            host = model.get_value(iter_, 1)
+            suite = model.get_value(iter_, 2)
             child_row_number = None
         else:
-            host = model.get_value(parent_iter, 0)
-            suite = model.get_value(parent_iter, 1)
+            host = model.get_value(parent_iter, 1)
+            suite = model.get_value(parent_iter, 2)
             child_row_number = path[-1]
-        suite_update_time = model.get_value(iter_, 4)
+        suite_update_time = model.get_value(iter_, 5)
         location_id = (host, suite, suite_update_time, column.get_title(),
                        child_row_number)
 
@@ -621,7 +632,7 @@ class ScanApp(object):
 
         # Generate text for the number of tasks in each state
         state_texts = []
-        status_column_info = 6
+        status_column_info = 7
         state_text = model.get_value(iter_, status_column_info)
         if state_text is None:
             tooltip.set_text(None)
@@ -643,11 +654,11 @@ class ScanApp(object):
         if cell_index >= 0:
             # NOTE: TreeViewColumn.get_cell_renderers() does not allways return
             # cell renderers for the correct row.
-            info = re.findall(r'\D+\d+', model.get(iter_, 6)[0])
+            info = re.findall(r'\D+\d+', model.get(iter_, 7)[0])
             if cell_index >= len(info):
                 return False
             state = info[cell_index].strip().split(' ')[0]
-            point_string = model.get(iter_, 5)[0]
+            point_string = model.get(iter_, 6)[0]
             tasks = self.updater.get_last_n_tasks(
                 suite, host, state, point_string)
             tooltip.set_markup(
@@ -670,10 +681,10 @@ class ScanApp(object):
         status_column_info, index = index_tuple
         state_info = model.get_value(iter_, status_column_info)
         if state_info is not None:
-            is_stopped = model.get_value(iter_, 2)
+            is_stopped = model.get_value(iter_, 3)
             info = re.findall(r'\D+\d+', state_info)
             if index < len(info):
-                state = info[index].rsplit(" ", 1)[0].strip()
+                state = info[index].rsplit(" ", 2)[0].strip()
                 icon = self.dots.get_icon(state.strip(), is_stopped=is_stopped)
                 cell.set_property("visible", True)
             else:
@@ -684,26 +695,32 @@ class ScanApp(object):
             cell.set_property("visible", False)
         cell.set_property("pixbuf", icon)
 
+    def _set_cell_text_group(self, column, cell, model, iter_):
+        group = model.get_value(iter_, 0)
+        is_stopped = model.get_value(iter_, 3)
+        cell.set_property("sensitive", not is_stopped)
+        cell.set_property("text", group)
+
     def _set_cell_text_host(self, column, cell, model, iter_):
-        host = model.get_value(iter_, 0)
-        is_stopped = model.get_value(iter_, 2)
+        host = model.get_value(iter_, 1)
+        is_stopped = model.get_value(iter_, 3)
         cell.set_property("sensitive", not is_stopped)
         cell.set_property("text", host)
 
     def _set_cell_text_name(self, column, cell, model, iter_):
-        name = model.get_value(iter_, 1)
-        is_stopped = model.get_value(iter_, 2)
+        name = model.get_value(iter_, 2)
+        is_stopped = model.get_value(iter_, 3)
         cell.set_property("sensitive", not is_stopped)
         cell.set_property("text", name)
 
     def _set_cell_text_title(self, column, cell, model, iter_):
-        title = model.get_value(iter_, 3)
-        is_stopped = model.get_value(iter_, 2)
+        title = model.get_value(iter_, 4)
+        is_stopped = model.get_value(iter_, 3)
         cell.set_property("sensitive", not is_stopped)
         cell.set_property("text", title)
 
     def _set_cell_text_time(self, column, cell, model, iter_):
-        suite_update_time = model.get_value(iter_, 4)
+        suite_update_time = model.get_value(iter_, 5)
         time_point = get_timepoint_from_seconds_since_unix_epoch(
             suite_update_time)
         time_point.set_time_zone_to_local()
@@ -714,13 +731,13 @@ class ScanApp(object):
             time_string = str(time_point).split("T")[1]
         else:
             time_string = str(time_point)
-        is_stopped = model.get_value(iter_, 2)
+        is_stopped = model.get_value(iter_, 3)
         cell.set_property("sensitive", not is_stopped)
         cell.set_property("text", time_string)
 
     def _set_cell_text_cycle(self, column, cell, model, iter_, active_cycle):
         cycle = model.get_value(iter_, active_cycle)
-        is_stopped = model.get_value(iter_, 2)
+        is_stopped = model.get_value(iter_, 3)
         cell.set_property("sensitive", not is_stopped)
         cell.set_property("text", cycle)
 
@@ -940,7 +957,7 @@ class ScanAppUpdater(BaseScanUpdater):
 
     def _expand_row(self, model, rpath, row_iter, row_ids):
         """Expand a row if it matches rose_ids suite and host."""
-        point_string_name_tuple = model.get(row_iter, 0, 1)
+        point_string_name_tuple = model.get(row_iter, 1, 2)
         if point_string_name_tuple in row_ids:
             self.suite_treeview.expand_to_path(rpath)
         return False
@@ -1018,6 +1035,14 @@ class ScanAppUpdater(BaseScanUpdater):
             )
             title = suite_info.get("title")
 
+            group = suite_info.get("group")
+            if group is None:
+                group = ""
+
+            print group
+            if group == "":
+                print "was empty string"
+
             if 'tasks-by-state' in suite_info:
                 self.tasks_by_state[(suite, host)] = suite_info[
                     'tasks-by-state']
@@ -1042,16 +1067,16 @@ class ScanAppUpdater(BaseScanUpdater):
                     # Set up the columns, including the cycle point column.
                     if key == KEY_STATES:
                         parent_iter = self.suite_treemodel.append(None, [
-                            host, suite, is_stopped, title, suite_updated_time,
+                            group, host, suite, is_stopped, title, suite_updated_time,
                             None, states_text])
                     else:
                         self.suite_treemodel.append(parent_iter, [
-                            None, None, is_stopped, title, suite_updated_time,
+                            group, None, None, is_stopped, title, suite_updated_time,
                             key.replace(KEY_STATES + ":", "", 1), states_text])
             else:
                 # No states in suite_info
                 self.suite_treemodel.append(None, [
-                    host, suite, is_stopped, title, suite_updated_time, None,
+                    group, host, suite, is_stopped, title, suite_updated_time, None,
                     None])
         self.suite_treemodel.foreach(self._expand_row, row_ids)
         return False
