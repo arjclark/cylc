@@ -43,6 +43,7 @@ from cylc.task_state import TASK_STATUSES_ORDERED, TASK_STATUS_RUNAHEAD
 from cylc.cfgspec.gscan import gsfg
 
 PYRO_TIMEOUT = 2
+KEY_GROUP = "group"
 KEY_NAME = "name"
 KEY_OWNER = "owner"
 KEY_STATES = "states"
@@ -675,6 +676,7 @@ class ScanApp(object):
         column_index, is_visible = menu_item._connect_args
         column = self.suite_treeview.get_columns()[column_index]
         column.set_visible(not is_visible)
+        self.updater.update()
         return False
 
     def _set_cell_pixbuf_state(self, column, cell, model, iter_, index_tuple):
@@ -1023,6 +1025,25 @@ class ScanAppUpdater(BaseScanUpdater):
                 if (suite, host) not in suite_host_tuples:
                     suite_host_tuples.append((suite, host))
         suite_host_tuples.sort()
+
+        group_counts = {"":0}
+        for suite, host in suite_host_tuples:
+            # Only create summary counts for running suites
+            if suite in info.get(host, {}):
+                suite_info = info[host][suite]
+            else:
+                suite_info = stop_info[host][suite]
+            group_id = suite_info.get("group")
+            if group_id:
+                if group_id in group_counts:
+                    group_counts[group_id] += 1
+                else:
+                    group_counts[group_id] = 1
+            else:
+                group_counts[""] += 1
+
+        group_iters = {}
+
         for suite, host in suite_host_tuples:
             if suite in info.get(host, {}):
                 suite_info = info[host][suite]
@@ -1047,7 +1068,17 @@ class ScanAppUpdater(BaseScanUpdater):
                 self.tasks_by_state[(suite, host)] = suite_info[
                     'tasks-by-state']
 
+            if group_iters.get(group) is None and self.suite_treeview.get_column(0).get_visible():
+                print "key is", group
+                group_iters[group] = self.suite_treemodel.append(None, [
+                            group, group, "%s suites in group %s"%(group_counts[group],group), group, group, suite_updated_time,
+                            None, None])
+
             if KEY_STATES in suite_info:
+                if self.suite_treeview.get_column(0).get_visible():
+                    group_iter = group_iters[group]
+                else:
+                    group_iter = None
                 for key in sorted(suite_info):
                     if not key.startswith(KEY_STATES):
                         continue
@@ -1064,9 +1095,10 @@ class ScanAppUpdater(BaseScanUpdater):
                         continue
                     states_text = states_text.rstrip()
 
+
                     # Set up the columns, including the cycle point column.
                     if key == KEY_STATES:
-                        parent_iter = self.suite_treemodel.append(None, [
+                        parent_iter = self.suite_treemodel.append(group_iter, [
                             group, host, suite, is_stopped, title, suite_updated_time,
                             None, states_text])
                     else:
