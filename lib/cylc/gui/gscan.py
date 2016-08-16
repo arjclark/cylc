@@ -1071,14 +1071,15 @@ class ScanAppUpdater(BaseScanUpdater):
             if group_iters.get(group) is None and self.suite_treeview.get_column(0).get_visible():
                 print "key is", group
                 group_iters[group] = self.suite_treemodel.append(None, [
-                            group, group, "%s suites in group %s"%(group_counts[group],group), group, group, suite_updated_time,
+                            "%s suites in group %s"%(group_counts[group],group), "", "", False, "", suite_updated_time,
                             None, None])
 
+            if self.suite_treeview.get_column(0).get_visible():
+                group_iter = group_iters[group]
+            else:
+                group_iter = None
+
             if KEY_STATES in suite_info:
-                if self.suite_treeview.get_column(0).get_visible():
-                    group_iter = group_iters[group]
-                else:
-                    group_iter = None
                 for key in sorted(suite_info):
                     if not key.startswith(KEY_STATES):
                         continue
@@ -1107,7 +1108,7 @@ class ScanAppUpdater(BaseScanUpdater):
                             key.replace(KEY_STATES + ":", "", 1), states_text])
             else:
                 # No states in suite_info
-                self.suite_treemodel.append(None, [
+                self.suite_treemodel.append(group_iter, [
                     group, host, suite, is_stopped, title, suite_updated_time, None,
                     None])
         self.suite_treemodel.foreach(self._expand_row, row_ids)
